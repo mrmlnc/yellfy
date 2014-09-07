@@ -1,0 +1,17 @@
+{
+  "bitwise"   : true,
+  "camelcase" : true,
+  "curly"     : true,
+  "immed"     : true,
+  "eqeqeq"    : true,
+  "newcap"    : true,
+  "noarg"     : true,
+  "quotmark"  : "single",
+  "undef"     : true,
+  "unused"    : "vars",
+  "strict"    : true,
+  "browser"   : true,
+  "jquery"    : true,
+  "esnext"    : true,
+  "expr"      : true
+}

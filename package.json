@@ -1,0 +1,24 @@
+{
+  "name": "raptorius-web-kit",
+  "version": "0.3.0",
+  "description": "Template for your web application",
+  "main": "Gruntfile.js",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^1.0.1",
+    "grunt-browser-sync": "^1.3.6",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-csslint": "^0.2.0",
+    "grunt-contrib-imagemin": "^0.8.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-less": "^0.11.4",
+    "grunt-contrib-uglify": "^0.5.1",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-csscomb": "^3.0.0",
+    "grunt-csso": "^0.6.3",
+    "grunt-html-validation": "^0.1.18",
+    "grunt-usemin": "^2.4.0"
+  }
+}

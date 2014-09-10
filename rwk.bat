@@ -34,6 +34,7 @@ Echo. "rwk -img" - Processing images
 Echo. "rwk -html" - Processing service files
 Echo ----------------------------------------
 Echo. "rwk -i" - Install dependencies
+Echo. "rwk -rm" - Uninstall dependencies
 Echo. "rwk -c" - Cleaning build directory
 Echo. "rwk -cmd" - Start CMD
 Echo ----------------------------------------
@@ -73,6 +74,10 @@ IF "!rwk!"=="-w" (
   Call :Banner
   set /p conf="cmd: "
   !conf!
+) ELSE IF "!rwk!"=="-rm" (
+  Call :Banner
+  Call :Delete_dependencies
+  Call :Checker_install
 ) ELSE (
   GoTo :Loop
 )
@@ -145,6 +150,24 @@ GoTo :EOF
 
 
 :: ----------------------------------------
+:: Move and delete other files
+:: ----------------------------------------
+
+:Delete_dependencies
+set mainfolder=node_modules
+
+rd /s /q "%mainfolder%"
+
+for /F "delims=" %%a in ('dir /b /s /d "%mainfolder%"') do (
+  move "%%~a" "a"
+  rd /s /q "a"
+)
+
+rd /s /q "%mainfolder%"
+GoTo :EOF
+
+
+:: ----------------------------------------
 :: View banner
 :: ----------------------------------------
 
@@ -153,7 +176,7 @@ cls
 Echo.
 Echo ========================================
 Echo. Raptorius Web Kit [Console Utility]
-Echo. Version: 0.3.0
+Echo. Version: 0.3.1
 Echo ========================================
 Echo.
 GoTo :EOF

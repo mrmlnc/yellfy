@@ -1,7 +1,7 @@
 {
   "name": "raptorius-web-kit",
-  "version": "0.3.1",
-  "description": "Template for your web application",
+  "version": "0.3.2",
+  "description": "Template for your new web application",
   "author": "Denis Malinochkin",
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
     "grunt-csscomb": "^3.0.0",
     "grunt-csso": "^0.6.3",
     "grunt-html-validation": "^0.1.18",
+    "grunt-include-source": "^0.4.1",
     "grunt-usemin": "^2.4.0"
   }
 }

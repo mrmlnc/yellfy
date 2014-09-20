@@ -3,7 +3,7 @@
  *  Raptorius Web Kit
  * ---------------------------------------------------------------
  *
- * Template for your web application.
+ * Template for your new web application.
  *
  * NOTICE OF LICENSE
  *
@@ -232,6 +232,27 @@ module.exports = function(grunt) {
       html: '<%= buildDir %>/*.html'
     },
 
+    includeSource: {
+      options: {
+        basePath: '<%= appDir %>',
+        templates: {
+          html: {
+            js: '<script src="{filePath}"></script>',
+            css: '<link rel="stylesheet" href="{filePath}" />',
+          }
+        }
+      },
+      includeFiles: {
+        files: [{
+          expand: true,
+          cwd: '<%= appDir %>/',
+          src: '*.html',
+          dest: '<%= buildDir %>/',
+          filter: 'isFile'
+        }]
+      }
+    },
+
     browserSync: {
       server: {
         bsFiles: {
@@ -285,6 +306,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-usemin');
+  grunt.loadNpmTasks('grunt-include-source');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-csscomb');
   grunt.loadNpmTasks('grunt-contrib-csslint');
@@ -307,13 +329,13 @@ module.exports = function(grunt) {
   grunt.registerTask('styles', ['clean:styles', 'copy:styles', 'less', 'csslint', 'autoprefixer']);
   grunt.registerTask('scripts', ['clean:scripts', 'copy:scripts', 'jshint', 'concat']);
   grunt.registerTask('images', ['clean:images', 'copy:images']);
-  grunt.registerTask('html', ['clean:html', 'copy:html']);
+  grunt.registerTask('html', ['clean:html', 'copy:html', 'includeSource']);
   grunt.registerTask('pre-build', ['clean:build', 'html', 'fonts', 'csscomb', 'styles', 'scripts', 'images']);
   grunt.registerTask('build', [
     'clean:build',
     'html',
-    'validation',
     'usemin',
+    'validation',
     'fonts',
     'csscomb',
     'styles',

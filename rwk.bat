@@ -176,7 +176,7 @@ cls
 Echo.
 Echo ========================================
 Echo. Raptorius Web Kit [Console Utility]
-Echo. Version: 0.3.1
+Echo. Version: 0.3.2
 Echo ========================================
 Echo.
 GoTo :EOF

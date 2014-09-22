@@ -262,6 +262,7 @@ module.exports = function(grunt) {
           server: {
             baseDir: './<%= buildDir %>'
           },
+          notify: false,
           watchTask: true
         }
       }

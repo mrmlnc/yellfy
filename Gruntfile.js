@@ -128,12 +128,25 @@ module.exports = function(grunt) {
     },
 
     less: {
-      compileFiles: {
+      options: {
+        strictMath: true
+      },
+      devCompileFiles: {
         options: {
-          strictMath: true
+          sourceMap: true,
+          sourceMapFilename: '<%= buildDir %>/styles/styles.css.map',
+          sourceMapURL: '/styles/styles.css.map',
+          sourceMapBasepath: '<%= appDir %>',
+          sourceMapRootpath: '/'
         },
-        src: '<%= appDir %>/styles/scaffolding.less',
-        dest: '<%= buildDir %>/styles/styles.css'
+        files: {
+          '<%= buildDir %>/styles/styles.css': '<%= appDir %>/styles/scaffolding.less'
+        }
+      },
+      buildCompileFiles: {
+        files: {
+          '<%= buildDir %>/styles/styles.css': '<%= appDir %>/styles/scaffolding.less'
+        }
       }
     },
 
@@ -147,10 +160,18 @@ module.exports = function(grunt) {
     },
 
     autoprefixer: {
-      prefixFiles: {
+      options: {
+        browsers: vendor_prefix
+      },
+      devPrefixFiles: {
         options: {
-          browsers: vendor_prefix
+          map: {
+            prev: '<%= buildDir %>/styles/'
+          }
         },
+        src: ['<%= buildDir %>/styles/styles.css']
+      },
+      buildPrefixFiles: {
         src: ['<%= buildDir %>/styles/styles.css']
       }
     },
@@ -260,7 +281,7 @@ module.exports = function(grunt) {
         },
         options: {
           server: {
-            baseDir: './<%= buildDir %>'
+            baseDir: ['<%= buildDir %>', '<%= appDir %>']
           },
           notify: false,
           watchTask: true
@@ -326,24 +347,41 @@ module.exports = function(grunt) {
  * ---------------------------------------------------------------
  */
   grunt.registerTask('default', ['pre-build', 'browserSync', 'watch']);
-  grunt.registerTask('fonts', ['clean:fonts', 'copy:fonts']);
-  grunt.registerTask('styles', ['clean:styles', 'copy:styles', 'less', 'csslint', 'autoprefixer']);
-  grunt.registerTask('scripts', ['clean:scripts', 'copy:scripts', 'jshint', 'concat']);
-  grunt.registerTask('images', ['clean:images', 'copy:images']);
-  grunt.registerTask('html', ['clean:html', 'copy:html', 'includeSource']);
-  grunt.registerTask('pre-build', ['clean:build', 'html', 'fonts', 'csscomb', 'styles', 'scripts', 'images']);
+
+  grunt.registerTask('pre-html', ['clean:html', 'copy:html', 'includeSource', 'validation']);
+  grunt.registerTask('pre-fonts', ['clean:fonts', 'copy:fonts']);
+  grunt.registerTask('pre-styles', function(status) {
+    grunt.task.run([
+      'clean:styles',
+      'copy:styles',
+      'csscomb',
+      'less:' + status + 'CompileFiles',
+      'csslint',
+      'autoprefixer:' + status + 'PrefixFiles'
+    ]);
+  });
+  grunt.registerTask('pre-scripts', ['clean:scripts', 'copy:scripts', 'jshint', 'concat']);
+  grunt.registerTask('pre-images', ['clean:images', 'copy:images']);
+
+  grunt.registerTask('post-minify', ['csso', 'uglify', 'imagemin']);
+
+  grunt.registerTask('pre-build', [
+    'clean:build',
+    'pre-html',
+    'pre-fonts',
+    'pre-styles:dev',
+    'pre-scripts',
+    'pre-images',
+    'post-minify'
+  ]);
   grunt.registerTask('build', [
     'clean:build',
-    'html',
+    'pre-html',
     'usemin',
-    'validation',
-    'fonts',
-    'csscomb',
-    'styles',
-    'scripts',
-    'images',
-    'csso',
-    'uglify',
-    'imagemin'
+    'pre-fonts',
+    'pre-styles:build',
+    'pre-scripts',
+    'pre-images',
+    'post-minify'
   ]);
 };

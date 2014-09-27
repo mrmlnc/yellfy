@@ -161,10 +161,10 @@ selection=
       -w ) viewBanner; grunt ;;
       -p ) viewBanner; sayParameters ;;
       -b ) viewBanner; grunt build ;;
-      -css ) viewBanner; grunt styles ;;
-      -js ) viewBanner; grunt scripts ;;
-      -img ) viewBanner; grunt images ;;
-      -html ) viewBanner; grunt html ;;
+      -css ) viewBanner; grunt pre-styles ;;
+      -js ) viewBanner; grunt pre-scripts ;;
+      -img ) viewBanner; grunt pre-images ;;
+      -html ) viewBanner; grunt pre-html ;;
       -i ) viewBanner; npm i ;;
       -c ) viewBanner; grunt clean:build ;;
       -cmd ) viewBanner; free ;;

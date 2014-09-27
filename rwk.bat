@@ -57,16 +57,16 @@ IF "!rwk!"=="-w" (
   grunt build
 ) ELSE IF  "!rwk!"=="-css" (
   Call :Banner
-  grunt styles
+  grunt pre-styles
 ) ELSE IF  "!rwk!"=="-js" (
   Call :Banner
-  grunt scripts
+  grunt pre-scripts
 ) ELSE IF  "!rwk!"=="-img" (
   Call :Banner
-  grunt images
+  grunt pre-images
 ) ELSE IF  "!rwk!"=="-html" (
   Call :Banner
-  grunt html
+  grunt pre-html
 ) ELSE IF  "!rwk!"=="-c" (
   Call :Banner
   grunt clean:build

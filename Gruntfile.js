@@ -351,6 +351,7 @@ module.exports = function(grunt) {
   grunt.registerTask('pre-html', ['clean:html', 'copy:html', 'includeSource', 'validation']);
   grunt.registerTask('pre-fonts', ['clean:fonts', 'copy:fonts']);
   grunt.registerTask('pre-styles', function(status) {
+    status = typeof status !== 'undefined' ? status : 'build';
     grunt.task.run([
       'clean:styles',
       'copy:styles',
@@ -379,7 +380,7 @@ module.exports = function(grunt) {
     'pre-html',
     'usemin',
     'pre-fonts',
-    'pre-styles:build',
+    'pre-styles',
     'pre-scripts',
     'pre-images',
     'post-minify'

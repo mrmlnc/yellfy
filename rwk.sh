@@ -51,7 +51,7 @@ viewBanner()
   echo
   echo ========================================
   echo " Raptorius Web Kit [Console Utility]"
-  echo " Version: 0.3.3"
+  echo " Version: 0.3.4"
   echo ========================================
   echo
 }

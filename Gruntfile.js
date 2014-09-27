@@ -296,23 +296,23 @@ module.exports = function(grunt) {
       },
       fonts: {
         files: ['<%= appDir %>/fonts/**/*'],
-        tasks: ['fonts']
+        tasks: ['pre-fonts']
       },
       styles: {
         files: ['<%= appDir %>/styles/**/*'],
-        tasks: ['styles']
+        tasks: ['pre-styles']
       },
       scripts: {
         files: ['<%= appDir %>/scripts/**/*'],
-        tasks: ['scripts']
+        tasks: ['pre-scripts']
       },
       images: {
         files: ['<%= appDir %>/images/**/*'],
-        tasks: ['images']
+        tasks: ['pre-images']
       },
       html: {
         files: ['<%= appDir %>/*'],
-        tasks: ['html']
+        tasks: ['pre-html']
       }
     }
   });

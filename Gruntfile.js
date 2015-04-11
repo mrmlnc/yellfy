@@ -144,7 +144,7 @@ var configureGrunt = function(grunt) {
     // Lint CSS and LESS
     csslint: {
       options: {
-        csslintrc: '.csslintrc'
+        csslintrc: './config/.csslintrc'
       },
       dist: ['./build/styles/styles.css']
     },
@@ -153,7 +153,7 @@ var configureGrunt = function(grunt) {
     // CSS coding style formatter
     csscomb: {
       options: {
-        config: '.csscomb.json'
+        config: './config/.csscomb.json'
       },
       main: {
         files: {
@@ -203,7 +203,7 @@ var configureGrunt = function(grunt) {
     // Lint html files with htmlhint
     htmlhint: {
       options: {
-        htmlhintrc: '.htmlhintrc'
+        htmlhintrc: './config/.htmlhintrc'
       },
       main: {
         src: ['./build/*.html']
@@ -222,7 +222,7 @@ var configureGrunt = function(grunt) {
     // Validate files with JSHint
     jshint: {
       options: {
-        jshintrc: '.jshintrc'
+        jshintrc: './config/.jshintrc'
       },
       main: [
         './app/scripts/**/*.js',
@@ -234,7 +234,7 @@ var configureGrunt = function(grunt) {
     // Checking JavaScript Code Style
     jscs: {
       options: {
-        config: '.jscsrc'
+        config: './config/.jscsrc'
       },
       main: [
         './app/scripts/**/*.js',

@@ -1,45 +1,16 @@
 /**
- * ---------------------------------------------------------------
- *  Raptorius Web Kit
- * ---------------------------------------------------------------
- *
+ * Raptorius Web Kit
+ * --
  * Template for your new web application.
- *
- * NOTICE OF LICENSE
- *
- * The MIT License (MIT)
- *
- * Copyright (c) Denis Malinochkin
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
  */
 
 'use strict';
 
-/*
- *---------------------------------------------------------------
- * BROWSER VENDOR PREFIXES
- *---------------------------------------------------------------
- *
- * This variable must contain the array of supported browser versions.
+/**
+ * Autoprefixer config
+ * @type {Array}
  */
-var vendor_prefix = [
+var autoprefixerConfig = [
   'ie >= 9',
   'ie_mob >= 10',
   'ff >= 30',
@@ -51,338 +22,374 @@ var vendor_prefix = [
   'bb >= 10'
 ];
 
+// Grunt configuration
+var configureGrunt = function(grunt) {
 
-/*
- * ---------------------------------------------------------------
- *  PROJECT CONFIGURATION
- * ---------------------------------------------------------------
- */
-module.exports = function(grunt) {
+  // Time evaluation && loading Grunt tasks
+  require('time-grunt')(grunt);
+  require('jit-grunt')(grunt);
 
-  grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+  // Project Configuration
+  var configTasks = {
 
-    appDir: 'app',
-    buildDir: 'build',
-
-    clean: {
-      fonts: ['<%= buildDir %>/fonts'],
-      styles: ['<%= buildDir %>/styles'],
-      scripts: ['<%= buildDir %>/scripts'],
-      images: ['<%= buildDir %>/images/'],
-      html: [
-        '<%= buildDir %>/*',
-        '!<%= buildDir %>/{fonts,styles,scripts,images}/**'
-      ],
-      build: ['<%= buildDir %>']
-    },
-
-    copy: {
-      fonts: {
-        expand: true,
-        cwd: '<%= appDir %>/fonts/',
-        src: '**',
-        dest: '<%= buildDir %>/fonts/',
-        filter: 'isFile'
-      },
-      styles: {
-        expand: true,
-        cwd: '<%= appDir %>/styles/vendor/',
-        src: '**',
-        dest: '<%= buildDir %>/styles/vendor/',
-        filter: 'isFile'
-      },
-      scripts: {
-        expand: true,
-        cwd: '<%= appDir %>/scripts/vendor/',
-        src: '**',
-        dest: '<%= buildDir %>/scripts/vendor/',
-        filter: 'isFile'
-      },
-      images: {
-        expand: true,
-        cwd: '<%= appDir %>/images/',
-        src: '**',
-        dest: '<%= buildDir %>/images/',
-        filter: 'isFile'
-      },
-      html: {
-        expand: true,
-        cwd: '<%= appDir %>/',
-        src: '*',
-        dest: '<%= buildDir %>/',
-        filter: 'isFile'
-      }
-    },
-
-    csscomb: {
+    // ### grunt-contrib-watch
+    // Watch files and run tasks
+    watch: {
       options: {
-        config: '.csscomb.json'
+        spawn: false
       },
-      combFiles: {
-        expand: true,
-        cwd: '<%= appDir %>/styles/',
-        src: ['**/*.less', '!library/**'],
-        dest: '<%= appDir %>/styles/'
+
+      // Synchronize directory
+      sync: {
+        files: [
+          './app/*',
+          './app/fonts/**',
+          './app/images/**',
+          './app/styles/vendor/**',
+          './app/scripts/vendor/**'
+        ],
+        tasks: ['sync']
+      },
+
+      // HTML files and Bower components
+      html: {
+        files: ['./app/templates/**'],
+        tasks: ['jade', 'htmlhint']
+      },
+
+      bower: {
+        files: ['./bower.json'],
+        tasks: ['wiredep']
+      },
+
+      // Styles
+      styles: {
+        files: ['./app/styles/less/**'],
+        tasks: ['less:development', 'csslint']
+      },
+
+      // Scripts
+      scripts: {
+        files: ['./app/scripts/**'],
+        tasks: ['jshint', 'jscs', 'concat']
       }
     },
 
+    // ### grunt-concurrent
+    // Run grunt tasks concurrently
+    concurrent: {
+      compileDev: ['sync', 'styles', 'html', 'scripts'],
+      compileProd: [
+        'sync',
+        'styles:production',
+        'html:production',
+        'scripts:production',
+        'images'
+      ]
+    },
+
+    // ### grunt-contrib-clean
+    // Clean files and folders
+    clean: {
+      build: ['./build'],
+      html: ['./build/*.html'],
+      styles: ['./build/styles/*.css'],
+      scripts: ['./build/scripts/*js']
+    },
+
+    // ### grunt-sync
+    // Synchronize APP directory and BUILD
+    sync: {
+      main: {
+        files: [{
+          cwd: './app',
+          src: [
+            '**',
+            '!styles/**',
+            'styles/vendor/**',
+            '!scripts/**',
+            'scripts/vendor/**',
+            '!templates/**'
+          ],
+          dest: './build/'
+        }],
+        updateAndDelete: true
+      }
+    },
+
+    // ### grunt-contrib-less
+    // Compile LESS files to CSS.
     less: {
       options: {
-        strictMath: true
+        plugins: [
+          new (require('less-plugin-autoprefix'))({
+            browsers: autoprefixerConfig
+          })
+        ]
       },
-      devCompileFiles: {
+      development: {
         options: {
           sourceMap: true,
-          sourceMapFilename: '<%= buildDir %>/styles/styles.css.map',
+          sourceMapFilename: './build/styles/styles.css.map',
           sourceMapURL: '/styles/styles.css.map',
-          sourceMapBasepath: '<%= appDir %>',
+          sourceMapBasepath: 'app',
           sourceMapRootpath: '/'
         },
         files: {
-          '<%= buildDir %>/styles/styles.css': '<%= appDir %>/styles/scaffolding.less'
+          './build/styles/styles.css': './app/styles/less/styles.less'
         }
       },
-      buildCompileFiles: {
+      production: {
         files: {
-          '<%= buildDir %>/styles/styles.css': '<%= appDir %>/styles/scaffolding.less'
+          './build/styles/styles.css': './app/styles/less/styles.less'
         }
       }
     },
 
+    // ### grunt-recess
+    // Lint CSS and LESS
     csslint: {
-      lintFiles: {
-        options: {
-          csslintrc: '.csslintrc'
-        },
-        src: ['<%= buildDir %>/styles/styles.css']
-      }
-    },
-
-    autoprefixer: {
       options: {
-        browsers: vendor_prefix
+        csslintrc: './config/.csslintrc'
       },
-      devPrefixFiles: {
-        options: {
-          map: {
-            prev: '<%= buildDir %>/styles/'
-          }
-        },
-        src: ['<%= buildDir %>/styles/styles.css']
-      },
-      buildPrefixFiles: {
-        src: ['<%= buildDir %>/styles/styles.css']
-      }
+      dist: ['./build/styles/styles.css']
     },
 
-    jshint: {
-      hintFiles: {
-        options: {
-          jshintrc: '.jshintrc'
-        },
+    // ### grunt-csscomb
+    // CSS coding style formatter
+    csscomb: {
+      options: {
+        config: './config/.csscomb.json'
+      },
+      main: {
         files: {
-          src: [
-            '<%= appDir %>/scripts/**/*.js',
-            '!<%= appDir %>/scripts/vendor/**/*.js'
-          ]
+          './build/styles/styles.css': ['./build/styles/styles.css']
         }
       }
     },
 
-    concat: {
-      concatFiles: {
-        src: [
-          '<%= appDir %>/scripts/**/*.js',
-          '!<%= appDir %>/scripts/vendor/**/*.js'
-        ],
-        dest: '<%= buildDir %>/scripts/scripts.js',
+    // ###
+    // Combine matching media queries into one media query definition
+    combine_mq: {
+      main: {
+        src: './build/styles/styles.css',
+        dest: './build/styles/styles-cmq.css'
       }
     },
 
-    imagemin: {
-      minFiles: {
-        files: [{
-          expand: true,
-          cwd: '<%= appDir %>/images',
-          src: ['**/*.{png,jpg,gif,svg}'],
-          dest: '<%= buildDir %>/images'
-        }]
-      }
-    },
-
+    // ### grunt-csso
+    // Minify CSS files with CSSO.
     csso: {
-      compressFiles: {
+      main: {
         files: {
-          '<%= buildDir %>/styles/styles.min.css': ['<%= buildDir %>/styles/styles.css']
+          './build/styles/styles.min.css': './build/styles/styles.css',
+          './build/styles/styles-cmq.min.css': './build/styles/styles-cmq.css'
         }
       }
     },
 
-    uglify: {
-      compressFiles: {
-        files: {
-          '<%= buildDir %>/scripts/scripts.min.js': ['<%= buildDir %>/scripts/scripts.js']
-        }
-      }
-    },
-
-    validation: {
+    // ### grunt-contrib-jade
+    // Compile Jade templates
+    jade: {
       options: {
-        charset: 'utf-8',
-        doctype: 'HTML5',
-        stoponerror: true,
-        failHard: true,
-        reset: true,
-        reportpath: false,
-        relaxerror: [
-          'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-          'Attribute autocomplete not allowed on element input at this point.',
-          'Attribute autocomplete not allowed on element button at this point.'
-        ]
+        pretty: true
       },
-      files: {
-        src: [
-          '<%= appDir %>/*.html',
-          '!<%= appDir %>/basic.html'
-        ]
-      }
-    },
-
-    usemin: {
-      html: '<%= buildDir %>/*.html'
-    },
-
-    includeSource: {
-      options: {
-        basePath: '<%= appDir %>',
-        templates: {
-          html: {
-            js: '<script src="{filePath}"></script>',
-            css: '<link rel="stylesheet" href="{filePath}" />',
-          }
-        }
-      },
-      includeFiles: {
+      main: {
         files: [{
           expand: true,
-          cwd: '<%= appDir %>/',
-          src: '*.html',
-          dest: '<%= buildDir %>/',
-          filter: 'isFile'
+          cwd: './app/templates',
+          ext: '.html',
+          src: ['*.jade'],
+          dest: './build/'
         }]
       }
     },
 
-    browserSync: {
-      server: {
-        bsFiles: {
-          src : ['<%= buildDir %>/**']
-        },
-        options: {
-          server: {
-            baseDir: ['<%= buildDir %>', '<%= appDir %>']
-          },
-          notify: false,
-          watchTask: true
+    // ### grunt-htmlhint
+    // Lint html files with htmlhint
+    htmlhint: {
+      options: {
+        htmlhintrc: './config/.htmlhintrc'
+      },
+      main: {
+        src: ['./build/*.html']
+      }
+    },
+
+    // ### grunt-wiredep
+    // Inject your Bower dependencies right into your HTML from Grunt
+    wiredep: {
+      main: {
+        src: ['./build/*.html']
+      }
+    },
+
+    // ### grunt-contrib-jshint
+    // Validate files with JSHint
+    jshint: {
+      options: {
+        jshintrc: './config/.jshintrc'
+      },
+      main: [
+        './app/scripts/**/*.js',
+        '!./app/scripts/vendor/**'
+      ]
+    },
+
+    // ### grunt-jscs
+    // Checking JavaScript Code Style
+    jscs: {
+      options: {
+        config: './config/.jscsrc'
+      },
+      main: [
+        './app/scripts/**/*.js',
+        '!./app/scripts/vendor/**'
+      ]
+    },
+
+    // ### grunt-contrib-concat
+    //
+    concat: {
+      main: {
+        src: ['./app/scripts/**/*.js', '!./app/scripts/vendor/**'],
+        dest: './build/scripts/scripts.js',
+        nonull: true
+      }
+    },
+
+    // ### grunt-contrib-uglify
+    // Minify files with UglifyJS
+    uglify: {
+      main: {
+        files: {
+          './build/scripts/scripts.min.js': ['./build/scripts/scripts.js']
         }
       }
     },
 
-    watch: {
+    // ### grunt-contrib-imagemin
+    // Minify images
+    imagemin: {
       options: {
-        spawn: false,
-        livereload: true
+        progressive: true,
+        interlaced: true
       },
-      fonts: {
-        files: ['<%= appDir %>/fonts/**/*'],
-        tasks: ['pre-fonts']
-      },
-      styles: {
-        files: ['<%= appDir %>/styles/**/*'],
-        tasks: ['pre-styles']
-      },
-      scripts: {
-        files: ['<%= appDir %>/scripts/**/*'],
-        tasks: ['pre-scripts']
-      },
-      images: {
-        files: ['<%= appDir %>/images/**/*'],
-        tasks: ['pre-images']
-      },
-      html: {
-        files: ['<%= appDir %>/*'],
-        tasks: ['pre-html']
+      main: {
+        files: [{
+          expand: true,
+          cwd: './app/images/',
+          src: ['**/*.{png,jpg,gif,svg}'],
+          dest: './build/images/'
+        }]
       }
+    },
+
+    // ### grunt-browser-sync
+    // Time-saving synchronised browser testing
+    browserSync: {
+      development: {
+        bsFiles: {
+          src: [
+            './build/**'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: {
+            baseDir: ['./app/', './build/']
+          }
+        }
+      }
+    }
+
+  };
+
+  // Load the configuration
+  grunt.initConfig(configTasks);
+
+  // Initialize tasks
+  grunt.registerTask('default', [
+    'concurrent:compileDev',
+    'browserSync',
+    'watch'
+  ]);
+
+  grunt.registerTask('build', [
+    'clean:build',
+    'concurrent:compileProd'
+  ]);
+
+  // Tasks for RWK CLI
+  grunt.registerTask('html', function(status) {
+    status = typeof status !== 'undefined' ? status : 'development';
+    if (status === 'production') {
+      grunt.task.run(['clean:html']);
+    }
+
+    grunt.task.run(['jade', 'htmlhint', 'wiredep']);
+  });
+
+  grunt.registerTask('styles', function(status) {
+    status = typeof status !== 'undefined' ? status : 'development';
+    if (status === 'production') {
+      grunt.task.run(['clean:styles']);
+    }
+
+    grunt.task.run([
+      'less:' + status,
+      'csslint',
+      'csscomb'
+    ]);
+
+    if (status === 'production') {
+      grunt.task.run([
+        'combine_mq',
+        'csso'
+      ]);
     }
   });
 
+  grunt.registerTask('scripts', function(status) {
+    status = typeof status !== 'undefined' ? status : 'development';
+    if (status === 'production') {
+      grunt.task.run(['clean:scripts']);
+    }
 
-/*
- * ---------------------------------------------------------------
- *  INITIALIZING PLUGIN(S)
- * ---------------------------------------------------------------
- */
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-browser-sync');
-  grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-usemin');
-  grunt.loadNpmTasks('grunt-include-source');
-  grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.loadNpmTasks('grunt-csscomb');
-  grunt.loadNpmTasks('grunt-contrib-csslint');
-  grunt.loadNpmTasks('grunt-autoprefixer');
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
-  grunt.loadNpmTasks('grunt-csso');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
-  grunt.loadNpmTasks('grunt-html-validation');
-
-
-/*
- * ---------------------------------------------------------------
- *  INITIALIZING TASK(S)
- * ---------------------------------------------------------------
- */
-  grunt.registerTask('default', ['pre-build', 'browserSync', 'watch']);
-
-  grunt.registerTask('pre-html', ['clean:html', 'copy:html', 'includeSource', 'validation']);
-  grunt.registerTask('pre-fonts', ['clean:fonts', 'copy:fonts']);
-  grunt.registerTask('pre-styles', function(status) {
-    status = typeof status !== 'undefined' ? status : 'build';
     grunt.task.run([
-      'clean:styles',
-      'copy:styles',
-      'csscomb',
-      'less:' + status + 'CompileFiles',
-      'csslint',
-      'autoprefixer:' + status + 'PrefixFiles'
+      'jshint',
+      'jscs',
+      'concat'
     ]);
+
+    if (status === 'production') {
+      grunt.task.run([
+        'uglify'
+      ]);
+    }
   });
-  grunt.registerTask('pre-scripts', ['clean:scripts', 'copy:scripts', 'jshint', 'concat']);
-  grunt.registerTask('pre-images', ['clean:images', 'copy:images']);
 
-  grunt.registerTask('post-minify', ['csso', 'uglify', 'imagemin']);
+  grunt.registerTask('images', ['imagemin']);
 
-  grunt.registerTask('pre-build', [
-    'clean:build',
-    'pre-html',
-    'pre-fonts',
-    'pre-styles:dev',
-    'pre-scripts',
-    'pre-images',
-    'post-minify'
-  ]);
-  grunt.registerTask('build', [
-    'clean:build',
-    'pre-html',
-    'usemin',
-    'pre-fonts',
-    'pre-styles',
-    'pre-scripts',
-    'pre-images',
-    'post-minify'
-  ]);
+  // Task for NPM postinstall
+  // Create `vendor` directories
+  grunt.registerTask('postinstall', function() {
+    var vendorDirs = [
+      './app/fonts/',
+      './app/images/icons/',
+      './app/scripts/vendor/',
+      './app/styles/vendor/'
+    ];
+
+    vendorDirs.forEach(function(dir) {
+      if (!grunt.file.exists(dir)) {
+        grunt.file.mkdir(dir);
+      }
+    });
+
+    grunt.log.ok('The project is now ready for use!');
+  });
 };
+
+// Export the configuration
+module.exports = configureGrunt;

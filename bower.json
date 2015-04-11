@@ -1,0 +1,21 @@
+{
+  "name": "raptorius-web-kit",
+  "version": "0.4.0-a",
+  "authors": [
+    "Denis Malinochkin"
+  ],
+  "description": "Template for your new web application",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "less-mq": "~2.2.1",
+    "normalize.css": "~3.0.3"
+  },
+  "dependencies": {}
+}

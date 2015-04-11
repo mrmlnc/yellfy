@@ -1,0 +1,22 @@
+//
+// Modules -> Grid
+// ------------------------------------
+
+// Container
+.area {
+  &:extend(.clearfix all);
+  margin-right: auto;
+  margin-left: auto;
+
+  .min(@grid-breakpoint-small, {
+    width: @grid-area-small;
+  });
+
+  .min(@grid-breakpoint-medium, {
+    width: @grid-area-medium;
+  });
+
+  .min(@grid-breakpoint-large, {
+    width: @grid-area-large;
+  });
+}

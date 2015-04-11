@@ -1,3 +1,47 @@
 //
 // Core -> Variables
 // ------------------------------------
+
+// Brand
+@color-brand-1:                        #fff;
+@color-brand-2:                        #ccc;
+
+
+
+// Variables -> Core
+
+// Additional
+@selection-background:                 @color-brand-2;
+
+// Base
+@base-font-family:                     Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+@base-font-family-mono:                Menlo, Monaco, Consolas, "Courier New", monospace;
+@base-font-size:                       14px;
+@base-font-weight:                     400;
+@base-line-height:                     20px;
+@base-color:                           #333;
+@base-background:                      #fff;
+
+// Link
+@link-color:                           @color-brand-1;
+@link-hover-color:                     @base-color;
+@link-decoration:                      none;
+
+
+
+// Variables -> Modules
+
+// Typography
+@font-size-base:                       unit((@base-font-size / 10), rem);
+@font-size-small:                      unit(((@base-font-size - 2) / 10), rem);
+@font-size-large:                      unit(((@base-font-size + 4) / 10), rem);
+
+// Grid
+@grid-breakpoint-xsmall:               540px;
+@grid-breakpoint-small:                768px;
+@grid-breakpoint-medium:               992px;
+@grid-breakpoint-large:                1200px;
+
+@grid-area-small:                      750px;
+@grid-area-medium:                     970px;
+@grid-area-large:                      1140px;

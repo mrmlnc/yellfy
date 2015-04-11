@@ -1,0 +1,13 @@
+//
+// Mixins -> Transition
+// ------------------------------------
+
+.transition(@delay: 0, @function: ease, @duration: .3s, @property: all) {
+  transition-timing-function: @function;
+  transition-duration: @duration;
+  transition-property: @property;
+
+  & when not (@delay = 0) {
+    transition-delay: @delay;
+  }
+}

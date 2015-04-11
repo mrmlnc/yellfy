@@ -289,6 +289,11 @@ var configureGrunt = function(grunt) {
     // Time-saving synchronised browser testing
     browserSync: {
       development: {
+        bsFiles: {
+          src: [
+            './build/**'
+          ]
+        },
         options: {
           watchTask: true,
           server: {

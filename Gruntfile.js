@@ -11,9 +11,15 @@
  * @type {Array}
  */
 var autoprefixerConfig = [
-  '> 5%',
-  'last 2 versions',
-  'android 4'
+  'ie >= 9',
+  'ie_mob >= 10',
+  'ff >= 30',
+  'chrome >= 30',
+  'safari >= 7',
+  'opera >= 21',
+  'ios >= 7',
+  'android >= 4.2',
+  'bb >= 10'
 ];
 
 // Grunt configuration
@@ -369,11 +375,13 @@ var configureGrunt = function(grunt) {
       './app/scripts/vendor/',
       './app/styles/vendor/'
     ];
+
     vendorDirs.forEach(function(dir) {
       if (!grunt.file.exists(dir)) {
         grunt.file.mkdir(dir);
       }
     });
+
     grunt.log.ok('The project is now ready for use!');
   });
 };

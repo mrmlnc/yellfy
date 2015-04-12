@@ -1,7 +1,13 @@
 /**
+ *
  * Raptorius Web Kit
  * --
  * Template for your new web application.
+ *
+ * @verison: 0.4.0
+ * @license: MIT
+ * @author: Denis Malinochkin
+ *
  */
 
 'use strict';
@@ -390,6 +396,34 @@ var configureGrunt = function(grunt) {
     });
 
     grunt.log.ok('The project is now ready for use!');
+  });
+
+  // The task to delete a directory `node_modules`
+  grunt.registerTask('noderm', function() {
+    var fs = require('fs');
+    var listDir = fs.readdirSync('./node_modules/');
+
+    console.log('Remove directory `node_modules` without `grunt`.');
+
+    var recursiveDeleteFolder = function(path) {
+      var files = [];
+      if(fs.existsSync(path)) {
+        files = fs.readdirSync(path);
+        files.forEach(function(file,index){
+          var curPath = path + "/" + file;
+          if(fs.lstatSync(curPath).isDirectory()) {
+            recursiveDeleteFolder(curPath);
+          } else {
+            fs.unlinkSync(curPath);
+          }
+        });
+        fs.rmdirSync(path);
+      }
+    };
+
+    recursiveDeleteFolder('./node_modules/');
+
+    grunt.log.ok('Finale!');
   });
 };
 

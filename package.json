@@ -1,7 +1,6 @@
 {
   "name": "raptorius-web-kit",
   "version": "0.4.0-a",
-  "description": "Template for your new web application",
   "main": "Gruntfile.js",
   "dependencies": {},
   "devDependencies": {
@@ -28,10 +27,9 @@
     "less-plugin-autoprefix": "^1.4.1",
     "time-grunt": "^1.1.0"
   },
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower i && grunt postinstall"
-  },
-  "author": "Denis Malinochkin",
-  "license": "MIT"
+  }
 }

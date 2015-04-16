@@ -401,9 +401,8 @@ var configureGrunt = function(grunt) {
   // The task to delete a directory `node_modules`
   grunt.registerTask('noderm', function() {
     var fs = require('fs');
-    var listDir = fs.readdirSync('node_modules/');
 
-    console.log('Remove directory `node_modules` without `grunt`.');
+    console.log('Remove directory `node_modules`.');
 
     var recursiveDeleteFolder = function(path) {
       var files = [];

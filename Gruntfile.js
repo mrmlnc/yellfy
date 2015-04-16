@@ -48,35 +48,35 @@ var configureGrunt = function(grunt) {
       // Synchronize directory
       sync: {
         files: [
-          './app/*',
-          './app/fonts/**',
-          './app/images/**',
-          './app/styles/vendor/**',
-          './app/scripts/vendor/**'
+          'app/*',
+          'app/fonts/**',
+          'app/images/**',
+          'app/styles/vendor/**',
+          'app/scripts/vendor/**'
         ],
         tasks: ['sync']
       },
 
       // HTML files and Bower components
       html: {
-        files: ['./app/templates/**'],
+        files: ['app/templates/**'],
         tasks: ['jade', 'htmlhint']
       },
 
       bower: {
-        files: ['./bower.json'],
+        files: ['bower.json'],
         tasks: ['wiredep']
       },
 
       // Styles
       styles: {
-        files: ['./app/styles/less/**'],
+        files: ['app/styles/less/**'],
         tasks: ['less:development', 'csslint']
       },
 
       // Scripts
       scripts: {
-        files: ['./app/scripts/**'],
+        files: ['app/scripts/**'],
         tasks: ['jshint', 'jscs', 'concat']
       }
     },
@@ -97,10 +97,10 @@ var configureGrunt = function(grunt) {
     // ### grunt-contrib-clean
     // Clean files and folders
     clean: {
-      build: ['./build'],
-      html: ['./build/*.html'],
-      styles: ['./build/styles/*.css'],
-      scripts: ['./build/scripts/*js']
+      build: ['build'],
+      html: ['build/*.html'],
+      styles: ['build/styles/*.css'],
+      scripts: ['build/scripts/*js']
     },
 
     // ### grunt-sync
@@ -108,7 +108,7 @@ var configureGrunt = function(grunt) {
     sync: {
       main: {
         files: [{
-          cwd: './app',
+          cwd: 'app',
           src: [
             '**',
             '!styles/**',
@@ -117,7 +117,7 @@ var configureGrunt = function(grunt) {
             'scripts/vendor/**',
             '!templates/**'
           ],
-          dest: './build/'
+          dest: 'build/'
         }],
         updateAndDelete: true
       }
@@ -136,18 +136,18 @@ var configureGrunt = function(grunt) {
       development: {
         options: {
           sourceMap: true,
-          sourceMapFilename: './build/styles/styles.css.map',
+          sourceMapFilename: 'build/styles/styles.css.map',
           sourceMapURL: '/styles/styles.css.map',
           sourceMapBasepath: 'app',
           sourceMapRootpath: '/'
         },
         files: {
-          './build/styles/styles.css': './app/styles/less/styles.less'
+          'build/styles/styles.css': 'app/styles/less/styles.less'
         }
       },
       production: {
         files: {
-          './build/styles/styles.css': './app/styles/less/styles.less'
+          'build/styles/styles.css': 'app/styles/less/styles.less'
         }
       }
     },
@@ -156,20 +156,20 @@ var configureGrunt = function(grunt) {
     // Lint CSS and LESS
     csslint: {
       options: {
-        csslintrc: './config/.csslintrc'
+        csslintrc: 'config/.csslintrc'
       },
-      dist: ['./build/styles/styles.css']
+      dist: ['build/styles/styles.css']
     },
 
     // ### grunt-csscomb
     // CSS coding style formatter
     csscomb: {
       options: {
-        config: './config/.csscomb.json'
+        config: 'config/.csscomb.json'
       },
       main: {
         files: {
-          './build/styles/styles.css': ['./build/styles/styles.css']
+          'build/styles/styles.css': ['build/styles/styles.css']
         }
       }
     },
@@ -178,8 +178,8 @@ var configureGrunt = function(grunt) {
     // Combine matching media queries into one media query definition
     combine_mq: {
       main: {
-        src: './build/styles/styles.css',
-        dest: './build/styles/styles-cmq.css'
+        src: 'build/styles/styles.css',
+        dest: 'build/styles/styles-cmq.css'
       }
     },
 
@@ -188,8 +188,8 @@ var configureGrunt = function(grunt) {
     csso: {
       main: {
         files: {
-          './build/styles/styles.min.css': './build/styles/styles.css',
-          './build/styles/styles-cmq.min.css': './build/styles/styles-cmq.css'
+          'build/styles/styles.min.css': 'build/styles/styles.css',
+          'build/styles/styles-cmq.min.css': 'build/styles/styles-cmq.css'
         }
       }
     },
@@ -203,10 +203,10 @@ var configureGrunt = function(grunt) {
       main: {
         files: [{
           expand: true,
-          cwd: './app/templates',
+          cwd: 'app/templates',
           ext: '.html',
           src: ['*.jade'],
-          dest: './build/'
+          dest: 'build/'
         }]
       }
     },
@@ -215,10 +215,10 @@ var configureGrunt = function(grunt) {
     // Lint html files with htmlhint
     htmlhint: {
       options: {
-        htmlhintrc: './config/.htmlhintrc'
+        htmlhintrc: 'config/.htmlhintrc'
       },
       main: {
-        src: ['./build/*.html']
+        src: ['build/*.html']
       }
     },
 
@@ -226,7 +226,7 @@ var configureGrunt = function(grunt) {
     // Inject your Bower dependencies right into your HTML from Grunt
     wiredep: {
       main: {
-        src: ['./build/*.html']
+        src: ['build/*.html']
       }
     },
 
@@ -234,11 +234,11 @@ var configureGrunt = function(grunt) {
     // Validate files with JSHint
     jshint: {
       options: {
-        jshintrc: './config/.jshintrc'
+        jshintrc: 'config/.jshintrc'
       },
       main: [
-        './app/scripts/**/*.js',
-        '!./app/scripts/vendor/**'
+        'app/scripts/**/*.js',
+        '!app/scripts/vendor/**'
       ]
     },
 
@@ -246,11 +246,11 @@ var configureGrunt = function(grunt) {
     // Checking JavaScript Code Style
     jscs: {
       options: {
-        config: './config/.jscsrc'
+        config: 'config/.jscsrc'
       },
       main: [
-        './app/scripts/**/*.js',
-        '!./app/scripts/vendor/**'
+        'app/scripts/**/*.js',
+        '!app/scripts/vendor/**'
       ]
     },
 
@@ -258,8 +258,8 @@ var configureGrunt = function(grunt) {
     //
     concat: {
       main: {
-        src: ['./app/scripts/**/*.js', '!./app/scripts/vendor/**'],
-        dest: './build/scripts/scripts.js',
+        src: ['app/scripts/**/*.js', '!app/scripts/vendor/**'],
+        dest: 'build/scripts/scripts.js',
         nonull: true
       }
     },
@@ -269,7 +269,7 @@ var configureGrunt = function(grunt) {
     uglify: {
       main: {
         files: {
-          './build/scripts/scripts.min.js': ['./build/scripts/scripts.js']
+          'build/scripts/scripts.min.js': ['build/scripts/scripts.js']
         }
       }
     },
@@ -284,9 +284,9 @@ var configureGrunt = function(grunt) {
       main: {
         files: [{
           expand: true,
-          cwd: './app/images/',
+          cwd: 'app/images/',
           src: ['**/*.{png,jpg,gif,svg}'],
-          dest: './build/images/'
+          dest: 'build/images/'
         }]
       }
     },
@@ -297,13 +297,13 @@ var configureGrunt = function(grunt) {
       development: {
         bsFiles: {
           src: [
-            './build/**'
+            'build/**'
           ]
         },
         options: {
           watchTask: true,
           server: {
-            baseDir: ['./app/', './build/']
+            baseDir: ['app/', 'build/']
           }
         }
       }
@@ -383,10 +383,10 @@ var configureGrunt = function(grunt) {
   // Create `vendor` directories
   grunt.registerTask('postinstall', function() {
     var vendorDirs = [
-      './app/fonts/',
-      './app/images/icons/',
-      './app/scripts/vendor/',
-      './app/styles/vendor/'
+      'app/fonts/',
+      'app/images/icons/',
+      'app/scripts/vendor/',
+      'app/styles/vendor/'
     ];
 
     vendorDirs.forEach(function(dir) {
@@ -401,7 +401,7 @@ var configureGrunt = function(grunt) {
   // The task to delete a directory `node_modules`
   grunt.registerTask('noderm', function() {
     var fs = require('fs');
-    var listDir = fs.readdirSync('./node_modules/');
+    var listDir = fs.readdirSync('node_modules/');
 
     console.log('Remove directory `node_modules` without `grunt`.');
 
@@ -421,7 +421,7 @@ var configureGrunt = function(grunt) {
       }
     };
 
-    recursiveDeleteFolder('./node_modules/');
+    recursiveDeleteFolder('node_modules/');
 
     grunt.log.ok('Finale!');
   });

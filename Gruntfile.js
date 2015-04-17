@@ -120,8 +120,8 @@ var configureGrunt = function(grunt) {
           dest: 'build/'
         }],
         ignoreInDest: [
-          'styles/*',
-          'scripts/*',
+          'styles/*.{css,map}',
+          'scripts/*.js',
           '*.html'
         ],
         updateAndDelete: true

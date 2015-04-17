@@ -108,7 +108,7 @@ var configureGrunt = function(grunt) {
     sync: {
       main: {
         files: [{
-          cwd: 'app',
+          cwd: 'app/',
           src: [
             '**',
             '!styles/**',
@@ -119,6 +119,11 @@ var configureGrunt = function(grunt) {
           ],
           dest: 'build/'
         }],
+        ignoreInDest: [
+          'styles/*',
+          'scripts/*',
+          '*.html'
+        ],
         updateAndDelete: true
       }
     },

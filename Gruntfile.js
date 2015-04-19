@@ -308,7 +308,7 @@ var configureGrunt = function(grunt) {
         options: {
           watchTask: true,
           server: {
-            baseDir: ['app/', 'build/']
+            baseDir: ['./', 'app/', 'build/']
           }
         }
       }

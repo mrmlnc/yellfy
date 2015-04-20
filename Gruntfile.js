@@ -60,7 +60,7 @@ var configureGrunt = function(grunt) {
       // HTML files and Bower components
       html: {
         files: ['app/templates/**'],
-        tasks: ['jade', 'htmlhint']
+        tasks: ['jade', 'htmlhint', 'wiredep']
       },
 
       bower: {

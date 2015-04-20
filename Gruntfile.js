@@ -351,6 +351,13 @@ var configureGrunt = function(grunt) {
     'notify:build'
   ]);
 
+  grunt.registerTask('server', [
+    'build',
+    'browserSync',
+    'notify:run',
+    'watch'
+  ]);
+
   // Tasks for RWK CLI
   grunt.registerTask('html', function(status) {
     status = typeof status !== 'undefined' ? status : 'development';

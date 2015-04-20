@@ -21,6 +21,7 @@
     "grunt-csso": "^0.7.1",
     "grunt-htmlhint": "^0.4.1",
     "grunt-jscs": "^1.6.0",
+    "grunt-notify": "^0.4.1",
     "grunt-sync": "^0.2.3",
     "grunt-wiredep": "^2.0.0",
     "jit-grunt": "^0.9.1",

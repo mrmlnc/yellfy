@@ -312,6 +312,24 @@ var configureGrunt = function(grunt) {
           }
         }
       }
+    },
+
+    // ### grunt-notify
+    // Automatic desktop notifications
+    notify: {
+      options: {
+        title: 'Raptorius Web Kit'
+      },
+      run: {
+        options: {
+          message: 'Raptorius is ready!'
+        }
+      },
+      build: {
+        options: {
+          message: 'Build is ready!'
+        }
+      }
     }
 
   };
@@ -323,12 +341,14 @@ var configureGrunt = function(grunt) {
   grunt.registerTask('default', [
     'concurrent:compileDev',
     'browserSync',
+    'notify:run',
     'watch'
   ]);
 
   grunt.registerTask('build', [
     'clean:build',
-    'concurrent:compileProd'
+    'concurrent:compileProd',
+    'notify:build'
   ]);
 
   // Tasks for RWK CLI

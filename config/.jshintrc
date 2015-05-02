@@ -13,7 +13,8 @@
   "quotmark": "single",
   "undef": true,
   "unused": "vars",
+  "jquery": true,
   "globals": {
-    "componentHandler": true
+    "$": false
   }
 }

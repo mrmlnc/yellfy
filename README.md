@@ -37,4 +37,4 @@ Raptorius Web Kit придерживается [Semantic Versioning Specificatio
 
 ## Лицензия
 
-Raptorius Web Kit выпускается под [MIT-лицензией](license).
+Raptorius Web Kit выпускается под [MIT-лицензией](LICENSE).

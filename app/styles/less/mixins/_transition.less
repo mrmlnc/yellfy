@@ -3,11 +3,9 @@
 // ------------------------------------
 
 .transition(@delay: 0, @function: ease, @duration: .3s, @property: all) {
-  transition-timing-function: @function;
-  transition-duration: @duration;
-  transition-property: @property;
+  transition: @property @duration @function 0;
 
   & when not (@delay = 0) {
-    transition-delay: @delay;
+    transition: @property @duration @function @delay;
   }
 }

@@ -2,7 +2,7 @@
 // Mixins -> Transition
 // ------------------------------------
 
-.transition(@delay: 0, @function: ease, @duration: .3s, @property: all) {
+.transition(@property: all, @function: ease, @duration: .3s, @delay: 0) {
   transition: @property @duration @function 0;
 
   & when not (@delay = 0) {

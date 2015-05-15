@@ -299,17 +299,31 @@ var configureGrunt = function(grunt) {
     // ### grunt-browser-sync
     // Time-saving synchronised browser testing
     browserSync: {
+      options: {
+        port: 3000,
+        ui: {
+          port: 3001
+        },
+        online: true,
+        watchTask: true,
+        notify: false,
+        server: {
+          baseDir: ['app/', 'build/'],
+          routes: {
+            '/bower_components': 'bower_components'
+          }
+        }
+      },
       development: {
         bsFiles: {
           src: [
             'build/**'
           ]
-        },
+        }
+      },
+      server: {
         options: {
-          watchTask: true,
-          server: {
-            baseDir: ['./', 'app/', 'build/']
-          }
+          port: 80
         }
       }
     },
@@ -340,7 +354,7 @@ var configureGrunt = function(grunt) {
   // Initialize tasks
   grunt.registerTask('default', [
     'concurrent:compileDev',
-    'browserSync',
+    'browserSync:development',
     'notify:run',
     'watch'
   ]);
@@ -353,7 +367,7 @@ var configureGrunt = function(grunt) {
 
   grunt.registerTask('server', [
     'build',
-    'browserSync',
+    'browserSync:server',
     'notify:run',
     'watch'
   ]);

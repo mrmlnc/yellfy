@@ -1,6 +1,6 @@
 # Raptorius Web Kit
 
-[![Join the chat at https://gitter.im/mrmlnc/raptorius-web-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mrmlnc/raptorius-web-kit?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/mrmlnc/raptorius-web-kit](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mrmlnc/rwk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Простой набор инструментов, сочетающий в себе всё самое необходимое для быстрого развёртывания шаблона нового веб-приложения и дальнейшего его обслуживания во время разработки.
 

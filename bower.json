@@ -9,8 +9,7 @@
     "tests"
   ],
   "devDependencies": {
-    "less-mq": "~2.2.1",
-    "normalize.css": "~3.0.3"
+    "less-mq": "~2.2.1"
   },
   "dependencies": {}
 }

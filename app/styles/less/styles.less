@@ -4,9 +4,13 @@
 
 // Settings
 @bowerDir: "../../../bower_components";
+@npmDir: "../../../node_modules";
 
 // Library
-@import (inline) "@{bowerDir}/normalize.css/normalize.css";
+@import "library/_normalize";
+@import "library/_print";
+
+// Packages
 @import "@{bowerDir}/less-mq/mq";
 
 // Mixins

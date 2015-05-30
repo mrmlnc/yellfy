@@ -9,7 +9,7 @@
     "tests"
   ],
   "devDependencies": {
-    "less-mq": "~2.2.1"
+    "less-mq": "~3.0.0"
   },
   "dependencies": {}
 }

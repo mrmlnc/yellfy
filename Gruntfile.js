@@ -179,7 +179,7 @@ var configureGrunt = function(grunt) {
       }
     },
 
-    // ###
+    // ### grunt-combine-mq
     // Combine matching media queries into one media query definition
     combine_mq: {
       main: {
@@ -260,7 +260,7 @@ var configureGrunt = function(grunt) {
     },
 
     // ### grunt-contrib-concat
-    //
+    // Concatenate files
     concat: {
       main: {
         src: ['app/scripts/**/*.js', '!app/scripts/vendor/**'],
@@ -388,38 +388,23 @@ var configureGrunt = function(grunt) {
       grunt.task.run(['clean:styles']);
     }
 
-    grunt.task.run([
-      'less:' + status,
-      'csslint',
-      'csscomb'
-    ]);
+    grunt.task.run(['less:' + status, 'csslint', 'csscomb']);
 
     if (status === 'production') {
-      grunt.task.run([
-        'combine_mq',
-        'csso'
-      ]);
+      grunt.task.run(['combine_mq', 'csso']);
     }
   });
 
   grunt.registerTask('scripts', function(status) {
     status = typeof status !== 'undefined' ? status : 'development';
     if (status === 'production') {
-      grunt.task.run([
-        'clean:scripts',
-        'jshint',
-        'jscs'
-      ]);
+      grunt.task.run(['clean:scripts', 'jshint', 'jscs']);
     }
 
-    grunt.task.run([
-      'concat'
-    ]);
+    grunt.task.run(['concat']);
 
     if (status === 'production') {
-      grunt.task.run([
-        'uglify'
-      ]);
+      grunt.task.run(['uglify']);
     }
   });
 
@@ -452,11 +437,11 @@ var configureGrunt = function(grunt) {
 
     var recursiveDeleteFolder = function(path) {
       var files = [];
-      if(fs.existsSync(path)) {
+      if (fs.existsSync(path)) {
         files = fs.readdirSync(path);
         files.forEach(function(file,index){
           var curPath = path + "/" + file;
-          if(fs.lstatSync(curPath).isDirectory()) {
+          if (fs.lstatSync(curPath).isDirectory()) {
             recursiveDeleteFolder(curPath);
           } else {
             fs.unlinkSync(curPath);

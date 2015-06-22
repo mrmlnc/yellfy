@@ -4,7 +4,7 @@
  * --
  * Template for your new web application.
  *
- * @verison: 0.4.0
+ * @verison: 0.5.0
  * @license: MIT
  * @author: Denis Malinochkin
  *

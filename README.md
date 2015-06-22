@@ -19,7 +19,6 @@
    * Минификация JS- и CSS-файлов
    * Оптимизация изображений
    * [CSScomb](http://csscomb.com/)
-   * [Синхронизация браузеров](http://www.browsersync.io/)
  * **Проверка кода**
    * [JavaScript Hint](http://jshint.com/)
    * [JavaScript Code Style](http://jscs.info/)

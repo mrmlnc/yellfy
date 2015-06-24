@@ -1,6 +1,10 @@
 # Change Log
 Все заметные изменения в этот проекте будут описаны в этом файле.
 
+## [unreleased] - 2015-xx-xx
+### Changed
+ - Переименование `.global-header` в `.site-header` (main, footer)
+
 ## [0.5.0] - 2015-06-22
 ### Changed
  - Gruntfile теперь разделен на конфигурации задач и плагинов

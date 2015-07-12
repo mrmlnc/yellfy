@@ -13,7 +13,7 @@
     "grunt-contrib-csslint": "^0.4.0",
     "grunt-contrib-cssmin": "^0.12.3",
     "grunt-contrib-imagemin": "^0.9.4",
-    "grunt-contrib-jade": "^0.14.1",
+    "grunt-contrib-jade": "^0.15.0",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.9.1",
@@ -25,7 +25,7 @@
     "grunt-sync": "^0.2.3",
     "grunt-wiredep": "^2.0.0",
     "less-plugin-autoprefix": "^1.4.2",
-    "load-grunt-config": "^0.17.1",
+    "load-grunt-config": "^0.17.2",
     "time-grunt": "^1.2.1"
   },
   "private": true,

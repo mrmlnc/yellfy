@@ -12,13 +12,14 @@
 
  * **Компиляторы**
    * [Less](http://lesscss.org/)
+     * [less-plugin-csscomb](https://github.com/bassjobsen/less-plugin-csscomb)
+     * [less-plugin-glob](https://github.com/just-boris/less-plugin-glob)
    * [Jade](http://jade-lang.com/)
  * **Оптимизаторы**
    * Синхронизация директорий `app` и `build`
    * Конкатенация JS-файлов
    * Минификация JS- и CSS-файлов
    * Оптимизация изображений
-   * [CSScomb](http://csscomb.com/)
  * **Проверка кода**
    * [JavaScript Hint](http://jshint.com/)
    * [JavaScript Code Style](http://jscs.info/)
@@ -30,7 +31,7 @@
  * Загрузите [последний релиз](https://github.com/mrmlnc/raptorius-web-kit/releases) и распакуйте его в необходимую директорию.
  * Запустите терминал, перейдите в директорию с распакованным RWK и выполните команду: `npm i`.
 
-## Версионирование 
+## Версионирование
 
 Raptorius Web Kit придерживается [Semantic Versioning Specification (SemVer)](http://semver.org/lang/ru/).
 

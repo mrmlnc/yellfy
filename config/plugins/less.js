@@ -20,7 +20,9 @@ module.exports = {
           'android >= 4.2',
           'bb >= 10'
         ]
-      })
+      }),
+      new (require('less-plugin-csscomb'))('config/.csscomb.json'),
+      require('less-plugin-glob')
     ]
   },
 

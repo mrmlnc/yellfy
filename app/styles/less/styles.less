@@ -9,34 +9,26 @@
 @npmDir: "@{rootDir}/node_modules";
 
 // Library
-@import "library/_normalize";
-@import "library/_print";
+@import "library/**";
 
 // Packages
 @import "@{bowerDir}/less-mq/mq";
 
 // Mixins
-@import "mixins/_clearfix";
-@import "mixins/_transition";
+@import "mixins/**";
 
 // Core
 @import "core/_variables";
 @import "core/_scaffolding";
 
 // Modules
-@import "modules/_typography";
-@import "modules/_lists";
-@import "modules/_grid";
-@import "modules/_buttons";
-@import "modules/_forms";
+@import "modules/**";
 
 // Components
-@import "components/_top-navbar";
+@import "components/**";
 
 // Partials
-@import "partials/_header";
-@import "partials/_main";
-@import "partials/_footer";
+@import "partials/**";
 
 // Pages
-@import "pages/_home";
+@import "pages/**";

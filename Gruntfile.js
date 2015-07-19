@@ -23,7 +23,10 @@ module.exports = function(grunt) {
     configPath: path.join(process.cwd(), 'config/plugins'),
 
     jitGrunt: {
-      customTasksDir: 'config/tasks'
+      customTasksDir: 'config/tasks',
+      staticMappings: {
+        htmlhintplus: 'grunt-htmlhint-plus'
+      }
     }
   });
 

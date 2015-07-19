@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       grunt.task.run(['clean:styles']);
     }
 
-    grunt.task.run(['less:' + status, 'csslint', 'csscomb']);
+    grunt.task.run(['less:' + status, 'csslint']);
 
     if (status === 'production') {
       grunt.task.run(['combine_mq', 'cssmin']);

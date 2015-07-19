@@ -26,7 +26,7 @@ module.exports = {
   // HTML files and Bower components
   html: {
     files: ['app/templates/**'],
-    tasks: ['jade', 'htmlhint', 'wiredep']
+    tasks: ['jade', 'htmlhintplus', 'wiredep']
   },
 
   bower: {

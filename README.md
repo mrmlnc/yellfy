@@ -20,6 +20,7 @@
    * Конкатенация JS-файлов
    * Минификация JS- и CSS-файлов
    * Оптимизация изображений
+   * Автоматическая вставка содержимого JS- и CSS-файлов из директорий `build/(scripts|styles)`, имя которых содержит суффикс `._inline`, в HTML-файлы
  * **Проверка кода**
    * [JavaScript Hint](http://jshint.com/)
    * [JavaScript Code Style](http://jscs.info/)

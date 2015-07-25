@@ -31,7 +31,7 @@ module.exports = {
       sourceMap: true,
       sourceMapFilename: 'build/styles/styles.css.map',
       sourceMapURL: '/styles/styles.css.map',
-      sourceMapBasepath: 'app',
+      sourceMapBasepath: 'app/styles',
       sourceMapRootpath: '/'
         },
     files: {

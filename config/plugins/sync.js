@@ -11,10 +11,9 @@ module.exports = {
       cwd: 'app/',
       src: [
         '**',
-        '!styles/**',
-        'styles/vendor/**',
-        '!scripts/**',
-        'scripts/vendor/**',
+        '!styles/less/**',
+        '!styles/styles.{css,map}',
+        '!scripts/*',
         '!templates/**'
       ],
       dest: 'build/'

@@ -9,6 +9,9 @@ module.exports = {
   options: {
     csslintrc: 'config/.csslintrc'
   },
-  dist: ['build/styles/styles.css']
+  dist: [
+    'build/styles/**/*.css',
+    '!build/styles/vendor/**'
+  ]
 
 };

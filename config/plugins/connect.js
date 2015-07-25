@@ -16,7 +16,7 @@ module.exports = {
           '/bower_components',
           connect.static('./bower_components')
         ),
-        connect.static('./app'),
+        connect.static('./app/styles'),
         connect.static('./build')
       ];
     }

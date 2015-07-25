@@ -14,11 +14,9 @@ module.exports = {
   // Synchronize directory
   sync: {
     files: [
-      'app/*',
-      'app/fonts/**',
-      'app/images/**',
-      'app/styles/vendor/**',
-      'app/scripts/vendor/**'
+      'app/**',
+      '!app/styles/*.{css,map}',
+      '!app/scripts/*.{js,map}'
     ],
     tasks: ['sync']
   },
@@ -26,7 +24,7 @@ module.exports = {
   // HTML files and Bower components
   html: {
     files: ['app/templates/**'],
-    tasks: ['jade', 'htmlhintplus', 'wiredep']
+    tasks: ['jade', 'htmlhintplus', 'wiredep', 'assetser']
   },
 
   bower: {

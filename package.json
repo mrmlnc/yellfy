@@ -22,7 +22,7 @@
     "grunt-htmlhint-plus": "^0.1.0",
     "grunt-jscs": "^1.8.0",
     "grunt-notify": "^0.4.1",
-    "grunt-sync": "^0.2.3",
+    "grunt-sync": "^0.2.4",
     "grunt-wiredep": "^2.0.0",
     "less-plugin-autoprefix": "^1.4.2",
     "less-plugin-csscomb": "^0.0.2",

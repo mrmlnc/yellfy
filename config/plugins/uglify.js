@@ -7,9 +7,13 @@
 module.exports = {
 
   main: {
-    files: {
-      'build/scripts/scripts.min.js': ['build/scripts/scripts.js']
-    }
+    files: [{
+      expand: true,
+      cwd: 'build/scripts',
+      src: ['**/*.js', '!vendor/**'],
+      ext: '.min.js',
+      dest: 'build/scripts'
+    }]
   }
 
 };

@@ -1,7 +1,7 @@
 # Change Log
 Все заметные изменения в этот проекте будут описаны в этом файле.
 
-## [unreleased] - 2015-xx-xx
+## [0.6.0] - 2015-07-27
 ### Changed
  - Переименование `.global-header` в `.site-header` (main, footer)
  - Плагин `htmlhint` заменен на `htmlhintplus` из-за регулярных ошибках при установки и устаревшего jshint

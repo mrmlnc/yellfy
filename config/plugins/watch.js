@@ -15,8 +15,8 @@ module.exports = {
   sync: {
     files: [
       'app/**',
-      '!app/styles/*.{css,map}',
-      '!app/scripts/*.{js,map}'
+      '!app/styles/**',
+      'app/styles/vendor/**'
     ],
     tasks: ['sync']
   },
@@ -24,7 +24,7 @@ module.exports = {
   // HTML files and Bower components
   html: {
     files: ['app/templates/**'],
-    tasks: ['jade', 'htmlhintplus', 'wiredep', 'assetser']
+    tasks: ['html']
   },
 
   bower: {
@@ -33,15 +33,26 @@ module.exports = {
   },
 
   // Styles
-  styles: {
+  styles_less: {
     files: ['app/styles/less/**'],
-    tasks: ['less:development', 'csslint']
+    tasks: ['less:development', 'csslint:less']
   },
 
   // Scripts
   scripts: {
-    files: ['app/scripts/**'],
+    files: ['app/scripts/**', '!app/scripts/vendor/**'],
     tasks: ['jshint', 'jscs', 'concat']
+  },
+
+  // Inline files
+  inline_styles: {
+    files: ['app/styles/inline/**'],
+    tasks: ['csslint:inline', 'html']
+  },
+
+  inline_scripts: {
+    files: ['app/scripts/inline/**'],
+    tasks: ['html']
   }
 
 };

@@ -11,10 +11,10 @@ module.exports = function (grunt) {
       grunt.task.run(['clean:styles']);
     }
 
-    grunt.task.run(['less:' + status, 'csslint']);
+    grunt.task.run(['less:' + status, 'csslint:less']);
 
     if (status === 'production') {
-      grunt.task.run(['combine_mq', 'cssmin']);
+      grunt.task.run(['csslint:inline', 'combine_mq', 'cssmin']);
     }
   });
 

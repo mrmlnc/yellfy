@@ -7,8 +7,7 @@
 module.exports = {
 
   options: {
-    onlyMarked: true,
-    assetsDir: ['build/styles', 'build/scripts']
+    assetsDir: ['app/styles/inline', 'app/scripts/inline']
   },
   main: {
     files: [{

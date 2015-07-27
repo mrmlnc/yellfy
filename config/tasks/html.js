@@ -11,7 +11,7 @@ module.exports = function (grunt) {
       grunt.task.run(['clean:html']);
     }
 
-    grunt.task.run(['jade', 'htmlhintplus', 'wiredep', 'assetser']);
+    grunt.task.run(['jade', 'wiredep', 'assetser', 'htmlhintplus']);
   });
 
 };

@@ -10,16 +10,11 @@ module.exports = {
     hostname: '*',
     open: true,
     livereload: true,
-    middleware : function(connect) {
-      return [
-        connect().use(
-          '/bower_components',
-          connect.static('./bower_components')
-        ),
-        connect.static('./app/styles'),
-        connect.static('./build')
-      ];
-    }
+    base: [
+      'bower_components',
+      'app/styles',
+      'build'
+    ]
   },
 
   development: {

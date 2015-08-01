@@ -7,6 +7,7 @@
 module.exports = {
 
   main: {
+    ignorePath: /^\/|\.\.\/bower_components\//,
     src: ['build/*.html']
   }
 

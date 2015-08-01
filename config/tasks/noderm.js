@@ -8,7 +8,7 @@ module.exports = function (grunt) {
   grunt.registerTask('noderm', function() {
     var fs = require('fs');
 
-    console.log('Remove directory `node_modules`.');
+    console.log('Deleting directory `node_modules`.');
 
     var recursiveDeleteFolder = function(path) {
       var files = [];

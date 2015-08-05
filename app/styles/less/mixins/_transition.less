@@ -3,9 +3,9 @@
 // ------------------------------------
 
 .transition(@property: all, @function: ease, @duration: .3s, @delay: 0) {
-  transition: @property @duration @function 0s;
+  transition+: @property @duration @function 0s;
 
   & when not (@delay = 0) {
-    transition: @property @duration @function @delay;
+    transition+: @property @duration @function @delay;
   }
 }

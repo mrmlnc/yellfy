@@ -1,0 +1,19 @@
+doctype html
+html(lang="ru")
+  head
+    include ../partials/_head
+
+  block pageName
+    -var pageName = 'home'
+
+  body(class="page-#{pageName}")
+    header.site-header(role="banner")
+      include ../partials/_header
+      block siteHeader
+
+    main.site-main(role="main")
+      block siteMain
+
+    footer.site-footer(role="contentinfo")
+      include ../partials/_footer
+      block siteFooter

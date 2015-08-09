@@ -1,8 +1,15 @@
-doctype html
-html(lang="ru")
-  head
-    include ./partials/_head
-  body.page-home
-    include ./partials/_header
-    include ./pages/_index/_main
-    include ./partials/_footer
+extends layouts/_default
+
+//- Set title of page
+block title
+  title RWK
+
+//- Set content in header
+block siteHeader
+
+//- Set content in main
+block siteMain
+  include pages/_index/_main
+
+//- Set content in footer
+block siteFooter

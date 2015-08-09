@@ -7,7 +7,13 @@
 module.exports = {
 
   options: {
-    pretty: true
+    pretty: true,
+    data: function(dest, src) {
+      return require('require-all')({
+        dirname:  __dirname + '../../../app/templates/data',
+        filter: /(.+)\.json$/
+      });
+    }
   },
 
   main: {

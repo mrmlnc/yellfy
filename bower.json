@@ -1,6 +1,5 @@
 {
   "name": "raptorius-web-kit",
-  "version": "0.6.0",
   "ignore": [
     "**/.*",
     "node_modules",

@@ -7,9 +7,9 @@
 @media print {
   *,
   *:before,
-  *:after {
-    background: transparent !important;
-    color: #000 !important; // Black prints faster: h5bp.com/s
+  *:after,
+  *:first-letter,
+  *:first-line {
     box-shadow: none !important;
     text-shadow: none !important;
   }
@@ -19,19 +19,8 @@
     text-decoration: underline;
   }
 
-  a[href]:after {
-    content: " (" attr(href) ")";
-  }
-
   abbr[title]:after {
     content: " (" attr(title) ")";
-  }
-
-  // Don't show links that are fragment identifiers,
-  // or use the `javascript:` pseudo protocol
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
   }
 
   pre,
@@ -40,8 +29,6 @@
     page-break-inside: avoid;
   }
 
-  // Printing Tables:
-  // http://css-discuss.incutio.com/wiki/Printing_Tables
   thead {
     display: table-header-group;
   }

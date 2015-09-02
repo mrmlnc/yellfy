@@ -1,40 +1,37 @@
-/**
- * ## grunt-contrib-jade
- * Compile Jade templates
- *
- */
+module.exports = function(grunt) {
+  var fs = require('fs');
+  var path = require('path');
 
-module.exports = {
+  function readDirFiles(dirpath) {
+    var dir = path.join(process.cwd(), dirpath);
+    var dirList = fs.readdirSync(dir);
 
-  options: {
-    pretty: true,
-    data: function(dest, src) {
-      var fs = require('fs');
-      var path = require('path');
-      var dir = path.join(process.cwd(), 'app/templates/data');
-      var dirList = fs.readdirSync(dir);
-      var data = {};
-      dirList.forEach(function(filename) {
-        var fileBaseName = path.basename(filename);
-        var objKey = fileBaseName.replace('.json', '');
-        if (path.extname(filename) === '.json') {
-          var fileData = fs.readFileSync(path.join(dir, fileBaseName));
-          data[objKey] = JSON.parse(fileData);
-        }
-      });
+    return dirList.forEach(function(filename) {
+      var fileName = path.basename(filename, '.json');
+      if (path.extname(filename) === '.json') {
+        this[fileName] = grunt.file.readJSON(path.join(dir, filename));
+      }
 
-      return data;
-    }
-  },
-
-  main: {
-    files: [{
-      expand: true,
-      cwd: 'app/templates',
-      ext: '.html',
-      src: ['*.jade'],
-      dest: 'build/'
-    }]
+      grunt.log.ok(filename);
+    });
   }
 
+  return {
+    options: {
+      pretty: true,
+      data: function() {
+        return readDirFiles('app/templates/data');
+      }
+    },
+
+    main: {
+      files: [{
+        expand: true,
+        cwd: 'app/templates',
+        ext: '.html',
+        src: ['*.jade'],
+        dest: 'build/'
+      }]
+    }
+  };
 };

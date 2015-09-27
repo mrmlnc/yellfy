@@ -1,0 +1,7 @@
+logs
+*.log
+.grunt
+.idea
+build
+node_modules
+bower_components

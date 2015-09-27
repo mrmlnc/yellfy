@@ -1,3 +1,4 @@
 module.exports = {
-  build: ['build']
+  build: ['build'],
+  postinstall: ['.git', 'CHANGELOG.md', 'README.md']
 };

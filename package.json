@@ -27,7 +27,7 @@
   },
   "private": true,
   "scripts": {
-    "postinstall": "grunt install"
+    "postinstall": "grunt install && grunt clean:postinstall"
   },
   "xo": {
     "space": 2,

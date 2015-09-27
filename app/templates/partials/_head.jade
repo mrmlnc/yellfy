@@ -1,8 +1,8 @@
 meta(charset="UTF-8")
 
 block title
-  title.
-    Raptorius Web Kit
+  title Yellfy
+
 meta(http-equiv="X-UA-Compatible", content="IE=edge")
 meta(name="viewport", content="width=device-width, initial-scale=1")
 meta(name="description", content="")
@@ -10,23 +10,26 @@ meta(name="keywords", content="")
 
 // Service information
 meta(name="author", content="humans.txt")
-meta(name="robots", content="")
+link(rel="canonical" href="http://www.example.com/")
+base(target="_blank")
 
 // Android
 meta(name="mobile-web-app-capable", content="yes")
-meta(name="theme-color", content="#fff")
-link(rel="icon", sizes="192x192", href="images/touch/chrome-touch-icon-192x192.png")
+meta(name="theme-color", content="#f8aa27")
+link(rel="icon" type="image/png" href="/images/touch/android-chrome-192x192.png" sizes="192x192")
 
 // iOS
 meta(name="apple-mobile-web-app-capable", content="yes")
 meta(name="apple-mobile-web-app-status-bar-style", content="black")
-meta(name="apple-mobile-web-app-title", content="")
-link(rel="apple-touch-icon", sizes="152x152", href="images/touch/apple-touch-icon-152x152.png")
-link(rel="apple-touch-icon", href="images/touch/apple-touch-icon.png")
+meta(name="apple-mobile-web-app-title", content="Yellfy")
+link(rel="apple-touch-icon", href="/images/touch/apple-touch-icon.png")
 
 // Windows 8 Tile
-meta(name="msapplication-TileImage", content="images/touch/ms-touch-icon-144x144.png")
-meta(name="msapplication-TileColor", content="#fff")
+meta(name="msapplication-TileImage", content="/images/touch/mstile-144x144.png")
+meta(name="msapplication-TileColor", content="#f8aa27")
+
+// Standard
+link(rel="icon", type="image/png", href="/images/touch/favicon-96x96.png", sizes="128x128")
 
 // Styles
 // bower:css

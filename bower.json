@@ -1,14 +1,6 @@
 {
-  "name": "raptorius-web-kit",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "test",
-    "tests"
-  ],
-  "devDependencies": {
-    "less-mq": "~3.0.0"
-  },
-  "dependencies": {}
+  "name": "yellfy",
+  "dependencies": {},
+  "devDependencies": {},
+  "private": true
 }

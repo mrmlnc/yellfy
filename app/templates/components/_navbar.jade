@@ -1,5 +1,4 @@
-nav.navbar(role="navigation")
-  .area
-    span Navigation
-      = ' '
-      small (templates -> components -> _navbar.jade)
+.navbar
+  nav.navbar-list
+    each href, item in _menu.navbar
+      a(href="#{href}", title="#{item}")= item

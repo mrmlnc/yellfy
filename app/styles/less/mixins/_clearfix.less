@@ -1,15 +1,7 @@
-//
-// Mixins -> Clearfix
-// ------------------------------------
-
 .clearfix() {
-  &:before,
-  &:after {
-    display: table;
+  &::after {
     content: "";
-  }
-
-  &:after {
+    display: table;
     clear: both;
   }
 }

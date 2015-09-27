@@ -1,8 +1,19 @@
 //
-// Modules -> Forms
-// ------------------------------------
-
+// Forms
+//
 .form-control {
   display: block;
+  padding: .375em 1em;
   width: 100%;
+  outline: none;
+  border: 1px solid @form-input-border;
+  background-image: none;
+  color: @form-input-color;
+  font-size: @font-size-base;
+  line-height: @line-height;
+  appearance: none;
+
+  & when not (@form-input-border-radius = 0) {
+    border-radius: @form-input-border-radius;
+  }
 }

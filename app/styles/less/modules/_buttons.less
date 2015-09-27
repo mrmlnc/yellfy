@@ -1,17 +1,24 @@
 //
-// Modules -> Buttons
-// ------------------------------------
-
+// Buttons
+//
 .btn {
   display: inline-block;
+  padding: .375em 1em;
   outline: none;
-  border: 0;
-  background-color: transparent;
-  background-image: none;
+  border: @btn-border-width solid transparent;
   vertical-align: middle;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
+  transition: all .3s ease;
   touch-action: manipulation;
   user-select: none;
+
+  & when not (@btn-border-radius = 0) {
+    border-radius: @btn-border-radius;
+  }
+}
+
+.btn-default {
+  .btn-color(@btn-default-color, @btn-default-bg, @btn-default-border);
 }

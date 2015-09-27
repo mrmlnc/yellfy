@@ -2,14 +2,20 @@ extends layouts/_default
 
 //- Set title of page
 block title
-  title RWK
+  title Yellfy
 
-//- Set content in header
+//- Set the short name for the specified page (use to the body class)
+block pageName
+  -var pageName = "home"
+
+//- Set the contents of the Header
 block siteHeader
+  include partials/_header
 
-//- Set content in main
+//- Set the contents of the Main
 block siteMain
-  include pages/_index/_main
+  include pages/index/_main
 
-//- Set content in footer
+//- Set the contents of the Footer
 block siteFooter
+  include partials/_footer

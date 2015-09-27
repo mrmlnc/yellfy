@@ -32,6 +32,7 @@
   "xo": {
     "space": 2,
     "rules": {
+      "object-curly-spacing": [2, "always"],
       "space-before-function-paren": 0
     }
   }

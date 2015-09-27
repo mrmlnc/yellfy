@@ -1,0 +1,84 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.14.4
+3 info using node@v4.1.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\servers\\xampp\\htdocs\\_dev\\yellfy',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\jacke\AppData\Roaming\npm-cache\test\1.0.0\package.tgz not in flight; packing
+9 verbose tar pack [ 'C:\\Users\\jacke\\AppData\\Roaming\\npm-cache\\test\\1.0.0\\package.tgz',
+9 verbose tar pack   'C:\\servers\\xampp\\htdocs\\_dev\\yellfy' ]
+10 verbose tarball C:\Users\jacke\AppData\Roaming\npm-cache\test\1.0.0\package.tgz
+11 verbose folder C:\servers\xampp\htdocs\_dev\yellfy
+12 info prepublish test@1.0.0
+13 verbose addLocalTarball adding from inside cache C:\Users\jacke\AppData\Roaming\npm-cache\test\1.0.0\package.tgz
+14 silly cache afterAdd test@1.0.0
+15 verbose afterAdd C:\Users\jacke\AppData\Roaming\npm-cache\test\1.0.0\package\package.json not in flight; writing
+16 verbose afterAdd C:\Users\jacke\AppData\Roaming\npm-cache\test\1.0.0\package\package.json written
+17 silly publish { name: 'test',
+17 silly publish   version: '1.0.0',
+17 silly publish   devDependencies:
+17 silly publish    { grunt: '^0.4.5',
+17 silly publish      'grunt-assetser': '^0.1.4',
+17 silly publish      'grunt-babel': '^5.0.3',
+17 silly publish      'grunt-bower-sync': '^0.1.5',
+17 silly publish      'grunt-concurrent': '^2.0.3',
+17 silly publish      'grunt-contrib-clean': '^0.6.0',
+17 silly publish      'grunt-contrib-concat': '^0.5.1',
+17 silly publish      'grunt-contrib-connect': '^0.11.2',
+17 silly publish      'grunt-contrib-cssmin': '^0.14.0',
+17 silly publish      'grunt-contrib-imagemin': '^0.9.4',
+17 silly publish      'grunt-contrib-jade': '^0.15.0',
+17 silly publish      'grunt-contrib-less': '^1.0.1',
+17 silly publish      'grunt-contrib-uglify': '^0.9.2',
+17 silly publish      'grunt-contrib-watch': '^0.6.1',
+17 silly publish      'grunt-htmlhint-plus': '^0.1.0',
+17 silly publish      'grunt-sync': '^0.4.1',
+17 silly publish      'grunt-wiredep': '^2.0.0',
+17 silly publish      'grunt-xo': '^0.6.0',
+17 silly publish      'less-plugin-autoprefix': '^1.5.1',
+17 silly publish      'less-plugin-csscomb': '0.0.2',
+17 silly publish      'less-plugin-glob': '^1.1.0',
+17 silly publish      'load-grunt-config': '^0.17.2',
+17 silly publish      'time-grunt': '^1.2.1' },
+17 silly publish   private: true,
+17 silly publish   scripts: { postinstall: 'grunt install' },
+17 silly publish   xo: { space: 2, rules: { 'space-before-function-paren': 0 } },
+17 silly publish   readme: '# Yellfy\n\n![Yellfy](https://cloud.githubusercontent.com/assets/7034281/10119728/11f72854-64a7-11e5-97f9-d55968c1293d.png)\n\nНабор инструментов для быстрого развертывания шаблона нового веб-приложения и его дальнейшей поддержки.\n\n> Проект не является универсальным решением и не преследует цели обеспечить потребности всех разработчиков.\n\n## Установка\n\nДля того, чтобы начать использовать Yellfy предусмотрено два варианта установки. Оба варианта требуют наличия установленного Git в системе.\n\n#### Ручная установка\n\nРучная установка требует от вас выполнить команду клонирования репозитория в удобной для вас форме. Например, для клонирования репозитория в текущую директорию нужно выполнить следующую команду:\n\n```\ngit clone git:github.com/mrmlnc/yellfy .\n```\n\n#### Автоматическая установка\n\nАвтоматический вариант установки подразумевает использование npm-пакета [yellfy-init](...), который добавляет в систему возможность выполнения команды `yellfy init`. Подробнее об установке и дополнительных опциях при инициализации Yellfy-проектов читайте в репозитории этого пакета.\n\n## Функционал\n\nПосетите страницу «Жизненный цикл задач» в [Wiki](/mrmlnc/rwk/wiki/Жизненный-цикл-задач) для получения полной информации обо всех функциях и последовательности их выполнения во время вызова.\n\n## Документация\n\nПолная документация, включая инструкции по замене CSS-препроцессора, доступна на [Wiki-страницах](/mrmlnc/rwk/wiki) этого репозитория.\n',
+17 silly publish   readmeFilename: 'README.md',
+17 silly publish   description: '![Yellfy](https://cloud.githubusercontent.com/assets/7034281/10119728/11f72854-64a7-11e5-97f9-d55968c1293d.png)',
+17 silly publish   _id: 'test@1.0.0',
+17 silly publish   _shasum: '95ffb0d4dff3b01583ba2d95c579b306f855b353',
+17 silly publish   _from: '.' }
+18 verbose getPublishConfig undefined
+19 verbose stack Error: This package has been marked as private
+19 verbose stack Remove the 'private' field from the package.json to publish it.
+19 verbose stack     at publish_ (C:\Program Files\nodejs\node_modules\npm\lib\publish.js:98:5)
+19 verbose stack     at Array.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\bind-actor.js:15:8)
+19 verbose stack     at LOOP (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:15:14)
+19 verbose stack     at LOOP (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:14:28)
+19 verbose stack     at chain (C:\Program Files\nodejs\node_modules\npm\node_modules\slide\lib\chain.js:20:5)
+19 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\publish.js:73:5
+19 verbose stack     at RES (C:\Program Files\nodejs\node_modules\npm\node_modules\inflight\inflight.js:23:14)
+19 verbose stack     at f (C:\Program Files\nodejs\node_modules\npm\node_modules\once\once.js:17:25)
+19 verbose stack     at C:\Program Files\nodejs\node_modules\npm\lib\cache.js:350:14
+19 verbose stack     at C:\Program Files\nodejs\node_modules\npm\node_modules\write-file-atomic\index.js:29:15
+20 verbose cwd C:\servers\xampp\htdocs\_dev\yellfy
+21 error Windows_NT 10.0.10240
+22 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+23 error node v4.1.1
+24 error npm  v2.14.4
+25 error This package has been marked as private
+25 error Remove the 'private' field from the package.json to publish it.
+26 error If you need help, you may report this error at:
+26 error     <https://github.com/npm/npm/issues>
+27 verbose exit [ 1, true ]

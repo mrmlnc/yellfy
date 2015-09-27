@@ -3,17 +3,11 @@ html(lang="ru")
   head
     include ../partials/_head
 
+  //- Set default the short name for the specified page (use to the body class)
   block pageName
-    -var pageName = 'home'
+    -var pageName = "yellfy"
 
   body(class="page-#{pageName}")
-    header.site-header(role="banner")
-      include ../partials/_header
-      block siteHeader
-
-    main.site-main(role="main")
-      block siteMain
-
-    footer.site-footer(role="contentinfo")
-      include ../partials/_footer
-      block siteFooter
+    block siteHeader
+    block siteMain
+    block siteFooter

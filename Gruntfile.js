@@ -1,33 +1,19 @@
-/**
- *
- * Raptorius Web Kit
- * --
- * Template for your new web application.
- *
- * @verison: 0.6.1
- * @license: MIT
- * @author: Denis Malinochkin
- *
- */
+var path = require('path');
 
-'use strict';
-
-// Grunt configuration
-module.exports = function(grunt) {
-  var path = require('path');
-
-  // Time evaluation && loading Grunt tasks
+var gruntConfig = function(grunt) {
   require('time-grunt')(grunt);
 
   require('load-grunt-config')(grunt, {
-    configPath: path.join(process.cwd(), 'config/plugins'),
+    configPath: path.join(process.cwd(), 'grunt/plugins'),
 
     jitGrunt: {
-      customTasksDir: 'config/tasks',
+      customTasksDir: 'grunt/tasks',
       staticMappings: {
+        bowersync: 'grunt-bower-sync',
         htmlhintplus: 'grunt-htmlhint-plus'
       }
     }
   });
-
 };
+
+module.exports = gruntConfig;

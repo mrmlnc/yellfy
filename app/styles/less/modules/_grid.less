@@ -1,22 +1,27 @@
 //
-// Modules -> Grid
-// ------------------------------------
-
-// Container
+// Grid
+//
 .area {
-  &:extend(.clearfix all);
+  .clearfix();
   margin-right: auto;
   margin-left: auto;
+  padding-left: @grid-gutter-width;
+  padding-right: @grid-gutter-width;
 
-  .min(@grid-breakpoint-small, {
-    width: @grid-area-small;
-  });
+  @media (min-width: @grid-breakpoint-sm) {
+    width: @grid-area-sm;
+  }
 
-  .min(@grid-breakpoint-medium, {
-    width: @grid-area-medium;
-  });
+  @media (min-width: @grid-breakpoint-md) {
+    width: @grid-area-md;
+  }
 
-  .min(@grid-breakpoint-large, {
-    width: @grid-area-large;
-  });
+  @media (min-width: @grid-breakpoint-lg) {
+    width: @grid-area-lg;
+  }
+}
+
+.row {
+  margin-left: (@grid-gutter-width / -2);
+  margin-right: (@grid-gutter-width / -2);
 }

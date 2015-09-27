@@ -1,28 +1,21 @@
-//
-// Styles
-// ------------------------------------
-
 // Settings
-@rootDir: "../../..";
-@appDir: "../..";
+@rootDir: "../..";
+@appDir: "..";
 @bowerDir: "@{rootDir}/bower_components";
 @npmDir: "@{rootDir}/node_modules";
 
-// Library
-@import "library/**";
-
-// Packages
-@import "@{bowerDir}/less-mq/mq";
+// Core
+@import "_variables";
 
 // Mixins
 @import "mixins/**";
 
-// Core
-@import "core/_variables";
-@import "core/_scaffolding";
+// Bower
+// @import "@{bowerDir}/...";
 
 // Modules
-@import "modules/**";
+@import "modules/_normalize";
+@import "modules/!(_normalize)**";
 
 // Components
 @import "components/**";
@@ -31,4 +24,3 @@
 @import "partials/**";
 
 // Pages
-@import "pages/**";

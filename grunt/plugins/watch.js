@@ -33,7 +33,7 @@ module.exports = {
 
   // Scripts
   scripts: {
-    files: ['app/scripts/**'],
+    files: ['app/scripts/*'],
     tasks: ['scripts']
   },
 
@@ -42,7 +42,6 @@ module.exports = {
     files: ['app/styles/inline/**'],
     tasks: ['html']
   },
-
   inline_scripts: {
     files: ['app/scripts/inline/**'],
     tasks: ['html']

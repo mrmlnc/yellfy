@@ -6,7 +6,7 @@ var errorhandler = function(code) {
   }
 };
 
-var wiredepTask = function(grunt) {
+var wiredepTask = function() {
   return {
     main: {
       ignorePath: /^\/|\.\.\/bower_components\//,

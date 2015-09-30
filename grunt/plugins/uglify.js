@@ -11,5 +11,5 @@ module.exports = {
       ext: '.bundle.min.js',
       dest: 'build/scripts'
     }]
- }
+  }
 };

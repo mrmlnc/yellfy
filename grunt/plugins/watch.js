@@ -38,11 +38,11 @@ module.exports = {
   },
 
   // Inline files
-  inline_styles: {
+  inlineStyles: {
     files: ['app/styles/inline/**'],
     tasks: ['html']
   },
-  inline_scripts: {
+  inlineScripts: {
     files: ['app/scripts/inline/**'],
     tasks: ['html']
   }

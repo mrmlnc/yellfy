@@ -1,8 +1,12 @@
+var lessPluginGlob = require('less-plugin-glob');
+var LessPluginAutoprefix = require('less-plugin-autoprefix');
+var LessPluginCSScomb = require('less-plugin-csscomb');
+
 module.exports = {
   options: {
     plugins: [
-      require('less-plugin-glob'),
-      new (require('less-plugin-autoprefix'))({
+      lessPluginGlob,
+      new LessPluginAutoprefix({
         browsers: [
           'Android 2.3',
           'Android >= 4',
@@ -14,7 +18,7 @@ module.exports = {
           'Safari >= 7.1'
         ]
       }),
-      new (require('less-plugin-csscomb'))('grunt/.csscomb.json')
+      new LessPluginCSScomb('grunt/.csscomb.json')
     ]
   },
   main: {

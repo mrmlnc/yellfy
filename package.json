@@ -20,7 +20,7 @@
     "grunt-wiredep": "^2.0.0",
     "grunt-xo": "^0.6.0",
     "less-plugin-autoprefix": "^1.5.1",
-    "less-plugin-csscomb": "0.0.2",
+    "less-plugin-csscomb": "^0.0.2",
     "less-plugin-glob": "^1.1.0",
     "load-grunt-config": "^0.17.2",
     "time-grunt": "^1.2.1"

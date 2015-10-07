@@ -1,10 +1,11 @@
+var path = require('path');
 var fs = require('fs');
 
 var recursiveDeleteFolder = function(filepath) {
   if (fs.existsSync(filepath)) {
     var files = fs.readdirSync(filepath);
     files.forEach(function(filename) {
-      var curPath = filepath + '/' + filename;
+      var curPath = path.join(filepath, filename);
       if (fs.lstatSync(curPath).isDirectory()) {
         recursiveDeleteFolder(curPath);
       } else {

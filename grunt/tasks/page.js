@@ -13,9 +13,9 @@ var createPage = function(pageName) {
       lessMain: 'grunt/templates/new-page.less'
     },
     dest: {
-      jadeIndex: path.join('app/templates', pageName + '.jade'),
+      jadeIndex: path.join('app/templates', `${pageName}.jade`),
       jadePage: path.join('app/templates/pages', pageName, '_main.jade'),
-      lessPage: path.join('app/styles/less/pages', '_' + pageName + '.less')
+      lessPage: path.join('app/styles/less/pages', `_${pageName}.less`)
     }
   };
 
@@ -35,12 +35,12 @@ var newPage = function() {
   grunt.task.registerTask('page', function(pageName) {
     pageName = typeof pageName === 'undefined' ? 'new' : pageName;
 
-    if (grunt.file.exists(path.join('app/templates', pageName + '.jade'))) {
-      grunt.log.error('Page "' + pageName + '" already exists!');
+    if (grunt.file.exists(path.join('app/templates', `${pageName}.jade`))) {
+      grunt.log.error(`Page "${pageName}" already exists!`);
     } else {
       // Create a new page (jade + less)
       createPage(pageName);
-      grunt.log.ok('Page "' + pageName + '" has been successfully created!');
+      grunt.log.ok(`Page "${pageName}" has been successfully created!`);
     }
   });
 };

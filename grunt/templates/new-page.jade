@@ -1,0 +1,21 @@
+extends layouts/_default
+
+//- Set title of page
+block title
+  title #Y{pageName}
+
+//- Set the short name for the specified page (use to the body class)
+block pageName
+  -var pageName = "#Y{pageName}"
+
+//- Set the contents of the Header
+block siteHeader
+  include partials/_header
+
+//- Set the contents of the Main
+block siteMain
+  include pages/#Y{pageName}/_main
+
+//- Set the contents of the Footer
+block siteFooter
+  include partials/_footer

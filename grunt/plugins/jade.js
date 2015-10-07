@@ -12,7 +12,6 @@ var loadJsonData = function(dirpath) {
   return list.forEach(function(filename) {
     var name = path.basename(filename, '.json');
     this[name] = grunt.file.readJSON(path.join(dirpath, filename));
-    grunt.log.ok('Include: ' + filename);
   });
 };
 

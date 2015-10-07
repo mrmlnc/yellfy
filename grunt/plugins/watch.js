@@ -9,8 +9,7 @@ module.exports = {
     files: [
       'app/*',
       'app/images/**',
-      'app/styles/vendor/**',
-      'app/scripts/vendor/**'
+      'app/{styles,scripts}/vendor/**'
     ],
     tasks: ['sync']
   },

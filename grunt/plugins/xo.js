@@ -1,6 +1,7 @@
 module.exports = {
-  target: [
+  main: [
     'app/scripts/**/*.js',
-    '!app/scripts/vendor/**'
-  ]
+    '!app/scripts/{inline,vendor}/**'
+  ],
+  inline: ['app/scripts/inline/**/*.js']
 };

@@ -33,7 +33,7 @@ module.exports = {
 
   // Scripts
   scripts: {
-    files: ['app/scripts/*'],
+    files: ['app/scripts/!(inline|vendor)**'],
     tasks: ['scripts']
   },
 
@@ -44,6 +44,6 @@ module.exports = {
   },
   inlineScripts: {
     files: ['app/scripts/inline/**'],
-    tasks: ['html']
+    tasks: ['xo:inline', 'html']
   }
 };

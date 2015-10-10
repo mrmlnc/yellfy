@@ -1,18 +1,15 @@
 //
 // Button color
 //
-.btn-color(@color, @background, @border) {
-  @active-background: darken(@background, 10%);
-  @active-border: darken(@border, 12%);
-
+.btn-color(@color, @bg, @border: transparent, @active-color: @color, @active-bg: darken(@bg, 10%), @active-border: darken(@border, 12%)) {
   color: @color;
-  background-color: @background;
+  background-color: @bg;
   border-color: @border;
 
   &:hover,
   &:focus {
-    color: @color;
-    background-color: @active-background;
+    color: @active-color;
+    background-color: @active-bg;
     border-color: @active-border;
   }
 }

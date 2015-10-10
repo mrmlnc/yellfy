@@ -1,0 +1,34 @@
+//
+// Tables
+//
+.table {
+  th,
+  td {
+    padding: @table-cell-padding;
+    border-top: @table-border-weight solid @table-border-color;
+    vertical-align: top;
+    font-size: @table-font-size;
+    line-height: @table-line-height;
+  }
+}
+
+.table-bordered {
+  border: @table-border-weight solid @table-border-color;
+
+  th,
+  td {
+    border: @table-border-weight solid @table-border-color;
+  }
+}
+
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: @table-striped-bg;
+  }
+}
+
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}

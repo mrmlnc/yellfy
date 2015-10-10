@@ -6,17 +6,17 @@
   padding: .375em 1em;
   outline: none;
   border: @btn-border-width solid transparent;
+  border-radius: @btn-border-radius;
+  background-color: transparent;
   vertical-align: middle;
   text-align: center;
   white-space: nowrap;
+  font-size: @btn-font-size;
+  line-height: @btn-line-height;
   cursor: pointer;
   transition: all .3s ease;
   touch-action: manipulation;
   user-select: none;
-
-  & when not (@btn-border-radius = 0) {
-    border-radius: @btn-border-radius;
-  }
 }
 
 .btn-default {

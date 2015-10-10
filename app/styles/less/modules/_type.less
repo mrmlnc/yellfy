@@ -10,7 +10,7 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: @spacer;
   color: @headings-color;
   font-weight: @headings-font-weight;
   font-family: @headings-font-family;
@@ -27,19 +27,20 @@ h6 { font-size: @font-size-h6; }
 // Paragraphs
 p {
   margin-top: 0;
-  margin-bottom: 1em;
+  margin-bottom: @spacer;
 }
 
 // Lists
 ul {
+  margin-bottom: @spacer;
   padding-left: 0;
   list-style: none;
 }
 
 // Blockquotes
 blockquote {
+  margin-bottom: @spacer;
   padding: 2em;
-  margin-bottom: 1em;
   border-left: @blockquote-border-width solid @blockquote-border-color;
 
   p,
@@ -52,8 +53,8 @@ blockquote {
 
   footer {
     display: block;
-    font-size: 80%;
     color: @blockquote-small-color;
+    font-size: 80%;
 
     &:before {
       content: "\2014 \00A0";

@@ -25,11 +25,11 @@ html {
 }
 
 body {
-  font-family: @font-family-base;
-  font-size: @font-size-base;
-  line-height: @line-height;
-  color: @body-color;
   background-color: @body-bg;
+  color: @body-color;
+  font-size: @font-size-base;
+  font-family: @font-family-base;
+  line-height: @line-height;
 }
 
 
@@ -39,8 +39,8 @@ body {
 a {
   color: @link-color;
   text-decoration: none;
-  transition: all .3s ease;
   text-decoration: inherit;
+  transition: all .3s ease;
 
   &:hover,
   &:focus {
@@ -56,4 +56,25 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+
+//
+// Forms
+//
+fieldset {
+  margin-bottom: @spacer;
+}
+
+
+//
+// Tables
+//
+table {
+  width: 100%;
+  margin-bottom: @spacer;
+
+  th {
+    text-align: left;
+  }
 }

@@ -7,13 +7,17 @@
   width: 100%;
   outline: none;
   border: 1px solid @form-input-border;
+  border-radius: @form-input-border-radius;
   background-image: none;
   color: @form-input-color;
   font-size: @font-size-base;
   line-height: @line-height;
   appearance: none;
+}
 
-  & when not (@form-input-border-radius = 0) {
-    border-radius: @form-input-border-radius;
+.form-inline {
+  .form-control {
+    display: inline-block;
+    width: auto;
   }
 }

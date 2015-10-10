@@ -22,7 +22,7 @@ $ git clone git://github.com/mrmlnc/yellfy . && npm i
 
 ## Документация
 
-Полная документация, включая инструкции по замене CSS-препроцессора, доступна на [Wiki-страницах](https://github.com/mrmlnc/yellfy/wiki) этого репозитория.
+Полная документация доступна на [Wiki-страницах](https://github.com/mrmlnc/yellfy/wiki) этого репозитория.
 
 ## Версионирование
 

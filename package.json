@@ -1,5 +1,4 @@
 {
-  "name": "test",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-assetser": "^0.1.4",

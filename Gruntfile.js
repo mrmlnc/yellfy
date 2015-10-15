@@ -9,8 +9,7 @@ var gruntConfig = function(grunt) {
     jitGrunt: {
       customTasksDir: 'grunt/tasks',
       staticMappings: {
-        bowersync: 'grunt-bower-sync',
-        htmlhintplus: 'grunt-htmlhint-plus'
+        bowersync: 'grunt-bower-sync'
       }
     }
   });

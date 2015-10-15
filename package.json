@@ -14,7 +14,7 @@
     "grunt-contrib-less": "^1.0.1",
     "grunt-contrib-uglify": "^0.9.2",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-htmlhint-plus": "^0.1.0",
+    "grunt-htmlhint": "^0.9.12",
     "grunt-sync": "^0.4.1",
     "grunt-wiredep": "^2.0.0",
     "grunt-xo": "^0.6.0",

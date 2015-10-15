@@ -4,7 +4,7 @@ var htmlTask = function(grunt) {
       'jade',
       'concurrent:bower',
       'assetser',
-      'htmlhintplus'
+      'htmlhint'
     ]);
   });
 };

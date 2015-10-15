@@ -21,7 +21,7 @@ module.exports = {
   },
   html: {
     files: ['app/templates/**'],
-    tasks: ['jade', 'assetser', 'htmlhintplus']
+    tasks: ['jade', 'assetser', 'htmlhint']
   },
 
   // Styles

@@ -39,10 +39,10 @@ module.exports = {
   // Inline files
   inlineStyles: {
     files: ['app/styles/inline/**'],
-    tasks: ['html']
+    tasks: ['jade', 'wiredep', 'assetser', 'htmlhint']
   },
   inlineScripts: {
     files: ['app/scripts/inline/**'],
-    tasks: ['xo:inline', 'html']
+    tasks: ['xo:inline', 'jade', 'wiredep', 'assetser', 'htmlhint']
   }
 };

@@ -77,7 +77,6 @@ gulp.task('templates', () =>
     .pipe(wiredep({
       onError: handlers.wiredepError
     }))
-    .pipe(gulp.dest('.tmp/templates'))
     .pipe(gulp.dest('build'))
 );
 

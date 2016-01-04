@@ -1,0 +1,138 @@
+// Typography
+
+// Headings
+.title,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: (@spacer / 2);
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+}
+
+h1 {
+  font-size: @font-size-h1;
+
+  &.title {
+    font-size: @font-size-title;
+  }
+}
+h2 { font-size: @font-size-h2; }
+h3 { font-size: @font-size-h3; }
+h4 { font-size: @font-size-h4; }
+h5 { font-size: @font-size-h5; }
+h6 { font-size: @font-size-h6; }
+
+// Paragraphs
+p {
+  margin-top: 0;
+  margin-bottom: @spacer;
+
+  &.lead {
+    font-size: @font-size-lead;
+  }
+}
+
+// Blockquotes
+blockquote {
+  padding: 2em;
+  margin: 0 0 @spacer 0;
+  border-left: @blockquote-border-width solid @blockquote-border-color;
+
+  p,
+  ul,
+  ol {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  cite {
+    color: @blockquote-small-color;
+
+    &:before {
+      content: "\2014 \00A0";
+    }
+  }
+}
+
+// Lists
+ul {
+  margin-top: 0;
+  margin-bottom: @spacer;
+}
+
+// Inline elements
+abbr[title],
+dfn[title] {
+  cursor: help;
+  border-bottom: 1px dotted @abbr-border-color;
+}
+
+// Code elements
+pre,
+code,
+var,
+kbd,
+samp,
+output {
+  font-family: @font-family-mono;
+  font-size: 90%;
+  font-style: normal;
+}
+
+code,
+kbd,
+samp,
+mark {
+  padding: .2em .4em;
+}
+
+code {
+  color: @code-color;
+  background-color: @code-bg;
+  border-radius: @code-border-radius;
+}
+
+kbd {
+  color: @kbd-color;
+  background-color: @kbd-bg;
+  border-radius: @kbd-border-radius;
+}
+
+samp {
+  color: @samp-color;
+  background-color: @samp-bg;
+  border-radius: @samp-border-radius;
+}
+
+mark {
+  color: @mark-color;
+  background-color: @mark-bg;
+  border-radius: @mark-border-radius;
+}
+
+pre {
+  display: block;
+  padding: 1em 1.5em;
+  margin-top: 0;
+  margin-bottom: @spacer;
+  overflow: auto;
+  color: @pre-color;
+  background-color: @pre-bg;
+  border-left: @pre-border-width solid @pre-border-color;
+
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+}

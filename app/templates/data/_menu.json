@@ -1,0 +1,6 @@
+{
+  "navbar": {
+    "Home": "/",
+    "Test page": "#testpage"
+  }
+}

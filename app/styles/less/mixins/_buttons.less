@@ -1,0 +1,16 @@
+// Buttons
+
+// Color
+.btn-color(@bg, @color, @border: transparent, @active-bg: darken(@bg, 10%), @active-color: @color, @active-border: darken(@border, 12%)) {
+  color: @color;
+  background-color: @bg;
+  border-color: @border;
+
+  &.active,
+  &:hover,
+  &:focus {
+    color: @active-color;
+    background-color: @active-bg;
+    border-color: @active-border;
+  }
+}

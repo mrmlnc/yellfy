@@ -1,0 +1,43 @@
+// Tables
+
+// Basic styles
+.table {
+  width: 100%;
+  margin-bottom: @spacer;
+
+  th {
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: @table-cell-padding;
+    font-size: @table-font-size;
+    line-height: @table-line-height;
+    vertical-align: top;
+    border-top: @table-border-weight solid @table-border-color;
+  }
+}
+
+// Add borders all around the table and between all the columns.
+.table-bordered {
+  border: @table-border-weight solid @table-border-color;
+
+  th,
+  td {
+    border: @table-border-weight solid @table-border-color;
+  }
+}
+
+// Default zebra-stripe styles (alternating gray and transparent backgrounds)
+.table-striped {
+  tbody tr:nth-of-type(odd) {
+    background-color: @table-striped-bg;
+  }
+}
+
+// Responsive tables
+.table-responsive {
+  display: block;
+  overflow-x: auto;
+}

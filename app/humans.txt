@@ -1,0 +1,13 @@
+# humanstxt.org/
+
+# TEAM
+
+  <name> -- <role> -- <twitter>
+
+# THANKS
+
+  <name>
+
+# TECHNOLOGY COLOPHON
+
+  HTML5, CSS3

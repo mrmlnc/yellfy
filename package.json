@@ -1,0 +1,62 @@
+{
+  "name": "yellfy",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^6.2.3",
+    "beeper": "^1.1.0",
+    "browser-sync": "^2.10.1",
+    "chalk": "^1.1.1",
+    "css-mqpacker": "^4.0.0",
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.3.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-clip-empty-files": "^0.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-data": "^1.2.1",
+    "gulp-directory-sync": "^1.2.2",
+    "gulp-filter": "^3.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-imagemin": "^2.4.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.0.5",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-minify-css": "=1.2.2",
+    "gulp-newer": "^1.1.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svg-sprite": "^1.2.17",
+    "gulp-uglify": "^1.5.1",
+    "gulp-watch": "^4.3.5",
+    "gulp-xo": "^0.7.0",
+    "less-plugin-glob": "^1.1.1",
+    "quaff": "^1.1.0",
+    "run-sequence": "^1.1.5",
+    "slash": "^1.0.0",
+    "wiredep": "^3.0.0"
+  },
+  "xo": {
+    "space": 2,
+    "rules": {
+      "arrow-parens": [
+        2,
+        "always"
+      ],
+      "object-curly-spacing": [
+        2,
+        "always"
+      ],
+      "space-before-function-paren": [
+        2,
+        "never"
+      ]
+    },
+    "envs": [
+      "browser",
+      "node",
+      "jquery"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+doctype html
+html(lang="ru")
+  head
+    include ../partials/_head
+
+  //- Set default the short name for the specified page (use to the body class)
+  block pageName
+    -var pageName = "yellfy"
+
+  body(class="page-" + pageName)
+    block siteHeader
+    block siteMain
+    block siteFooter

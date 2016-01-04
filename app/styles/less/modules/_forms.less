@@ -1,0 +1,142 @@
+// Forms
+
+// Inputs
+.form-control {
+  display: block;
+  width: 100%;
+  height: @form-input-height;
+  padding-right: .75em;
+  padding-left: .75em;
+  font-size: @form-input-font-size;
+  line-height: @line-height;
+  color: @form-input-color;
+  background-color: @form-input-bg;
+  background-image: none;
+  border: 1px solid @form-input-border-color;
+  border-radius: 0;
+  transition: border-color .25s ease-in-out, box-shadow ease-in-out .25s;
+
+  &:focus {
+    border-color: @form-input-active-border-color;
+    outline: none;
+  }
+
+  // [IE10+] Unstyle the caret on `<select>`s.
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  // The color of the placeholder text
+  &::placeholder {
+    color: @form-input-placeholder-color;
+  }
+
+  // Unset the height property for the textarea, multiple select's
+  // and fields of type file and range
+  textarea&,
+  select[multiple]&,
+  input[type="file"]&,
+  input[type="range"]& {
+    height: auto;
+    padding-top: .5em;
+    padding-bottom: .5em;
+  }
+
+  // [iOS] The vertical alignment of the label for the field of type file
+  input[type="file"]& {
+    line-height: 1;
+  }
+
+  // [Firefox, IE10+] Remove indents at the edges and the border property
+  // for a field of type range
+  input[type="range"]& {
+    padding-right: 0;
+    padding-left: 0;
+    border: 0;
+  }
+}
+
+// A unit of form - group (label + input + description)
+.form-group {
+  margin-bottom: @spacer;
+}
+
+// Checkboxes and radios
+.form-radio,
+.form-checkbox {
+  margin-bottom: @spacer;
+
+  & > label {
+    padding-left: 1.4em;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    position: absolute;
+    margin-top: .25em;
+    margin-left: -1.4em;
+
+    &:disabled,
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &.disabled > label {
+    cursor: not-allowed;
+  }
+}
+
+// Move up sibling radios or checkboxes for tighter spacing
+.form-radio + .form-radio,
+.form-checkbox + .form-checkbox {
+  margin-top: (@spacer / -2);
+}
+
+
+//
+// Inline forms
+//
+
+// Inline forms
+//
+// Make forms appear inline(-block) by adding the `.form-inline` class. Inline
+// forms begin stacked on extra small (mobile) devices and then go inline when
+// viewports reach <540px.
+//
+// Requires wrapping inputs and labels with `.form-group` for proper display of
+// default HTML form controls.
+.form-inline {
+  @media (min-width: @form-inline-breakpoint) {
+    .form-group,
+    .form-control,
+    .form-radio,
+    .form-checkbox {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    .form-control {
+      width: auto;
+    }
+
+    // Unset the margin property for two or more buttons in the same row
+    .btn + .btn {
+      margin-left: 0;
+    }
+
+    .form-radio,
+    .form-checkbox {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+}

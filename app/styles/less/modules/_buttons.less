@@ -1,0 +1,49 @@
+// Buttons
+
+// Basic styles
+.btn {
+  display: inline-block;
+  min-height: @form-input-height;
+  padding-right: 1em;
+  padding-left: 1em;
+  font-size: @btn-font-size;
+  line-height: @line-height;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid transparent;
+  transition: all .25s ease-in-out;
+  appearance: none;
+
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    outline: none;
+  }
+
+  // Link
+  a& {
+    line-height: @form-input-height;
+  }
+
+  // Disabled button
+  &.disabled,
+  &:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: .65;
+  }
+}
+
+//
+// Variations
+//
+
+.btn-default {
+  .btn-color(@btn-default-bg, @btn-default-color, @btn-default-border);
+}
+
+.btn-primary {
+  .btn-color(@btn-primary-bg, @btn-primary-color, @btn-primary-border);
+}

@@ -76,6 +76,11 @@ module.exports.jadeError = function(err) {
   });
 
   beeper(1);
+
+  if (!browserSync.active) {
+    process.exit(1);
+  }
+
   this.emit('end');
 };
 
@@ -120,5 +125,10 @@ module.exports.lessError = function(err) {
   });
 
   beeper(1);
+
+  if (!browserSync.active) {
+    process.exit(1);
+  }
+
   this.emit('end');
 };

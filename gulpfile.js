@@ -39,7 +39,9 @@ gulp.task('scripts:babel', () =>
   gulp.src(['**/*.js', '!{inline,vendor}/**'], { cwd: 'app/scripts' })
     .pipe($.newer('.tmp/scripts'))
     .pipe($.sourcemaps.init())
-    .pipe($.babel())
+    .pipe($.babel({
+      presets: ['es2015']
+    }))
     .pipe(gulp.dest('.tmp/scripts'))
 );
 

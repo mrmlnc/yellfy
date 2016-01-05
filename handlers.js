@@ -96,7 +96,7 @@ module.exports.wiredepError = function(err) {
   }
 
   wiredepStatus = 1;
-  console.log(chalk.yellow('>> ' + err));
+  console.log(`${arrow.warning} ${err}`);
 };
 
 /**

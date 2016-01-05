@@ -133,7 +133,12 @@ gulp.task('serve', () => {
     online: false,
     notify: false,
     logPrefix: 'Yellfy',
-    server: 'build',
+    server: {
+      baseDir: ['build'],
+      routes: {
+        '/bower_components': 'bower_components'
+      }
+    },
     port: 8000
   });
 
@@ -180,7 +185,12 @@ gulp.task('server', ['build:default'], () =>
   browserSync({
     notify: false,
     logPrefix: 'Yellfy',
-    server: ['build'],
+    server: {
+      baseDir: ['build'],
+      routes: {
+        '/bower_components': 'bower_components'
+      }
+    },
     port: 8001
   })
 );

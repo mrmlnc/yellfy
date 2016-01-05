@@ -1,19 +1,15 @@
 // Forms
 
-// Inputs
 .form-control {
   display: block;
   width: 100%;
-  height: @form-input-height;
-  padding-right: .75em;
-  padding-left: .75em;
+  padding: .5em .8em;
   font-size: @form-input-font-size;
   line-height: @line-height;
-  color: @form-input-color;
   background-color: @form-input-bg;
   background-image: none;
   border: 1px solid @form-input-border-color;
-  border-radius: 0;
+  border-radius: @global-radius;
   transition: border-color .25s ease-in-out, box-shadow ease-in-out .25s;
 
   &:focus {
@@ -32,15 +28,10 @@
     color: @form-input-placeholder-color;
   }
 
-  // Unset the height property for the textarea, multiple select's
-  // and fields of type file and range
-  textarea&,
-  select[multiple]&,
-  input[type="file"]&,
-  input[type="range"]& {
-    height: auto;
-    padding-top: .5em;
-    padding-bottom: .5em;
+  // Alignment height
+  select& {
+    padding-top: .608em;
+    padding-bottom: .608em;
   }
 
   // [iOS] The vertical alignment of the label for the field of type file
@@ -80,6 +71,10 @@
     margin-top: .25em;
     margin-left: -1.4em;
 
+    &:focus {
+      outline: 0;
+    }
+
     &:disabled,
     &.disabled {
       cursor: not-allowed;
@@ -96,11 +91,6 @@
 .form-checkbox + .form-checkbox {
   margin-top: (@spacer / -2);
 }
-
-
-//
-// Inline forms
-//
 
 // Inline forms
 //

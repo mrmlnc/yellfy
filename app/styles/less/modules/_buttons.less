@@ -1,18 +1,17 @@
 // Buttons
 
-// Basic styles
 .btn {
   display: inline-block;
-  min-height: @form-input-height;
-  padding-right: 1em;
-  padding-left: 1em;
+  padding: .5em 1em;
   font-size: @btn-font-size;
   line-height: @line-height;
   text-align: center;
   white-space: nowrap;
+  vertical-align: middle;
   cursor: pointer;
   user-select: none;
   border: 1px solid transparent;
+  border-radius: @global-radius;
   transition: all .25s ease-in-out;
   appearance: none;
 
@@ -20,11 +19,6 @@
   &:hover {
     text-decoration: none;
     outline: none;
-  }
-
-  // Link
-  a& {
-    line-height: @form-input-height;
   }
 
   // Disabled button
@@ -36,14 +30,30 @@
   }
 }
 
-//
-// Variations
-//
-
+// Default button
 .btn-default {
   .btn-color(@btn-default-bg, @btn-default-color, @btn-default-border);
 }
 
+// Primary button
 .btn-primary {
   .btn-color(@btn-primary-bg, @btn-primary-color, @btn-primary-border);
+}
+
+// Secondary button
+.btn-secondary {
+  .btn-color(@btn-secondary-bg, @btn-secondary-color, @btn-secondary-border);
+}
+
+// Transparent button
+.btn-transparent {
+  background-color: transparent;
+  border-color: transparent;
+
+  &:focus,
+  &:hover {
+    color: lighten(@body-color, 30);
+    background-color: transparent;
+    border-color: transparent;
+  }
 }

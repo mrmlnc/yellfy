@@ -23,11 +23,21 @@ h1 {
     font-size: @font-size-title;
   }
 }
-h2 { font-size: @font-size-h2; }
-h3 { font-size: @font-size-h3; }
-h4 { font-size: @font-size-h4; }
-h5 { font-size: @font-size-h5; }
-h6 { font-size: @font-size-h6; }
+h2 {
+  font-size: @font-size-h2;
+}
+h3 {
+  font-size: @font-size-h3;
+}
+h4 {
+  font-size: @font-size-h4;
+}
+h5 {
+  font-size: @font-size-h5;
+}
+h6 {
+  font-size: @font-size-h6;
+}
 
 // Paragraphs
 p {
@@ -62,10 +72,11 @@ blockquote {
   }
 }
 
-// Lists
-ul {
-  margin-top: 0;
-  margin-bottom: @spacer;
+.blockquote-full {
+  text-align: center;
+  border-top: @blockquote-full-border-width solid @blockquote-border-color;
+  border-bottom: @blockquote-full-border-width solid @blockquote-border-color;
+  border-left: 0;
 }
 
 // Inline elements
@@ -91,31 +102,29 @@ code,
 kbd,
 samp,
 mark {
-  padding: .2em .4em;
+  display: inline-block;
+  padding: .1em .4em;
+  border-radius: @global-inline-radius;
 }
 
 code {
   color: @code-color;
   background-color: @code-bg;
-  border-radius: @code-border-radius;
 }
 
 kbd {
   color: @kbd-color;
   background-color: @kbd-bg;
-  border-radius: @kbd-border-radius;
 }
 
 samp {
   color: @samp-color;
   background-color: @samp-bg;
-  border-radius: @samp-border-radius;
 }
 
 mark {
   color: @mark-color;
   background-color: @mark-bg;
-  border-radius: @mark-border-radius;
 }
 
 pre {

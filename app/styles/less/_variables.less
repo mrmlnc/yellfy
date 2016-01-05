@@ -27,7 +27,8 @@
 // Common
 @line-height:                          1.5;
 @spacer:                               1em;
-@global-radius:                        .4em;
+@global-radius:                        .15em;
+@global-inline-radius:                 .3em;
 
 // Links
 @link-color:                           @brand-primary;
@@ -61,13 +62,12 @@
 
 // Typography
 // ------------------------------------
-
-// Headings
 @headings-font-family:                 @font-family-base;
 @headings-font-weight:                 500;
 @headings-line-height:                 1.1;
 @headings-color:                       inherit;
 
+// Font sizes for headings
 @font-size-title:                      5.4rem;
 @font-size-h1:                         4.0rem;
 @font-size-h2:                         3.2rem;
@@ -84,13 +84,14 @@
 @blockquote-border-color:              #ddd;
 @blockquote-small-color:               #777;
 
+@blockquote-full-border-width:         2px;
+
 // Abbreviation
 @abbr-border-color:                    #ddd;
 
 // Code tag
 @code-bg:                              #f7f7f7;
 @code-color:                           #bd4147;
-@code-border-radius:                   @global-radius;
 
 // Preformatted
 @pre-bg:                               #f7f7f7;
@@ -101,17 +102,36 @@
 // Keyboard
 @kbd-bg:                               #202020;
 @kbd-color:                            #fff;
-@kbd-border-radius:                    @global-radius;
 
 // Sample output
 @samp-bg:                              #46a9fc;
 @samp-color:                           #fff;
-@samp-border-radius:                   @global-radius;
 
 // Mark Element
 @mark-bg:                              #ffd61e;
 @mark-color:                           @body-color;
-@mark-border-radius:                   @global-radius;
+
+
+
+// Buttons
+// ------------------------------------
+
+@btn-font-size:                        @font-size-base;
+
+// Default button
+@btn-default-bg:                       #f7f7f7;
+@btn-default-color:                    @body-color;
+@btn-default-border:                   darken(@btn-default-bg, 5);
+
+// Primary button
+@btn-primary-bg:                       @brand-primary;
+@btn-primary-color:                    #fff;
+@btn-primary-border:                   darken(@btn-primary-bg, 5);
+
+// Secondary button
+@btn-secondary-bg:                     @brand-secondary;
+@btn-secondary-color:                  #fff;
+@btn-secondary-border:                 darken(@btn-secondary-bg, 5);
 
 
 
@@ -131,25 +151,6 @@
 
 
 
-// Buttons
-// ------------------------------------
-
-// Base
-@btn-spacer:                           @spacer;
-@btn-font-size:                        @font-size-base;
-
-// Default
-@btn-default-bg:                       #f5f5f5;
-@btn-default-color:                    @body-color;
-@btn-default-border:                   @btn-default-bg;
-
-// Primary
-@btn-primary-bg:                       @brand-primary;
-@btn-primary-color:                    #fff;
-@btn-primary-border:                   @btn-primary-bg;
-
-
-
 // Tables
 // ------------------------------------
 
@@ -157,8 +158,6 @@
 @table-cell-padding:                   .75em;
 @table-border-weight:                  1px;
 @table-border-color:                   #eaeaea;
-@table-font-size:                      inherit;
-@table-line-height:                    inherit;
 
 // Striped type
 @table-striped-bg:                     #f9f9f9;

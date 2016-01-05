@@ -1,20 +1,27 @@
 // Tables
 
 // Basic styles
-.table {
+table {
   width: 100%;
   margin-bottom: @spacer;
 
+  caption,
   th {
     text-align: left;
+  }
+
+  caption {
+    padding-top: @table-cell-padding;
+    padding-bottom: @table-cell-padding;
   }
 
   th,
   td {
     padding: @table-cell-padding;
-    font-size: @table-font-size;
-    line-height: @table-line-height;
     vertical-align: top;
+  }
+
+  td {
     border-top: @table-border-weight solid @table-border-color;
   }
 }
@@ -39,5 +46,7 @@
 // Responsive tables
 .table-responsive {
   display: block;
+  width: 100%;
   overflow-x: auto;
+  empty-cells: show;
 }

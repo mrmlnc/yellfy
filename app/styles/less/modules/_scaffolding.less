@@ -40,10 +40,10 @@ a {
 // Horizontal rules
 hr {
   box-sizing: content-box;
-  margin-top: @spacer;
-  margin-bottom: @spacer;
+  margin-top: (@spacer * 2);
+  margin-bottom: (@spacer * 2);
   border: 0;
-  border-bottom-width: @hr-border-width solid @hr-border-color;
+  border-bottom: @hr-border-width solid @hr-border-color;
 }
 
 // Lists
@@ -60,11 +60,6 @@ ul ol,
 ol ul {
   margin-bottom: 0;
 }
-
-
-//
-// Forms
-//
 
 // Fieldset
 fieldset {
@@ -93,6 +88,13 @@ textarea {
   resize: vertical;
 }
 
+// Responsive images
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 // Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
 a,
 area,
@@ -104,16 +106,4 @@ select,
 summary,
 textarea {
   touch-action: manipulation;
-}
-
-
-//
-// Images
-//
-
-// Responsive images
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
 }

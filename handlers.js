@@ -50,9 +50,9 @@ module.exports.syncIgnore = (dir, file) => {
 };
 
 /**
- * Error handler for Xo plugin
+ * Error handler for XO plugin
  *
- * @param {object} err - The error object from Xo plugin
+ * @param {object} err - The error object from XO plugin
  */
 module.exports.xoError = function() {
   if (!browserSync.active) {

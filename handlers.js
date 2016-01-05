@@ -64,6 +64,27 @@ module.exports.xoError = function() {
 };
 
 /**
+ * Error handler for Babel plugin
+ *
+ * @param {object} err - The error object from Babel plugin
+ */
+module.exports.babelError = function(err) {
+  let msg = [err.name + ': ' + err.message.replace(slash(cwd) + '/', '')];
+  msg = msg.concat(err.codeFrame.split('\n'));
+  msg.forEach((line) => {
+    console.log(`${arrow.error} ${line}`);
+  });
+
+  beeper(1);
+
+  if (!browserSync.active) {
+    process.exit(1);
+  }
+
+  this.emit('end');
+};
+
+/**
  * Error handler for Jade plugin
  *
  * @param {object} err - The error object from Jade plugin

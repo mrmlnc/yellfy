@@ -41,7 +41,7 @@ gulp.task('scripts:babel', () =>
     .pipe($.sourcemaps.init())
     .pipe($.babel({
       presets: ['es2015']
-    }))
+    }).on('error', handlers.babelError))
     .pipe(gulp.dest('.tmp/scripts'))
 );
 

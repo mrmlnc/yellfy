@@ -124,6 +124,7 @@ gulp.task('build:default', (cb) =>
   runSequence(
     'clean',
     'sprites',
+    'lint',
     ['sync', 'templates', 'scripts', 'styles'],
     cb
   )

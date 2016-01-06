@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
@@ -6,12 +8,15 @@ const del = require('del');
 const quaff = require('quaff');
 const wiredep = require('wiredep').stream;
 
+// Browser Sync
 const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 
+// Yellfy libs
 const config = require('./config');
 const handlers = require('./handlers');
 
+// Plugins for Less and PostCSS
 const lessPluginGlob = require('less-plugin-glob');
 const autoprefixer = require('autoprefixer');
 const mqpacker = require('css-mqpacker');

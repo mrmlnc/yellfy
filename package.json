@@ -37,6 +37,9 @@
     "slash": "^1.0.0",
     "wiredep": "^3.0.0"
   },
+  "scripts": {
+    "postinstall": "bower i"
+  },
   "xo": {
     "space": 2,
     "rules": {

@@ -15,6 +15,17 @@ const arrow = {
 let wiredepStatus = 0;
 
 /**
+ * Remove cwd from paths in error message
+ *
+ * @param {String} msg
+ * @param {String} cwd
+ */
+const removeCwdFromPaths = (msg, cwd) => {
+  cwd = cwd.replace(/\\/g, '\\\\') + '\\\\';
+  return slash(msg.replace(new RegExp(cwd, 'g'), ''));
+};
+
+/**
  * Handler to ignore files when synchronizing directories
  *
  * @param {String} dir
@@ -96,7 +107,7 @@ module.exports.babelError = function(err) {
  * @param {object} err - The error object from Jade plugin
  */
 module.exports.jadeError = function(err) {
-  let msg = slash(err.message.replace(cwd + '\\', '')).split('\n');
+  let msg = removeCwdFromPaths(err.message, cwd).split('\n');
   msg[0] = `${err.name}: ${msg[0]}`;
   msg.forEach((line) => {
     console.log(`${arrow.error} ${line}`);
@@ -139,7 +150,7 @@ module.exports.wiredepError = function(err) {
  * @param {object} err - The error object from Less plugin
  */
 module.exports.lessError = function(err) {
-  const msg = slash(err.message.replace(cwd + '\\', ''));
+  const msg = removeCwdFromPaths(err.message, cwd);
   console.log(`${arrow.error} ${err.type}Error: ${msg}`);
 
   err.extract.forEach((line, index) => {

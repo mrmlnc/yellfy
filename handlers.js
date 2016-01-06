@@ -11,6 +11,7 @@ const arrow = {
   warning: chalk.yellow('>>')
 };
 
+// Show error from Wiredep only one times
 let wiredepStatus = 0;
 
 /**
@@ -55,11 +56,14 @@ module.exports.syncIgnore = (dir, file) => {
  * @param {object} err - The error object from XO plugin
  */
 module.exports.xoError = function() {
+  // If this does not live work with watching
   if (!browserSync.active) {
     process.exit(1);
   }
 
   beeper(1);
+
+  // If it's live work, then output the error and continue watching
   this.emit('end');
 };
 
@@ -77,10 +81,12 @@ module.exports.babelError = function(err) {
 
   beeper(1);
 
+  // If this does not live work with watching
   if (!browserSync.active) {
     process.exit(1);
   }
 
+  // If it's live work, then output the error and continue watching
   this.emit('end');
 };
 
@@ -98,10 +104,12 @@ module.exports.jadeError = function(err) {
 
   beeper(1);
 
+  // If this does not live work with watching
   if (!browserSync.active) {
     process.exit(1);
   }
 
+  // If it's live work, then output the error and continue watching
   this.emit('end');
 };
 
@@ -147,9 +155,11 @@ module.exports.lessError = function(err) {
 
   beeper(1);
 
+  // If this does not live work with watching
   if (!browserSync.active) {
     process.exit(1);
   }
 
+  // If it's live work, then output the error and continue watching
   this.emit('end');
 };

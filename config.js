@@ -1,4 +1,19 @@
 module.exports = {
+  sync: {
+    src: [
+      'app/fonts/**',
+      'app/images/**',
+      '!app/images/icons/**',
+      'app/{scripts,styles}/vendor/**',
+      'app/*'
+    ],
+    dest: 'build',
+    ignore: [
+      'styles/*.{css,map}',
+      'scripts/*.{js,map}',
+      '*.html'
+    ]
+  },
   autoprefixer: [
     // Microsoft
     'Explorer >= 9',

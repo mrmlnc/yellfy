@@ -1,6 +1,5 @@
 'use strict';
 
-const path = require('path');
 const chalk = require('chalk');
 const slash = require('slash');
 const browserSync = require('browser-sync');
@@ -26,39 +25,22 @@ const removeCwdFromPaths = (msg, cwd) => {
 };
 
 /**
- * Handler to ignore files when synchronizing directories
+ * Error handler for files-sync plugin
  *
- * @param {String} dir
- * @param {String} file
+ * @param {object} err - The error object from files-sync plugin
  */
-module.exports.syncIgnore = (dir, file) => {
-  const filepath = slash(path.join(dir, file));
-  const ignore = [
-    // Images
-    'app/images/icons',
-    'build/images/sprite.svg',
-    // Styles
-    'app/styles/less',
-    'build/styles/styles.css',
-    'build/styles/styles.css.map',
-    // Scripts
-    'app/scripts',
-    'build/scripts/scripts.bundle.js',
-    'build/scripts/scripts.bundle.js.map',
-    // templates
-    'app/templates'
-  ];
+module.exports.filesSyncError = function(err) {
+  console.log(`${arrow.error} ${err.message}`);
 
-  return ignore.some((item) => {
-    // Ignore HTML files in build directory
-    var isBuildDir = filepath.indexOf('build/') + 1;
-    var isHtmlFile = filepath.indexOf('.html') + 1;
-    if (isBuildDir && isHtmlFile) {
-      return true;
-    }
+  // If this does not live work with watching
+  if (!browserSync.active) {
+    process.exit(1);
+  }
 
-    return filepath.indexOf(item) + 1;
-  });
+  beeper(1);
+
+  // If it's live work, then output the error and continue watching
+  this.emit('end');
 };
 
 /**

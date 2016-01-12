@@ -25,13 +25,14 @@ const mqpacker = require('css-mqpacker');
 gulp.task('clean', () => del(['.tmp', 'build'], { dot: true }));
 
 // Synchronize two directories: `app` and `build`
-gulp.task('sync', () =>
-  gulp.src('')
-    .pipe($.directorySync('app', 'build', {
-      printSummary: true,
-      ignore: handlers.syncIgnore
-    }))
-);
+gulp.task('sync', () => {
+  $.filesSync(config.sync.src, config.sync.dest, {
+    base: 'app',
+    ignoreInDest: config.sync.ignore
+  })
+    .on('error', handlers.filesSyncError)
+    .end();
+});
 
 // Linting JavaScript files
 gulp.task('lint', () =>

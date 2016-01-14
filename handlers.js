@@ -1,5 +1,7 @@
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
 const chalk = require('chalk');
 const slash = require('slash');
 const browserSync = require('browser-sync');
@@ -22,6 +24,21 @@ let wiredepStatus = 0;
 const removeCwdFromPaths = (msg, cwd) => {
   cwd = cwd.replace(/\\/g, '\\\\') + '\\\\';
   return slash(msg.replace(new RegExp(cwd, 'g'), ''));
+};
+
+/**
+ * Preparation of a list of dependencies
+ */
+module.exports.bowerSync = function() {
+  try {
+    const raw = fs.readFileSync(path.join(cwd, 'bower.json'));
+    const json = JSON.parse(raw);
+    return Object.keys(json.dependencies).map(function(filepath) {
+      return path.join('bower_components', filepath, '**');
+    });
+  } catch (err) {
+    return [];
+  }
 };
 
 /**

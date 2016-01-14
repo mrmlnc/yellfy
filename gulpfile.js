@@ -34,6 +34,15 @@ gulp.task('sync', () => {
     .end();
 });
 
+// Sync Bower dependencies
+gulp.task('sync:bower', () => {
+  $.filesSync(handlers.bowerSync(), 'build/bower_components', {
+    base: 'bower_components'
+  })
+    .on('error', handlers.filesSyncError)
+    .end();
+});
+
 // Linting JavaScript files
 gulp.task('lint', () =>
   gulp.src(['**/*.js', '!{inline,vendor}/**'], { cwd: 'app/scripts' })
@@ -142,12 +151,7 @@ gulp.task('serve', () => {
     online: false,
     notify: false,
     logPrefix: 'Yellfy',
-    server: {
-      baseDir: ['build'],
-      routes: {
-        '/bower_components': 'bower_components'
-      }
-    },
+    server: ['build'],
     port: 8000
   });
 
@@ -185,7 +189,7 @@ gulp.task('serve', () => {
     'bower.json',
     'app/templates/**/*'
   ], $.batch((events, done) =>
-    gulp.start(runSequence('templates', reload), done)
+    gulp.start(runSequence(['sync:bower', 'templates'], reload), done)
   ));
 });
 
@@ -194,12 +198,7 @@ gulp.task('server', ['build:default'], () =>
   browserSync({
     notify: false,
     logPrefix: 'Yellfy',
-    server: {
-      baseDir: ['build'],
-      routes: {
-        '/bower_components': 'bower_components'
-      }
-    },
+    server: ['build'],
     port: 8001
   })
 );

@@ -14,6 +14,13 @@ module.exports = {
       '*.html'
     ]
   },
+  jsbeautifier: {
+    indentSize: 2,
+    maxPreserveNewlines: 0,
+    extraLiners: [],
+    indentInnerHtml: true,
+    endWithNewline: true
+  },
   autoprefixer: [
     // Microsoft
     'Explorer >= 9',

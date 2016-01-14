@@ -1,0 +1,11 @@
+<div class="navbar">
+  <div class="area area-full">
+    <div class="row">
+      <nav class="navbar-list">
+        {% for link, item in _menu.navbar %}
+          <li><a href="{{ link }}">{{ item }}</a></li>
+        {% endfor %}
+      </nav>
+    </div>
+  </div>
+</div>

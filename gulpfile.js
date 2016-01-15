@@ -154,7 +154,7 @@ gulp.task('serve', () => {
 
   // Directory synchronization
   $.watch([
-    'app/images/**',
+    'app/images/**/*.{png,svg,jpg,gif}',
     '!app/images/icons/**',
     'app/scripts/vendor/**',
     'app/styles/vendor/**',

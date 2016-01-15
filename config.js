@@ -2,7 +2,7 @@ module.exports = {
   sync: {
     src: [
       'app/fonts/**',
-      'app/images/**',
+      'app/images/**/*.{png,svg,jpg,gif}',
       '!app/images/icons/**',
       'app/{scripts,styles}/vendor/**',
       'app/*'

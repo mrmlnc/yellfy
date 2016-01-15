@@ -181,11 +181,13 @@ gulp.task('serve', () => {
     gulp.start(runSequence('styles', reload), done)
   ));
 
-  // Bower & templates
-  $.watch([
-    'bower.json',
-    'app/templates/**/*'
-  ], $.batch((events, done) =>
+  // Templates
+  $.watch(['app/templates/**/*'], $.batch((events, done) =>
+    gulp.start(runSequence('templates', reload), done)
+  ));
+
+  // Bower
+  $.watch(['bower.json'], $.batch((events, done) =>
     gulp.start(runSequence(['sync:bower', 'templates'], reload), done)
   ));
 });

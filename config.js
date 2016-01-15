@@ -9,7 +9,8 @@ module.exports = {
     ],
     dest: 'build',
     ignore: [
-      'styles/*.{css,map}',
+      'styles/*.{css,map,less}',
+      'images/sprite.svg',
       'scripts/*.{js,map}',
       '*.html'
     ]

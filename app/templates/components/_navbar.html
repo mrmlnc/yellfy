@@ -1,9 +1,9 @@
-<div class="navbar">
+<div class="navbar-component">
   <div class="area area-full">
     <div class="row">
       <nav class="navbar-list">
-        {% for link, item in _menu.navbar %}
-          <li><a href="{{ link }}">{{ item }}</a></li>
+        {% for name, href in _menu.navbar %}
+          <a href="{{ href }}">{{ name }}</a>
         {% endfor %}
       </nav>
     </div>

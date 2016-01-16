@@ -101,13 +101,14 @@ module.exports.babelError = function(err) {
 };
 
 /**
- * Error handler for Jade plugin
+ * Error handler for Nunjucks plugin
  *
- * @param {object} err - The error object from Jade plugin
+ * @param {object} err - The error object from Nunjucks plugin
  */
-module.exports.jadeError = function(err) {
-  let msg = removeCwdFromPaths(err.message, cwd).split('\n');
-  msg[0] = `${err.name}: ${msg[0]}`;
+module.exports.nunjucksError = function(err) {
+  const filePath = removeCwdFromPaths(err.fileName, cwd);
+  let msg = [`The main file: ${filePath}`];
+  msg = msg.concat(removeCwdFromPaths(err.message, cwd).split('\n'));
   msg.forEach((line) => {
     console.log(`${arrow.error} ${line}`);
   });

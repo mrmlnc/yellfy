@@ -86,7 +86,7 @@ gulp.task('styles', () =>
 // Compile Jade files, inject Bower components and contents of the inline files
 gulp.task('templates', () =>
   gulp.src('app/templates/*.html')
-    .pipe($.nunjucks.compile(quaff('app/templates/data')))
+    .pipe($.nunjucks.compile(quaff('app/templates/data')).on('error', handlers.nunjucksError))
     .pipe($.jsbeautifier(config.jsbeautifier))
     .pipe(wiredep({
       onError: handlers.wiredepError

@@ -59,7 +59,7 @@
   margin-bottom: @spacer;
 
   & > label {
-    padding-left: 1.4em;
+    display: block;
     margin-bottom: 0;
     font-weight: 400;
     cursor: pointer;
@@ -67,9 +67,8 @@
 
   input[type="checkbox"],
   input[type="radio"] {
-    position: absolute;
-    margin-top: .35em;
-    margin-left: -1.4em;
+    margin-top: -.2em;
+    vertical-align: middle;
 
     &:focus {
       outline: 0;

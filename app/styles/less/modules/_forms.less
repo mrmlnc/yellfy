@@ -3,7 +3,7 @@
 .form-control {
   display: block;
   width: 100%;
-  padding: .5em .8em;
+  padding: @form-input-padding-y @form-input-padding-x;
   font-size: @form-input-font-size;
   line-height: @line-height;
   background-color: @form-input-bg;
@@ -29,9 +29,8 @@
   }
 
   // Alignment height
-  select& {
-    padding-top: .608em;
-    padding-bottom: .608em;
+  select:not([multiple])& {
+    height: (@form-input-padding-y + @line-height * @font-size-base + (1 / (@font-size-base * 10)));
   }
 
   // [iOS] The vertical alignment of the label for the field of type file

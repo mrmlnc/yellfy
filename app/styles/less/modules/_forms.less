@@ -28,6 +28,11 @@
     color: @form-input-placeholder-color;
   }
 
+  // Alignment height for select
+  select:not([multiple])& {
+    height: @form-input-height;
+  }
+
   // [iOS] The vertical alignment of the label for the field of type file
   input[type="file"]& {
     line-height: 1;
@@ -63,6 +68,7 @@
   input[type="checkbox"],
   input[type="radio"] {
     vertical-align: middle;
+    margin-top: -.2em;
 
     &:focus {
       outline: 0;

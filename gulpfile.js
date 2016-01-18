@@ -84,15 +84,16 @@ gulp.task('styles', () =>
 );
 
 // Compile Jade files, inject Bower components and contents of the inline files
-gulp.task('templates', () =>
-  gulp.src('app/templates/*.html')
-    .pipe($.nunjucks.compile(quaff('app/templates/data')).on('error', handlers.nunjucksError))
+gulp.task('templates', () => {
+  const data = quaff('app/templates/data');
+  return gulp.src('app/templates/*.html')
+    .pipe($.nunjucks.compile(data).on('error', handlers.nunjucksError))
     .pipe($.jsbeautifier(config.jsbeautifier))
     .pipe(wiredep({
       onError: handlers.wiredepError
     }))
-    .pipe(gulp.dest('build'))
-);
+    .pipe(gulp.dest('build'));
+});
 
 // Generating SVG sprite
 gulp.task('sprites', () =>

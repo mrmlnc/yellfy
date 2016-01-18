@@ -31,7 +31,7 @@
     "gulp-watch": "^4.3.5",
     "gulp-xo": "^0.7.0",
     "less-plugin-glob": "^1.1.1",
-    "quaff": "^1.1.0",
+    "quaff": "^2.0.0",
     "run-sequence": "^1.1.5",
     "slash": "^1.0.0",
     "wiredep": "^3.0.0"

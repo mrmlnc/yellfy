@@ -7,6 +7,8 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const quaff = require('quaff');
 const wiredep = require('wiredep').stream;
+const CleanCSS = require('clean-css');
+const map = require('vinyl-map');
 
 // Browser Sync
 const browserSync = require('browser-sync');
@@ -110,12 +112,13 @@ gulp.task('compress:scripts', () =>
     .pipe(gulp.dest('build/scripts'))
 );
 
-gulp.task('compress:styles', () =>
-  gulp.src('build/styles/styles.css')
-    .pipe($.minifyCss())
+gulp.task('compress:styles', () => {
+  const minify = map((buff) => new CleanCSS().minify(buff.toString()).styles);
+  return gulp.src('build/styles/styles.css')
+    .pipe(minify)
     .pipe($.rename('styles.min.css'))
-    .pipe(gulp.dest('build/styles'))
-);
+    .pipe(gulp.dest('build/styles'));
+});
 
 gulp.task('compress:images', () =>
   gulp.src(['build/images/**/*'])

@@ -8,6 +8,7 @@
     "beeper": "^1.1.0",
     "browser-sync": "2.11.0",
     "chalk": "^1.1.1",
+    "clean-css": "^3.4.9",
     "css-mqpacker": "^4.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
@@ -20,7 +21,6 @@
     "gulp-jsbeautifier": "^1.0.1",
     "gulp-less": "^3.0.5",
     "gulp-load-plugins": "^1.2.0",
-    "gulp-minify-css": "=1.2.2",
     "gulp-newer": "^1.1.0",
     "gulp-nunjucks": "^2.1.1",
     "gulp-postcss": "^6.0.1",
@@ -34,6 +34,7 @@
     "quaff": "^2.0.0",
     "run-sequence": "^1.1.5",
     "slash": "^1.0.0",
+    "vinyl-map": "^1.0.1",
     "wiredep": "^3.0.0"
   },
   "scripts": {

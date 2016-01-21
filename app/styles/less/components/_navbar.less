@@ -5,25 +5,35 @@
 @navbar-breakpoint:                    @grid-breakpoint-sm;
 @navbar-item-padding:                  15px;
 
+@navbar-item-color:                    @body-color;
+@navbar-item-active-color:             @brand-primary;
+
 .navbar-component {
   background-color: @navbar-bg;
 
   .navbar-list {
     display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: stretch;
+    flex-basis: 100%;
+    flex-flow: column nowrap;
+    justify-content: center;
 
     @media (min-width: @navbar-breakpoint) {
       margin-right: -@navbar-item-padding;
       margin-left: -@navbar-item-padding;
       flex-direction: row;
-      align-items: center;
+      justify-content: flex-start;
     }
 
     & > a {
       display: block;
       padding: @navbar-item-padding;
+      color: @navbar-item-color;
+      text-align: center;
+
+      &:hover,
+      &:focus {
+        color: @navbar-item-active-color;
+      }
     }
   }
 }

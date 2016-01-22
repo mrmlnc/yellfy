@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.language }}">
   <head>
     {% include "../partials/_head.html" %}
   </head>
-  <body class="{{ pagename }}">
+  <body class="{{ page.name }}">
     {% block header %}{% endblock %}
     {% block main %}{% endblock %}
     {% block footer %}{% endblock %}

@@ -1,6 +1,12 @@
 {% extends "layouts/_default.html" %}
 
-{% set pagename = "home" %}
+{% set page = {
+  language: "ru",
+  name: "home",
+  title: "Yellfy",
+  appTitle: "Yellfy",
+  description: "Your great page description"
+} %}
 
 {% block header %}
   {% include "partials/_header.html" %}

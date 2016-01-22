@@ -1,6 +1,6 @@
 {
   "navbar": {
     "Home": "/",
-    "Test page": "#testpage"
+    "Yellfy CLI": "https://www.npmjs.com/package/yellfy-cli"
   }
 }

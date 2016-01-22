@@ -22,7 +22,7 @@ Yellfy построен на [Normalize.css](http://necolas.github.io/normalize.
 
 ##### Технологии
 
-Yellfy использует препроцессор [Nunjucks](https://mozilla.github.io/nunjucks/) для шаблонов, [Less](http://lesscss.org/) для стилей, [Autoprefixer](https://github.com/postcss/autoprefixer) для автоматичекой расстановки префиксов, [Babel](https://babeljs.io/) для современного JavaScript, [XO](https://github.com/sindresorhus/xo) для проверки JavaScript-кода, [BrowserSync](https://www.browsersync.io/) для синхронизации и перезагрузки состояния страниц на устройствах, а также многие другие технологии, позволяющие упростить процесс разработки.
+Yellfy использует сборщик [Gulp](http://gulpjs.com/), препроцессор [Nunjucks](https://mozilla.github.io/nunjucks/) для шаблонов, [Less](http://lesscss.org/) для стилей, [Autoprefixer](https://github.com/postcss/autoprefixer) для автоматичекой расстановки префиксов, [Babel](https://babeljs.io/) для современного JavaScript, [XO](https://github.com/sindresorhus/xo) для проверки JavaScript-кода, [BrowserSync](https://www.browsersync.io/) для синхронизации и перезагрузки состояния страниц на устройствах, а также многие другие технологии, позволяющие упростить процесс разработки.
 
 ## Установка
 

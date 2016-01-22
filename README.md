@@ -24,6 +24,35 @@ Yellfy построен на [Normalize.css](http://necolas.github.io/normalize.
 
 Yellfy использует препроцессор [Nunjucks](https://mozilla.github.io/nunjucks/) для шаблонов, [Less](http://lesscss.org/) для стилей, [Autoprefixer](https://github.com/postcss/autoprefixer) для автоматичекой расстановки префиксов, [Babel](https://babeljs.io/) для современного JavaScript, [XO](https://github.com/sindresorhus/xo) для проверки JavaScript-кода, [BrowserSync](https://www.browsersync.io/) для синхронизации и перезагрузки состояния страниц на устройствах, а также многие другие технологии, позволяющие упростить процесс разработки.
 
+## Установка
+
+Для установки Yellfy можно использовать специальную консольную утилиту [yellfy-cli](https://www.npmjs.com/package/yellfy-cli):
+
+```shell
+$ npm i -g yellfy-cli && yellfy -h
+```
+
+Или Git:
+
+```shell
+$ git clone git://github.com/mrmlnc/yellfy project-name && npm i
+```
+
+## Поддержка браузеров
+
+Yellfy использует flexbox для более эффективного распределения информации в блоках, что накладывает некоторые ограничения:
+
+  * Chrome 34+
+  * Android WebView 4.4+
+  * Firefox 30+
+  * Safari 7+
+  * iOS 7+
+  * Opera 12+
+  * Internet Explorer 10+
+  * Internet Explorer Mobile 10+
+  * Edge 12+
+  * Blackberry browser 10+
+
 ## License
 
 MIT

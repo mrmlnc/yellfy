@@ -139,8 +139,7 @@ gulp.task('compress', [
 gulp.task('build:default', (cb) =>
   runSequence(
     'clean',
-    'sprites',
-    'lint',
+    ['sprites', 'lint'],
     ['sync', 'templates', 'scripts', 'styles'],
     cb
   )

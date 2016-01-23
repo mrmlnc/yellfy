@@ -58,6 +58,12 @@ $ gulp
 | `$ gulp sprites`    | Generating SVG sprite                                                       |
 | `$ gulp compress`   | Compression of the generated files.                                         |
 
+For a complete list of the commands, run the following command:
+
+```shell
+$ gulp --tasks
+```
+
 ## Browser support
 
 Yellfy uses **flexbox** for more efficient distribution of information in blocks that imposes some restrictions:

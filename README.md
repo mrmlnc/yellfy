@@ -28,6 +28,10 @@ Yellfy создан людьми для людей, которым свойст�
 
 Yellfy использует сборщик [Gulp](http://gulpjs.com/), препроцессор [Nunjucks](https://mozilla.github.io/nunjucks/) для шаблонов, [Less](http://lesscss.org/) для стилей, [Autoprefixer](https://github.com/postcss/autoprefixer) для автоматичекой расстановки префиксов, [Babel](https://babeljs.io/) для современного JavaScript, [XO](https://github.com/sindresorhus/xo) для проверки JavaScript-кода, [BrowserSync](https://www.browsersync.io/) для синхронизации и перезагрузки состояния страниц на устройствах, а также многие другие технологии, позволяющие упростить процесс разработки.
 
+## Системные требования
+
+Yellfy требует наличие современной версии [Node.js](http://nodejs.org/) и глобально установленного [Bower](http://bower.io/).
+
 ## Установка
 
 Для установки Yellfy можно использовать специальную консольную утилиту [yellfy-cli](https://www.npmjs.com/package/yellfy-cli):
@@ -41,6 +45,26 @@ $ npm i -g yellfy-cli && yellfy -h
 ```shell
 $ git clone git://github.com/mrmlnc/yellfy project-name && npm i
 ```
+
+## Описание задач
+
+#### Основные задачи
+
+  * `$ gulp` — Задача запускает полный цикл сборки проекта и сервер на `8000` порту.
+  * `$ gulp build` — Полный цикл сборки проекта и минификация скомпилированных файлов.
+  * `$ gulp server` — Запуск сервера на `80` порту для демонстрации проекта.
+
+#### Вспомогательные задачи
+
+  * `$ gulp clean` — Очистка временной директории и директории сборок.
+  * `$ gulp sync` — Односторонняя синхронизация основных файлов проекта не подлежащих компиляции.
+  * `$ gulp sync:bower` — Односторонняя синхронизация зависимостей Bower в директорию сборок.
+  * `$ gulp lint` — Проверка скриптов.
+  * `$ gulp scripts` — Трансформация ES2015 файлов в ES5 и их конкатенация в один общий файл.
+  * `$ gulp styles` — Компиляция Less-файлов в CSS-файл и его последующая обработка с помощью PostCSS.
+  * `$ gulp templates` — Компиляция файлов шаблонизатора Nunjucks, их реиндентация и встраивание зависимостей Bower.
+  * `$ gulp sprites` — Создание SVG-спрайта.
+  * `$ gulp compress` — Минификация JS- и CSS-файлов, а также изображений.
 
 ## Поддержка браузеров
 
@@ -56,6 +80,49 @@ Yellfy использует flexbox для более эффективного �
   * Internet Explorer Mobile 10+
   * Edge 12+
   * Blackberry browser 10+
+
+# Technology
+
+## Core
+
+  * [Gulp](http://gulpjs.com) — Automate and enhance your workflow.
+  * [BrowserSync](https://www.browsersync.io) — Time-saving synchronised browser testing.
+  * [gulp-files-sync](https://www.npmjs.com/package/gulp-files-sync) — One-way synchronization of directories.
+
+## Templates
+
+  * [Nunjucks](https://mozilla.github.io/nunjucks) — A rich and powerful templating language for JavaScript.
+    * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
+  * [gulp-jsbeautifier](https://www.npmjs.com/package/gulp-jsbeautifier) — Reformat and reindent HTML files.
+  * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.
+
+## Stylesheets
+
+  * [Less](http://lesscss.org) — Less makes CSS fun again.
+    * [less-plugin-glob](https://www.npmjs.com/package/less-plugin-glob) — Globbing support for LESS.
+  * [CleanCSS](https://www.npmjs.com/package/clean-css) — CSS Optimization.
+  * [PostCSS](https://www.npmjs.com/package/postcss) — A tool for transforming styles with JS plugins.
+    * [Autoprefixer](https://www.npmjs.com/package/autoprefixer) — Parse CSS and add vendor prefixes to rules by Can I Use.
+    * [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — Pack same CSS media query rules into one media query rule.
+
+## Scripts
+
+  * [Babel](https://babeljs.io/) — A compiler for writing next generation JavaScript.
+    * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
+  * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.
+  * [UglifyJS](https://www.npmjs.com/package/uglify-js) — A JavaScript parser, minifier, compressor or beautifier toolkit.
+
+## Images
+
+  * [imagemin](https://www.npmjs.com/package/imagemin) — Minify images seamlessly.
+  * [svg-sprite](https://www.npmjs.com/package/svg-sprite) — Optimize SVG files and creating SVG sprites.
+
+## Miscellaneous
+
+  * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — File watcher that uses super-fast chokidar.
+  * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — Passing through only those source files that are newer than corresponding destination files.
+  * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) — Source map support for Gulp.js.
+
 
 ## License
 

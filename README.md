@@ -75,20 +75,25 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 
 ## Technology
 
-#### Core
+##### Front-end
+
+  * [Normalize.css](http://necolas.github.io/normalize.css) — A modern, HTML5-ready alternative to CSS resets.
+  * [XY (flexbox)](https://github.com/mrmlnc/xy-flexbox) — is a small and very flexible collection of mixins for building grids based on flexbox.
+
+##### Core
 
   * [Gulp](http://gulpjs.com) — Automate and enhance your workflow.
   * [BrowserSync](https://www.browsersync.io) — Time-saving synchronised browser testing.
   * [gulp-files-sync](https://www.npmjs.com/package/gulp-files-sync) — One-way synchronization of directories.
 
-#### Templates
+##### Templates
 
   * [Nunjucks](https://mozilla.github.io/nunjucks) — A rich and powerful templating language for JavaScript.
     * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
   * [gulp-jsbeautifier](https://www.npmjs.com/package/gulp-jsbeautifier) — Reformat and reindent HTML files.
   * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.
 
-#### Stylesheets
+##### Stylesheets
 
   * [Less](http://lesscss.org) — Less makes CSS fun again.
     * [less-plugin-glob](https://www.npmjs.com/package/less-plugin-glob) — Globbing support for LESS.
@@ -97,19 +102,19 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
     * [Autoprefixer](https://www.npmjs.com/package/autoprefixer) — Parse CSS and add vendor prefixes to rules by Can I Use.
     * [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — Pack same CSS media query rules into one media query rule.
 
-#### Scripts
+##### Scripts
 
   * [Babel](https://babeljs.io/) — A compiler for writing next generation JavaScript.
     * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
   * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.
   * [UglifyJS](https://www.npmjs.com/package/uglify-js) — A JavaScript parser, minifier, compressor or beautifier toolkit.
 
-#### Images
+##### Images
 
   * [imagemin](https://www.npmjs.com/package/imagemin) — Minify images seamlessly.
   * [svg-sprite](https://www.npmjs.com/package/svg-sprite) — Optimize SVG files and creating SVG sprites.
 
-#### Miscellaneous
+##### Miscellaneous
 
   * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — File watcher that uses super-fast chokidar.
   * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — Passing through only those source files that are newer than corresponding destination files.

@@ -23,13 +23,13 @@ Yellfy requires a modern version of [Node.js](http://nodejs.org/) and globally i
 
 To install Yellfy, you can use a command-line utility [yellfy-cli](https://www.npmjs.com/package/yellfy-cli):
 
-```shell
+```
 $ npm i -g yellfy-cli && yellfy -h
 ```
 
 Or Git:
 
-```shell
+```
 $ git clone git://github.com/mrmlnc/yellfy project-name && npm i
 ```
 
@@ -37,7 +37,7 @@ $ git clone git://github.com/mrmlnc/yellfy project-name && npm i
 
 Just run the following command at your console:
 
-```shell
+```
 $ gulp
 ```
 
@@ -60,7 +60,7 @@ $ gulp
 
 For a complete list of the commands, run the following command:
 
-```shell
+```
 $ gulp --tasks
 ```
 

@@ -201,7 +201,7 @@ gulp.task('server', ['build:default'], () =>
     notify: false,
     logPrefix: 'Yellfy',
     server: ['build'],
-    port: 8001
+    port: 80
   })
 );
 

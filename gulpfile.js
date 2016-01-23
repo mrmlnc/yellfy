@@ -59,12 +59,13 @@ gulp.task('scripts:babel', () =>
     .pipe($.babel({
       presets: ['es2015']
     }).on('error', handlers.babelError))
+    .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/scripts'))
 );
 
 gulp.task('scripts', ['scripts:babel'], () =>
   gulp.src('.tmp/scripts/**/*.js')
-    .pipe($.sourcemaps.init())
+    .pipe($.sourcemaps.init({ loadMaps: true }))
     .pipe($.concat('scripts.bundle.js'))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('build/scripts'))

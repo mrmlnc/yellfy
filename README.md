@@ -11,7 +11,7 @@
 | Feature      | Summary                                                                                                                                                                                                                                |
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automation   | Yellfy optimized for continuous development. Just run Yellfy and write code. The process of adding images into the build, creating sprites, compiling preprocessor files and many other processes will be automatically performed.     |
-| Modularity   | Yellfy aims to make the project modular. Template files and styles files are divided into modules, so you can copy them from your project to the project when necessary. Style files will be picked up and are compiled automatically. |
+| Modularity   | Yellfy aims to make the project modular. Template files and styles files are divided into modules, so you can copy them from project to the project when necessary. Style files will be picked up and are compiled automatically.      |
 | adaptability | Yellfy built with [Normalize.css](http://necolas.github.io/normalize.css/) and includes a small CSS framework that combines only the most necessary: typography, lists, buttons, forms and tables.                                     |
 | Friendliness | Yellfy created by people for people who make mistakes. Therefore, almost any errors that occur during the development process, will be processed and displayed in a concise and easy for understanding form.                           |
 

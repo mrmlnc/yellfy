@@ -1,8 +1,8 @@
 {
   "name": "yellfy",
+  "private": true,
   "dependencies": {},
   "devDependencies": {
     "xy-flexbox": "~1.0.2"
-  },
-  "private": true
+  }
 }

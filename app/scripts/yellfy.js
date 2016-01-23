@@ -16,9 +16,10 @@
     if (req.readyState === 4) {
       if (req.status === 200) {
         _responseHandler(req.responseText);
-      } else {
-        throw new Error('Error loading page\n');
+        return;
       }
+
+      throw new Error('Error loading page\n');
     }
   };
 

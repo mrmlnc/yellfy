@@ -85,7 +85,7 @@ gulp.task('styles', () =>
     .pipe(gulp.dest('build/styles'))
 );
 
-// Compile Jade files, inject Bower components and contents of the inline files
+// Compile Nunjucks files and inject Bower components.
 gulp.task('templates', () => {
   const data = quaff('app/templates/data');
   return gulp.src('app/templates/*.html')
@@ -104,7 +104,7 @@ gulp.task('sprites', () =>
     .pipe(gulp.dest('build'))
 );
 
-// Compression built files
+// Compression of the generated files
 gulp.task('compress:scripts', () =>
   gulp.src('build/scripts/scripts.bundle.js')
     .pipe($.uglify())
@@ -135,7 +135,7 @@ gulp.task('compress', [
   'compress:images'
 ]);
 
-// Builds the project to develop
+// Build the project to develop
 gulp.task('build:default', (cb) =>
   runSequence(
     'clean',
@@ -145,7 +145,7 @@ gulp.task('build:default', (cb) =>
   )
 );
 
-// Builds the project, runs the server and Watch files for changes & reload
+// Build the project, runs the server and Watch files for changes & reload
 gulp.task('serve', () => {
   browserSync({
     online: false,

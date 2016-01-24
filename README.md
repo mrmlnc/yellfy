@@ -1,6 +1,6 @@
 # Yellfy
 
-> A simple set of tools for building fast, adaptive and modern Web application or site that is easy to maintain in the future.
+> A simple set of tools for building fast, adaptive and modern web application or website that is easy to maintain in the future.
 
 ## Overview
 

@@ -106,7 +106,6 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
   * [CleanCSS](https://www.npmjs.com/package/clean-css) — CSS Optimization.
   * [PostCSS](https://www.npmjs.com/package/postcss) — A tool for transforming styles with JS plugins.
     * [Autoprefixer](https://www.npmjs.com/package/autoprefixer) — Parse CSS and add vendor prefixes to rules by Can I Use.
-    * [CSS MQPacker](https://www.npmjs.com/package/css-mqpacker) — Pack same CSS media query rules into one media query rule.
 
 ##### Scripts
 

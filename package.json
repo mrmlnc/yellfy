@@ -9,7 +9,6 @@
     "browser-sync": "2.11.0",
     "chalk": "^1.1.1",
     "clean-css": "^3.4.9",
-    "css-mqpacker": "^4.0.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.1",

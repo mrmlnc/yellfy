@@ -21,7 +21,6 @@ const handlers = require('./handlers');
 // Plugins for Less and PostCSS
 const lessPluginGlob = require('less-plugin-glob');
 const autoprefixer = require('autoprefixer');
-const mqpacker = require('css-mqpacker');
 
 // Cleaning the temporary directory and directory of builds
 gulp.task('clean', () => del(['.tmp', 'build'], { dot: true }));
@@ -79,8 +78,7 @@ gulp.task('styles', () =>
       plugins: [lessPluginGlob]
     }).on('error', handlers.lessError))
     .pipe($.postcss([
-      autoprefixer({ browsers: config.autoprefixer }),
-      mqpacker
+      autoprefixer({ browsers: config.autoprefixer })
     ]))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('build/styles'))

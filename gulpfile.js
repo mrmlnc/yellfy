@@ -218,8 +218,4 @@ gulp.task('server', gulp.series('build:default', () =>
 
 // General building tasks
 gulp.task('default', gulp.series('build:default', 'serve'));
-gulp.task('build', gulp.series(
-  'build:default',
-  'compress',
-  () => del(['.tmp'], { dot: true })
-));
+gulp.task('build', gulp.series('build:default', 'compress'));

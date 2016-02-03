@@ -34,7 +34,7 @@ module.exports.bowerSync = function() {
     const raw = fs.readFileSync(path.join(cwd, 'bower.json'));
     const json = JSON.parse(raw);
     return Object.keys(json.dependencies).map(function(filepath) {
-      return path.join('bower_components', filepath, '**');
+      return path.join('bower_components', filepath, '/');
     });
   } catch (err) {
     return [];

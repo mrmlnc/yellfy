@@ -39,12 +39,14 @@ gulp.task('sync', (done) => {
 
 // Sync Bower dependencies
 gulp.task('sync:bower', (done) => {
-  $.filesSync(handlers.bowerSync(), 'build/bower_components', {
-    base: 'bower_components'
-  })
-    .on('error', handlers.filesSyncError)
-    .on('end', done)
-    .end();
+  const bowerDeps = handlers.bowerSync();
+
+  if (!bowerDeps.length) {
+    return done();
+  }
+
+  return gulp.src(bowerDeps, { read: false })
+    .pipe(gulp.symlink('build/bower_components'));
 });
 
 // Linting JavaScript files

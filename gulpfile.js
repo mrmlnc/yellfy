@@ -28,9 +28,20 @@ gulp.task('reload', () => browserSync.reload());
 
 // Synchronize two directories: `app` and `build`
 gulp.task('sync', (done) => {
-  $.filesSync(config.sync.src, config.sync.dest, {
+  $.filesSync([
+    'app/fonts/**',
+    'app/images/**/*.{png,svg,jpg,gif}',
+    '!app/images/icons/**',
+    'app/{scripts,styles}/vendor/**',
+    'app/*'
+  ], 'build', {
     base: 'app',
-    ignoreInDest: config.sync.ignore
+    ignoreInDest: [
+      'styles/*.{css,map,less}',
+      'images/sprite.svg',
+      'scripts/*.{js,map}',
+      '*.html'
+    ]
   })
     .on('error', handlers.filesSyncError)
     .on('end', done)

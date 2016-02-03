@@ -3,7 +3,6 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
-const runSequence = require('run-sequence');
 const del = require('del');
 const quaff = require('quaff');
 const wiredep = require('wiredep').stream;
@@ -12,7 +11,6 @@ const map = require('vinyl-map');
 
 // Browser Sync
 const browserSync = require('browser-sync');
-const reload = browserSync.reload;
 
 // Yellfy libs
 const config = require('./config');
@@ -25,22 +23,27 @@ const autoprefixer = require('autoprefixer');
 // Cleaning the temporary directory and directory of builds
 gulp.task('clean', () => del(['.tmp', 'build'], { dot: true }));
 
+// Browser Sync reload
+gulp.task('reload', () => browserSync.reload());
+
 // Synchronize two directories: `app` and `build`
-gulp.task('sync', () => {
+gulp.task('sync', (done) => {
   $.filesSync(config.sync.src, config.sync.dest, {
     base: 'app',
     ignoreInDest: config.sync.ignore
   })
     .on('error', handlers.filesSyncError)
+    .on('end', done)
     .end();
 });
 
 // Sync Bower dependencies
-gulp.task('sync:bower', () => {
+gulp.task('sync:bower', (done) => {
   $.filesSync(handlers.bowerSync(), 'build/bower_components', {
     base: 'bower_components'
   })
     .on('error', handlers.filesSyncError)
+    .on('end', done)
     .end();
 });
 
@@ -60,15 +63,17 @@ gulp.task('scripts:babel', () =>
     }).on('error', handlers.babelError))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('.tmp/scripts'))
-);
+  );
 
-gulp.task('scripts', ['scripts:babel'], () =>
+gulp.task('scripts:concat', () =>
   gulp.src('.tmp/scripts/**/*.js')
     .pipe($.sourcemaps.init({ loadMaps: true }))
     .pipe($.concat('scripts.bundle.js'))
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('build/scripts'))
-);
+  );
+
+gulp.task('scripts', gulp.series('scripts:babel', 'scripts:concat'));
 
 // Compile Less files, add vendor prefixes to rules and combine media queries
 gulp.task('styles', () =>
@@ -128,21 +133,18 @@ gulp.task('compress:images', () =>
     .pipe(gulp.dest('build/images'))
 );
 
-gulp.task('compress', [
+gulp.task('compress', gulp.parallel(
   'compress:scripts',
   'compress:styles',
   'compress:images'
-]);
+));
 
 // Build the project to develop
-gulp.task('build:default', (cb) =>
-  runSequence(
-    'clean',
-    ['sprites', 'lint'],
-    ['sync', 'templates', 'scripts', 'styles'],
-    cb
-  )
-);
+gulp.task('build:default', gulp.series(
+  'clean',
+  gulp.parallel('sprites', 'lint'),
+  gulp.parallel('sync', 'sync:bower', 'templates', 'scripts', 'styles')
+));
 
 // Build the project, runs the server and Watch files for changes & reload
 gulp.task('serve', () => {
@@ -155,57 +157,56 @@ gulp.task('serve', () => {
   });
 
   // Directory synchronization
-  $.watch([
+  gulp.watch([
     'app/images/**/*.{png,svg,jpg,gif}',
     '!app/images/icons/**',
     'app/scripts/vendor/**',
     'app/styles/vendor/**',
     'app/*'
-  ], $.batch((events, done) =>
-    gulp.start(runSequence('sync', reload), done)
-  ));
+  ], gulp.series('sync', 'reload'));
 
   // Scripts
-  $.watch([
+  gulp.watch([
     'app/scripts/**/*.js',
     '!app/scripts/{vendor,inline}'
-  ], $.batch((events, done) =>
-    gulp.start(runSequence('lint', 'scripts', reload), done)
-  ));
+  ], gulp.series('lint', 'scripts', 'reload'));
 
   // Sprites
-  $.watch(['app/images/icons/**/*.svg'], $.batch((events, done) =>
-    gulp.start(runSequence('sprites', 'styles', reload), done)
-  ));
+  gulp.watch(
+    ['app/images/icons/**/*.svg'],
+    gulp.series('sprites', 'styles', 'reload')
+  );
 
   // Styles
-  $.watch(['app/styles/less/**/*.less'], $.batch((events, done) =>
-    gulp.start(runSequence('styles', reload), done)
-  ));
+  gulp.watch(
+    ['app/styles/less/**/*.less'],
+    gulp.series('styles', 'reload')
+  );
 
   // Templates
-  $.watch(['app/templates/**/*'], $.batch((events, done) =>
-    gulp.start(runSequence('templates', reload), done)
-  ));
+  gulp.watch(['app/templates/**/*'], gulp.series('templates', 'reload'));
 
   // Bower
-  $.watch(['bower.json'], $.batch((events, done) =>
-    gulp.start(runSequence(['sync:bower', 'templates'], reload), done)
+  gulp.watch(['bower.json'], gulp.series(
+    gulp.parallel('sync:bower', 'templates'),
+    'reload'
   ));
 });
 
 // Build and runs the server
-gulp.task('server', ['build:default'], () =>
+gulp.task('server', gulp.series('build:default', () =>
   browserSync({
     notify: false,
     logPrefix: 'Yellfy',
     server: ['build'],
     port: 80
   })
-);
+));
 
 // General building tasks
-gulp.task('default', (cb) => runSequence('build:default', 'serve', cb));
-gulp.task('build', () =>
-  runSequence('build:default', 'compress', () => del(['.tmp'], { dot: true })
+gulp.task('default', gulp.series('build:default', 'serve'));
+gulp.task('build', gulp.series(
+  'build:default',
+  'compress',
+  () => del(['.tmp'], { dot: true })
 ));

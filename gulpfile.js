@@ -38,7 +38,6 @@ gulp.task('sync', (done) => {
     base: 'app',
     ignoreInDest: [
       'styles/*.{css,map,less}',
-      'images/sprite.svg',
       'scripts/*.{js,map}',
       '*.html'
     ]
@@ -114,13 +113,6 @@ gulp.task('templates', () => {
     .pipe(gulp.dest('build'));
 });
 
-// Generating SVG sprite
-gulp.task('sprites', () =>
-  gulp.src('app/images/icons/**/*.svg')
-    .pipe($.svgSprite(config.svgSprite).on('error', console.log))
-    .pipe(gulp.dest('build'))
-);
-
 // Compression of the generated files
 gulp.task('compress:scripts', () =>
   gulp.src('build/scripts/scripts.bundle.js')
@@ -155,7 +147,7 @@ gulp.task('compress', gulp.parallel(
 // Build the project to develop
 gulp.task('build:default', gulp.series(
   'clean',
-  gulp.parallel('sprites', 'lint'),
+  gulp.parallel('lint'),
   gulp.parallel('sync', 'sync:bower', 'templates', 'scripts', 'styles')
 ));
 
@@ -183,12 +175,6 @@ gulp.task('serve', () => {
     'app/scripts/**/*.js',
     '!app/scripts/{vendor,inline}'
   ], gulp.series('lint', 'scripts', 'reload'));
-
-  // Sprites
-  gulp.watch(
-    ['app/images/icons/**/*.svg'],
-    gulp.series('sprites', 'styles', 'reload')
-  );
 
   // Styles
   gulp.watch(

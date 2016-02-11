@@ -117,7 +117,6 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 ##### Images
 
   * [imagemin](https://www.npmjs.com/package/imagemin) — Minify images seamlessly.
-  * [svg-sprite](https://www.npmjs.com/package/svg-sprite) — Optimize SVG files and creating SVG sprites.
 
 ##### Miscellaneous
 

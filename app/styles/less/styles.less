@@ -9,14 +9,13 @@
 @import "mixins/**";
 
 // Library
-@import "library/_normalize";
-@import "library/_print";
+@import "modules/_normalize";
 
 // Package managers
 @import "@{bowerDir}/xy-flexbox/xy";
 
 // Modules
-@import "modules/**";
+@import "modules/!(_normalize)**";
 @import "components/**";
 @import "partials/**";
 @import "pages/**";

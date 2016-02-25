@@ -124,6 +124,16 @@ module.exports.nunjucksError = function(err) {
   this.emit('end');
 };
 
+module.exports.injectHandler = function(filepath, file) {
+  if (file.extname === '.js') {
+    return `<script>${file.contents.toString('utf8')}</script>`;
+  } else if (file.extname === '.css') {
+    return `<style>${file.contents.toString('utf8')}</style>`;
+  }
+
+  return file.contents.toString('utf8');
+};
+
 /**
  * Error handler for Wiredep plugin
  *

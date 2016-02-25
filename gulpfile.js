@@ -110,6 +110,12 @@ gulp.task('templates', () => {
     .pipe(wiredep({
       onError: handlers.wiredepError
     }))
+    .pipe($.inject(gulp.src([
+      'app/{scripts,styles}/inline/**/*.{js,css}',
+      'app/images/icons/symbol-defs.svg'
+    ]), {
+      transform: handlers.injectHandler
+    }))
     .pipe(gulp.dest('build'));
 });
 

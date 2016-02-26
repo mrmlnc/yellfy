@@ -124,7 +124,9 @@ gulp.task('compress:scripts', () =>
 );
 
 gulp.task('compress:styles', () => {
-  const minify = vinylMap((buff) => new CleanCSS().minify(buff.toString()).styles);
+  const minify = vinylMap((buff) =>
+    new CleanCSS().minify(buff.toString()).styles);
+
   return gulp.src('build/styles/styles.css')
     .pipe(minify)
     .pipe($.rename('styles.min.css'))

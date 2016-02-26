@@ -168,8 +168,7 @@ gulp.task('serve', () => {
 
   // Directory synchronization
   gulp.watch([
-    'app/images/**/*.{png,svg,jpg,gif}',
-    '!app/images/icons/**',
+    'app/images/**/*.{gif,jpg,png,svg}',
     'app/{scripts,styles}/vendor/**',
     'app/*'
   ], gulp.series('sync', 'reload'));

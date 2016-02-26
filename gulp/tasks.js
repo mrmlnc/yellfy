@@ -7,7 +7,7 @@ const del = require('del');
 const quaff = require('quaff');
 const wiredep = require('wiredep').stream;
 const CleanCSS = require('clean-css');
-const map = require('vinyl-map');
+const vinylMap = require('vinyl-map');
 
 // Browser Sync
 const browserSync = require('browser-sync');
@@ -124,7 +124,7 @@ gulp.task('compress:scripts', () =>
 );
 
 gulp.task('compress:styles', () => {
-  const minify = map((buff) => new CleanCSS().minify(buff.toString()).styles);
+  const minify = vinylMap((buff) => new CleanCSS().minify(buff.toString()).styles);
   return gulp.src('build/styles/styles.css')
     .pipe(minify)
     .pipe($.rename('styles.min.css'))

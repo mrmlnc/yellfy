@@ -124,7 +124,8 @@ module.exports.nunjucksError = function(err) {
   this.emit('end');
 };
 
-module.exports.injectHandler = function(filepath, file) {
+module.exports.injectAssets = function(filepath, file) {
+  console.log(file.extname);
   if (file.extname === '.js') {
     return `<script>${file.contents.toString('utf8')}</script>`;
   } else if (file.extname === '.css') {

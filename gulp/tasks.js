@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const $ = require('gulp-load-plugins')();
 
+const syncy = require('syncy');
 const del = require('del');
 const quaff = require('quaff');
 const wiredep = require('wiredep').stream;
@@ -28,7 +29,7 @@ gulp.task('reload', () => browserSync.reload());
 
 // Synchronize two directories: `app` and `build`
 gulp.task('sync', (done) => {
-  $.filesSync([
+  syncy([
     'app/fonts/**',
     'app/images/**/*.{gif,jpg,png,svg}',
     'app/{scripts,styles}/vendor/**',

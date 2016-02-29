@@ -14,7 +14,6 @@
     "gulp-babel": "^6.1.2",
     "gulp-batch": "^1.0.5",
     "gulp-concat": "^2.6.0",
-    "gulp-files-sync": "^0.3.1",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-inject": "^3.0.0",
@@ -31,6 +30,7 @@
     "less-plugin-glob": "^1.1.1",
     "quaff": "^2.0.0",
     "slash": "^1.0.0",
+    "syncy": "^1.0.0",
     "vinyl-map": "^1.0.1",
     "wiredep": "^3.0.0"
   },

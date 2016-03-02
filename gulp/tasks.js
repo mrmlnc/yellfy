@@ -103,10 +103,9 @@ gulp.task('styles', () =>
 
 // Compile Nunjucks files and inject Bower components.
 gulp.task('templates', () => {
-  const data = quaff('app/templates/data');
-  return gulp.src('app/templates/*.html')
-    .pipe($.nunjucks.compile(data).on('error', handlers.nunjucksError))
-    .pipe($.jsbeautifier(config.jsbeautifier))
+  return gulp.src('app/templates/*.jade')
+    .pipe($.data(quaff('app/templates/data')))
+    .pipe($.jade({ pretty: true }).on('error', handlers.jadeError))
     .pipe($.inject(gulp.src('app/{scripts,styles}/inline/**/*.{js,css}'), {
       transform: handlers.injectAssets
     }))

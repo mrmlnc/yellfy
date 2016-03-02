@@ -1,0 +1,5 @@
+.navbar-component
+  .area: .row
+    nav.navbar-list
+      each href, item in _menu.navbar
+        a(href="#{href}", title="#{item}")= item

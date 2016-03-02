@@ -1,0 +1,20 @@
+//-
+  Include mixin to file:
+    include ../mixins/_svg
+
+  Syntax:
+    +icon(name, src, attrs)
+
+  Call:
+    +icon("cat")                       -> <svg ..class="icon-cat"><use xlink:href="#icon-cat"></use></svg>
+    +icon("cat", "../sprite.svg")      -> <svg ..class="icon-dog"><use xlink:href="../sprite.svg#icon-dog"></use></svg>
+    +icon("cat", "", { width: "32px" } -> <svg ..class="icon-dog" width="32px">...</svg>
+
+mixin icon(name, src, attrs)
+  if !src
+    - var src = ""
+  if !attrs
+    - var attrs = {}
+
+  svg(class="icon-#{name}" aria-hidden="true" role="img")&attributes(attrs)
+    use(xlink:href="#{src}#icon-#{name}")

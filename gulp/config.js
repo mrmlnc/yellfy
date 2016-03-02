@@ -1,11 +1,4 @@
 module.exports = {
-  jsbeautifier: {
-    indentSize: 2,
-    maxPreserveNewlines: 0,
-    extraLiners: [],
-    indentInnerHtml: true,
-    endWithNewline: true
-  },
   autoprefixer: [
     // Microsoft
     'Explorer >= 10',
@@ -23,27 +16,5 @@ module.exports = {
     'iOS >= 7',
     // BlackBerry
     'BlackBerry >= 10'
-  ],
-  svgSprite: {
-    log: 'info',
-    shape: {
-      dimension: {
-        maxWidth: 32,
-        maxHeight: 32
-      }
-    },
-    mode: {
-      css: {
-        dest: 'styles/',
-        common: 'icon',
-        prefix: '.icon-',
-        dimensions: '-wh',
-        sprite: '../images/sprite.svg',
-        bust: false,
-        render: {
-          less: true
-        }
-      }
-    }
-  }
+  ]
 };

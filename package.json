@@ -34,9 +34,6 @@
     "vinyl-map": "^1.0.1",
     "wiredep": "^3.0.0"
   },
-  "scripts": {
-    "postinstall": "node ./gulp/postinstall && bower i"
-  },
   "xo": {
     "space": 2,
     "rules": {

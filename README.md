@@ -1,4 +1,12 @@
+# Yellfy
+
 ![Yellfy](https://cloud.githubusercontent.com/assets/7034281/13556752/b408c3bc-e3f2-11e5-9936-cb3cc02fb7de.png)
+
+A simple set of tools for building fast, adaptive and modern web application or website that is easy to maintain in the future.
+
+[![GitHub release](https://img.shields.io/github/release/mrmlnc/yellfy.svg)](https://github.com/mrmlnc/yellfy/releases)
+[![devDependency Status](https://img.shields.io/david/dev/mrmlnc/yellfy.svg?style=flat-square)](https://david-dm.org/mrmlnc/yellfy#info=devDependencies)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 
 ## Overview
 

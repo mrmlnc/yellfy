@@ -54,7 +54,7 @@ $ gulp
 | `$ gulp lint`       | Linting scripts.                                                            |
 | `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.             |
 | `$ gulp styles`     | Compile Less files, add vendor prefixes to rules and combine media queries. |
-| `$ gulp templates`  | Compile Nunjucks files and inject Bower components.                         |
+| `$ gulp templates`  | Compile Jade files and inject Bower components.                             |
 | `$ gulp compress`   | Compression of the generated files.                                         |
 
 For a complete list of the commands, run the following command:
@@ -93,7 +93,7 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 
 ##### Templates
 
-  * [Nunjucks](https://mozilla.github.io/nunjucks) — A rich and powerful templating language for JavaScript.
+  * [Jade](http://jade-lang.com/) — A rich and powerful templating language for JavaScript.
     * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
   * [gulp-jsbeautifier](https://www.npmjs.com/package/gulp-jsbeautifier) — Reformat and reindent HTML files.
   * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.

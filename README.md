@@ -1,6 +1,4 @@
-# Yellfy
-
-> A simple set of tools for building fast, adaptive and modern web application or website that is easy to maintain in the future.
+![Yellfy](https://cloud.githubusercontent.com/assets/7034281/13556752/b408c3bc-e3f2-11e5-9936-cb3cc02fb7de.png)
 
 ## Overview
 

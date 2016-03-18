@@ -15,7 +15,11 @@
 
 ## Requirements
 
-Yellfy requires a modern version of [Node.js](http://nodejs.org/) and globally installed [Bower](http://bower.io/).
+Yellfy requires a modern version of [Node.js](http://nodejs.org/) and globally installed [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/).
+
+```
+$ npm i -g gulp-cli bower
+```
 
 ## Installation
 
@@ -86,14 +90,14 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 
   * [Gulp](http://gulpjs.com) — Automate and enhance your workflow.
   * [BrowserSync](https://www.browsersync.io) — Time-saving synchronised browser testing.
-  * [gulp-files-sync](https://www.npmjs.com/package/gulp-files-sync) — One-way synchronization of directories.
+  * [Syncy](https://www.npmjs.com/package/syncy) — One-way synchronization of directories.
 
 ##### Templates
 
   * [Jade](http://jade-lang.com/) — A rich and powerful templating language for JavaScript.
     * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
-  * [gulp-jsbeautifier](https://www.npmjs.com/package/gulp-jsbeautifier) — Reformat and reindent HTML files.
   * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.
+  * [Inject](https://www.npmjs.com/package/gulp-inject) — A javascript, stylesheet and webcomponent injection plugin.
 
 ##### Stylesheets
 
@@ -117,7 +121,6 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 ##### Miscellaneous
 
   * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — File watcher that uses super-fast chokidar.
-  * [gulp-newer](https://www.npmjs.com/package/gulp-newer) — Passing through only those source files that are newer than corresponding destination files.
   * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) — Source map support for Gulp.js.
 
 ## License

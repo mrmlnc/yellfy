@@ -38,20 +38,12 @@
     "postinstall": "bower i"
   },
   "xo": {
-    "space": 2,
     "rules": {
-      "arrow-parens": [
-        2,
-        "always"
-      ],
-      "object-curly-spacing": [
-        2,
-        "always"
-      ],
-      "space-before-function-paren": [
-        2,
-        "never"
-      ]
+      "indent": [2, 2, { "SwitchCase": 1 }],
+      "arrow-parens": [2, "always"],
+      "object-curly-spacing": [2, "always"],
+      "babel/object-curly-spacing": 0,
+      "space-before-function-paren": [2, "never"]
     },
     "envs": [
       "browser",

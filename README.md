@@ -45,11 +45,10 @@ $ gulp
 |---------------------|-----------------------------------------------------------------------------|
 | `$ gulp`            | A full cycle of build the project and run the server on `8000` port.        |
 | `$ gulp build`      | A full cycle of build the project and minification compiled files.          |
-| `$ gulp server`     | Run the server on `80` port for the demonstration.                          |
 | `$ gulp clean`      | Cleaning the temporary directory and directory of builds.                   |
 | `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled.      |
-| `$ gulp sync:bower` | Creating symlink of Bower dependencies to the directory of build.           |
-| `$ gulp lint`       | Linting scripts.                                                            |
+| `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.           |
+| `$ gulp xo`         | Linting scripts.                                                            |
 | `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.             |
 | `$ gulp styles`     | Compile Less files, add vendor prefixes to rules and combine media queries. |
 | `$ gulp templates`  | Compile Jade files and inject Bower components.                             |

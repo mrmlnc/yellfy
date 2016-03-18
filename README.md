@@ -79,6 +79,50 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
   * Edge 12+
   * Blackberry browser 10+
 
+## How to write tasks?
+
+#### Simple task
+
+The method `use` is used to notify users about missing dependencies.
+
+> **Attention!**
+>
+> The names of all the dependencies are converted to camelCase notation without the prefix `gulp-` or `gulp.`.
+
+```js
+'use strict';
+
+// Loads an external module(s)
+// Gulp loaded by default
+const $ = use('gulp-xo');
+
+// The `task` function is used to automatically create tasks.
+function task() {
+  return $.gulp.src(['**/*.js'], { cwd: 'app/scripts' })
+    .pipe($.xo());
+}
+
+// Just return the function
+module.exports = {
+  task
+};
+```
+
+#### Work with gulp.series and gulp.parallel
+
+The `done` function is required only to `gulp.series`, `gulp.parallel` and some tasks. For example see [`sync` task](https://github.com/mrmlnc/yellfy/blob/yellfy-next/gulp/tasks/sync.js).
+
+```js
+function task(done) {
+  $.gulp.series(
+    'clean',
+    'xo',
+    $.gulp.parallel('sync', 'sync-bower', 'templates', 'scripts', 'styles'),
+    'watch'
+  )(done);  // <--- Don't forget to set `done`
+}
+```
+
 ## Technology
 
 ##### Front-end

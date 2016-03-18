@@ -3,7 +3,7 @@
 const $ = use('gulp-xo');
 
 function task() {
-  return $.gulp.src(['app/scripts/rollup/**/*.js'])
+  return $.gulp.src(['**/*.js', '!{inline,vendor}/**'], { cwd: 'app/scripts' })
     .pipe($.xo());
 }
 

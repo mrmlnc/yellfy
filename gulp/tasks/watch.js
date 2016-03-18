@@ -20,7 +20,7 @@ function task() {
 
   // Scripts
   $.gulp.watch([
-    'app/scripts/rollup/**/*.js',
+    'app/scripts/**/*.js',
     '!app/scripts/{vendor,inline}'
   ], $.gulp.series('xo', 'scripts', 'reload'));
 

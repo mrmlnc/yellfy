@@ -3,7 +3,6 @@
 const $ = use(
   'chalk',
   'slash',
-  'gulp-rollup',
   'gulp-babel',
   'babel-preset-es2015',
   'gulp-concat',
@@ -21,10 +20,7 @@ function babelErrorHandler(err) {
 }
 
 function task() {
-  return $.gulp.src('app/scripts/rollup/*.js')
-    .pipe($.rollup({
-      sourceMap: true
-    }))
+  return $.gulp.src('app/scripts/**/*.js')
     .pipe($.babel({
       presets: ['es2015']
     }).on('error', babelErrorHandler))

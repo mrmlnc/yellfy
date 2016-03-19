@@ -47,19 +47,19 @@ $ gulp
 
 ## Description of tasks
 
-| Task                | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| `$ gulp`            | A full cycle of build the project and run the server on `8000` port.        |
-| `$ gulp build`      | A full cycle of build the project and minification compiled files.          |
-| `$ gulp clean`      | Cleaning the temporary directory and directory of builds.                   |
-| `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled.      |
-| `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.           |
-| `$ gulp mocha`      | Run JavaScript tests.                                                       |
-| `$ gulp xo`         | Linting scripts.                                                            |
-| `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.             |
-| `$ gulp styles`     | Compile Less files, add vendor prefixes to rules and combine media queries. |
-| `$ gulp templates`  | Compile Jade files and inject Bower components.                             |
-| `$ gulp compress`   | Compression of the generated files.                                         |
+| Task                | Description                                                            |
+|---------------------|------------------------------------------------------------------------|
+| `$ gulp`            | A full cycle of build the project and run the server on `8000` port.   |
+| `$ gulp build`      | A full cycle of build the project and minification compiled files.     |
+| `$ gulp clean`      | Cleaning the temporary directory and directory of builds.              |
+| `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled. |
+| `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.      |
+| `$ gulp mocha`      | Run JavaScript tests.                                                  |
+| `$ gulp xo`         | Linting scripts.                                                       |
+| `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.        |
+| `$ gulp styles`     | Compile Less files, add vendor prefixes to rules.                      |
+| `$ gulp templates`  | Compile Jade files and inject Bower components.                        |
+| `$ gulp compress`   | Compression of the generated files.                                    |
 
 For a complete list of the commands, run the following command:
 

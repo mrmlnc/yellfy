@@ -160,6 +160,8 @@ function task(done) {
     * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
   * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.
   * [UglifyJS](https://www.npmjs.com/package/uglify-js) — A JavaScript parser, minifier, compressor or beautifier toolkit.
+  * [mocha](https://mochajs.org/) — Mocha is a feature-rich JavaScript test framework.
+    * [jsdom](https://github.com/tmpvar/jsdom) — A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js
 
 ##### Images
 

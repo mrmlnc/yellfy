@@ -25,4 +25,3 @@ if (GLOBAL.needDeps.length) {
 listOfTask.valid.forEach((task) => {
   register.task(task);
 });
-

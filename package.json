@@ -18,11 +18,13 @@
     "gulp-inject": "^4.0.0",
     "gulp-jade": "^1.1.0",
     "gulp-less": "^3.0.5",
+    "gulp-mocha": "^2.2.0",
     "gulp-postcss": "^6.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-xo": "^0.9.0",
+    "jsdom": "^8.1.0",
     "less-plugin-glob": "^1.1.1",
     "quaff": "^2.0.0",
     "slash": "^1.0.0",
@@ -45,8 +47,9 @@
     ],
     "envs": [
       "browser",
+      "jquery",
       "node",
-      "jquery"
+      "mocha"
     ]
   }
 }

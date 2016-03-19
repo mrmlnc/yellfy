@@ -20,7 +20,7 @@ function babelErrorHandler(err) {
 }
 
 function task() {
-  return $.gulp.src('app/scripts/**/*.js')
+  return $.gulp.src(['**/*.js', '!{inline,vendor,tests}/**'], { cwd: 'app/scripts' })
     .pipe($.babel({
       presets: ['es2015']
     }).on('error', babelErrorHandler))

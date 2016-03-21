@@ -8,15 +8,6 @@ function getPackageDeps() {
   return Object.keys(JSON.parse(pkgFile).devDependencies);
 }
 
-function restArgs(args) {
-  let params = [];
-  for (var i = 0; i < args.length; i++) {
-    params.push(args[i]);
-  }
-
-  return params;
-}
-
 function renamePlugin(name) {
   return camelCase(name.replace(/^gulp(-|\.)/, ''));
 }
@@ -24,7 +15,7 @@ function renamePlugin(name) {
 GLOBAL.needDeps = [];
 GLOBAL.use = function() {
   const pkgDeps = getPackageDeps();
-  const taskDeps = restArgs(arguments);
+  const taskDeps = Array.from(arguments);
   const needDeps = taskDeps.filter((dependName) => {
     return (pkgDeps.indexOf(dependName) === -1);
   });

@@ -5,7 +5,7 @@ const $ = use();
 function task(done) {
   $.gulp.series(
     'clean',
-    $.gulp.series('xo', 'mocha'),
+    'xo',
     $.gulp.parallel('sync', 'sync-bower', 'templates', 'scripts', 'styles'),
     'compress'
   )(done);

@@ -12,7 +12,7 @@
 |--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automation   | Yellfy optimized for continuous development. Just run Yellfy and write code. The process of adding images into the build, creating sprites, compiling preprocessor files and many other processes will be automatically performed.     |
 | Modularity   | Yellfy aims to make the project modular. Template files and styles files are divided into modules, so you can copy them from project to the project when necessary. Style files will be picked up and are compiled automatically.      |
-| adaptability | Yellfy built with [Normalize.css](http://necolas.github.io/normalize.css/) and includes a small CSS framework that combines only the most necessary: typography, lists, buttons, forms and tables.                                     |
+| Adaptability | Yellfy built with [Normalize.css](http://necolas.github.io/normalize.css/) and includes a small CSS framework that combines only the most necessary: typography, lists, buttons, forms and tables.                                     |
 | Friendliness | Yellfy created by people for people who make mistakes. Therefore, almost any errors that occur during the development process, will be processed and displayed in a concise and easy for understanding form.                           |
 
 ## Requirements
@@ -47,19 +47,19 @@ $ gulp
 
 ## Description of tasks
 
-| Task                | Description                                                                 |
-|---------------------|-----------------------------------------------------------------------------|
-| `$ gulp`            | A full cycle of build the project and run the server on `8000` port.        |
-| `$ gulp build`      | A full cycle of build the project and minification compiled files.          |
-| `$ gulp clean`      | Cleaning the temporary directory and directory of builds.                   |
-| `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled.      |
-| `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.           |
-| `$ gulp xo`         | Linting scripts.                                                            |
-| `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.             |
-| `$ gulp test`       | Run mocha tests.                                                            |
-| `$ gulp styles`     | Compile Less files, add vendor prefixes to rules and combine media queries. |
-| `$ gulp templates`  | Compile Jade files and inject Bower components.                             |
-| `$ gulp compress`   | Compression of the generated files.                                         |
+| Task                | Description                                                            |
+|---------------------|------------------------------------------------------------------------|
+| `$ gulp`            | A full cycle of build the project and run the server on `8000` port.   |
+| `$ gulp build`      | A full cycle of build the project and minification compiled files.     |
+| `$ gulp clean`      | Cleaning the temporary directory and directory of builds.              |
+| `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled. |
+| `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.      |
+| `$ gulp xo`         | Linting scripts.                                                       |
+| `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.        |
+| `$ gulp test`       | Run mocha tests.                                                       |
+| `$ gulp styles`     | Compile Less files, add vendor prefixes to rules.                      |
+| `$ gulp templates`  | Compile Jade files, inject inline files and Bower components.          |
+| `$ gulp compress`   | Compression of the generated files.                                    |
 
 For a complete list of the commands, run the following command:
 
@@ -84,47 +84,7 @@ Yellfy uses **flexbox** for more efficient distribution of information in blocks
 
 ## How to write tasks?
 
-#### Simple task
-
-The method `use` is used to notify users about missing dependencies.
-
-> **Attention!**
->
-> The names of all the dependencies are converted to camelCase notation without the prefix `gulp-` or `gulp.`.
-
-```js
-'use strict';
-
-// Loads an external module(s)
-// Gulp loaded by default
-const $ = use('gulp-xo');
-
-// The `task` function is used to automatically create tasks.
-function task() {
-  return $.gulp.src(['**/*.js'], { cwd: 'app/scripts' })
-    .pipe($.xo());
-}
-
-// Just return the function
-module.exports = {
-  task
-};
-```
-
-#### Work with gulp.series and gulp.parallel
-
-The `done` function is required only to `gulp.series`, `gulp.parallel` and some tasks. For example see [`sync` task](https://github.com/mrmlnc/yellfy/blob/yellfy-next/gulp/tasks/sync.js).
-
-```js
-function task(done) {
-  $.gulp.series(
-    'clean',
-    'xo',
-    $.gulp.parallel('sync', 'sync-bower', 'templates', 'scripts', 'styles'),
-    'watch'
-  )(done);  // <--- Don't forget to set `done`
-}
-```
+See [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) page.
 
 ## Technology
 
@@ -160,6 +120,8 @@ function task(done) {
     * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
   * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.
   * [UglifyJS](https://www.npmjs.com/package/uglify-js) — A JavaScript parser, minifier, compressor or beautifier toolkit.
+  * [PhantomJS](http://phantomjs.org/) — PhantomJS is a headless WebKit scriptable with a JavaScript API.
+  * [mocha](https://mochajs.org/) — Mocha is a feature-rich JavaScript test framework.
 
 ##### Images
 

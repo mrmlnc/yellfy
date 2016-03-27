@@ -69,7 +69,7 @@ $ gulp
 $ gulp --tasks
 ```
 
-## Browser support
+## Поддержка браузеров
 
 Yellfy использует **flexbox** для более эффективного распределения информации в блоках, что накладывает некоторые ограничения:
 
@@ -84,10 +84,10 @@ Yellfy использует **flexbox** для более эффективног
   * Edge 12+
   * Blackberry browser 10+
 
-## How to write tasks?
+## Как писать задачи?
 
 Смотрите [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) страницу.
 
-## License
+## Лицензия
 
 MIT

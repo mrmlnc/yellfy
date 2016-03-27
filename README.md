@@ -56,6 +56,7 @@ $ gulp
 | `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.           |
 | `$ gulp xo`         | Linting scripts.                                                            |
 | `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.             |
+| `$ gulp test`       | Run mocha tests.                                                            |
 | `$ gulp styles`     | Compile Less files, add vendor prefixes to rules and combine media queries. |
 | `$ gulp templates`  | Compile Jade files and inject Bower components.                             |
 | `$ gulp compress`   | Compression of the generated files.                                         |

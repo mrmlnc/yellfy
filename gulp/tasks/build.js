@@ -7,7 +7,8 @@ function task(done) {
     'clean',
     'xo',
     $.gulp.parallel('sync', 'sync-bower', 'templates', 'scripts', 'styles'),
-    'compress'
+    'compress',
+    'test'
   )(done);
 }
 

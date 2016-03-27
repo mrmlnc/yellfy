@@ -23,9 +23,10 @@ function task() {
   return $.gulp.src([
     // If you want to observe the sequence of files in
     // the build - specify files here
-    'app/scripts/**/*.js'
+    '**/*.js',
+    '!{inline,vendor,tests}/**'
     // Other scripts
-  ])
+  ], { cwd: 'app/scripts' })
     .pipe($.babel({
       presets: ['es2015']
     }).on('error', babelErrorHandler))

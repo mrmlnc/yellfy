@@ -1,21 +1,41 @@
 'use strict';
 
 const $ = use(
+  'chalk',
+  'slash',
+  'del',
   'gulp-xo',
   'gulp-babel',
+  'babel-preset-es2015-rollup',
   'gulp-concat',
   'merge-stream',
   'gulp-mocha-phantomjs'
 );
 
-function task() {
-  const babel = $.gulp.src('app/scripts/tests/**/*.js')
+function babelErrorHandler(err) {
+  let msg = [err.name + ': ' + err.message.replace($.slash(process.cwd) + '/', '')];
+  msg = msg.concat(err.codeFrame.split('\n'));
+  msg.forEach((line) => {
+    console.log($.chalk.red('>> ') + line);
+  });
+
+  this.emit('end');
+}
+
+function clean() {
+  return $.del(['.tmp'], { dot: true });
+}
+
+function babel() {
+  return $.gulp.src('app/scripts/tests/**/*.js')
     .pipe($.xo())
-    .pipe($.babel({ presets: 'es2015' }))
+    .pipe($.babel({ presets: 'es2015-rollup' }).on('error', babelErrorHandler))
     .pipe($.concat('tests.bundle.js'))
     .pipe($.gulp.dest('./.tmp/tests'));
+}
 
-  const phantom = $.gulp.src('app/scripts/tests/runner.html')
+function phantom() {
+  return $.gulp.src('app/scripts/tests/runner.html')
     .pipe($.mochaPhantomjs({
       reporter: 'spec',
       phantomjs: {
@@ -26,8 +46,10 @@ function task() {
         useColors: true
       }
     }));
+}
 
-  return $.mergeStream(babel, phantom);
+function task(done) {
+  $.gulp.series(clean, babel, phantom)(done);
 }
 
 module.exports = {

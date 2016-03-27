@@ -57,7 +57,7 @@ $ gulp
 | `$ gulp sync`       | One-way synchronization of core project files that cannot be compiled. |
 | `$ gulp sync-bower` | Creating symlink of Bower dependencies to the directory of build.      |
 | `$ gulp xo`         | Linting scripts.                                                       |
-| `$ gulp scripts`    | Transpiles ES2015 code to ES5 and concatenate JavaScript files.        |
+| `$ gulp scripts`    | Creating script bundle with Rollup.                                    |
 | `$ gulp test`       | Run mocha tests.                                                       |
 | `$ gulp styles`     | Compile Less files, add vendor prefixes to rules.                      |
 | `$ gulp templates`  | Compile Jade files, inject inline files and Bower components.          |
@@ -118,6 +118,7 @@ See [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) page.
 
 ##### Scripts
 
+  * [Rollup](http://rollupjs.org) — The next-generation JavaScript module bundler.
   * [Babel](https://babeljs.io/) — A compiler for writing next generation JavaScript.
     * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
   * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.

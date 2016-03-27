@@ -20,8 +20,8 @@ function task() {
 
   // Scripts
   $.gulp.watch([
-    'app/scripts/**/*.js',
-    '!app/scripts/{vendor,inline,tests}'
+    'app/scripts/modules/**/*.js',
+    'app/scripts/scripts.js'
   ], $.gulp.series('xo', 'scripts', 'reload'));
 
   // Styles

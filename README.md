@@ -72,7 +72,7 @@ $ gulp --tasks
 Yellfy uses **flexbox** for more efficient distribution of information in blocks that imposes some restrictions:
 
   * Chrome 34+
-  * Android WebView 4.4+
+  * Android WebView 4+
   * Firefox 30+
   * Safari 7+
   * iOS 7+

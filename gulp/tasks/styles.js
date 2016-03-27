@@ -19,7 +19,7 @@ const autoprefixerConfig = [
   'Firefox >= 30',
   // Google
   'Chrome >= 34',
-  'Android >= 4.4',
+  'Android >= 4',
   // Opera
   'Opera >= 12',
   // Apple

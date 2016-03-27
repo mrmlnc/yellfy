@@ -1,6 +1,8 @@
+<p align="right">English description | <a href="README_RU.md">Описание на русском</a></p>
+
 ![Yellfy](https://cloud.githubusercontent.com/assets/7034281/13556752/b408c3bc-e3f2-11e5-9936-cb3cc02fb7de.png)
 
-## Overview
+## Yellfy
 
 **Yellfy** — is a project template for your new web application or website based on my personal preferences in the field of automation of the development process. The project is not a universal solution and is not intended to meet the needs of all developers. For this there is a Yeoman. However, feedback and comments are always welcome in the issues.
 

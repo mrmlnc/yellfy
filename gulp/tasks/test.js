@@ -8,7 +8,6 @@ const $ = use(
   'gulp-babel',
   'babel-preset-es2015-rollup',
   'gulp-concat',
-  'merge-stream',
   'gulp-mocha-phantomjs'
 );
 

@@ -13,6 +13,7 @@ function task() {
 
   // Directory synchronization
   $.gulp.watch([
+    'app/fonts/**',
     'app/images/**/*.{gif,jpg,png,svg}',
     'app/{scripts,styles}/vendor/**',
     'app/*'

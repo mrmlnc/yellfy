@@ -9,10 +9,10 @@ h5,
 h6 {
   margin-top: 0;
   margin-bottom: (@spacer / 2);
+  color: @headings-color;
   font-family: @headings-font-family;
   font-weight: @headings-font-weight;
   line-height: @headings-line-height;
-  color: @headings-color;
 }
 
 h1 {
@@ -43,15 +43,15 @@ p {
   margin-top: 0;
   margin-bottom: @spacer;
 
-  &.lead {
+  &.-lead {
     font-size: @font-size-lead;
   }
 }
 
 // Blockquotes
 blockquote {
-  padding: 1em 1.5em;
   margin: 0 0 @spacer 0;
+  padding: 1em 1.5em;
   border-left: @blockquote-border-width solid @blockquote-border-color;
 
   p,
@@ -69,20 +69,21 @@ blockquote {
       content: "\2014 \00A0";
     }
   }
-}
 
-.blockquote-full {
-  text-align: center;
-  border-top: @blockquote-full-border-width solid @blockquote-border-color;
-  border-bottom: @blockquote-full-border-width solid @blockquote-border-color;
-  border-left: 0;
+  // Variations
+  &.-full {
+    border-top: @blockquote-full-border-width solid @blockquote-border-color;
+    border-bottom: @blockquote-full-border-width solid @blockquote-border-color;
+    border-left: 0;
+    text-align: center;
+  }
 }
 
 // Inline elements
 abbr[title],
 dfn[title] {
-  cursor: help;
   border-bottom: 1px dotted @abbr-border-color;
+  cursor: help;
 }
 
 // Code elements
@@ -101,46 +102,46 @@ code,
 kbd,
 samp,
 mark {
-  line-height: 1;
   padding: .15em .3em;
   border-radius: @global-inline-radius;
+  line-height: 1;
 }
 
 code {
-  color: @code-color;
   background-color: @code-bg;
+  color: @code-color;
 }
 
 kbd {
-  color: @kbd-color;
   background-color: @kbd-bg;
+  color: @kbd-color;
 }
 
 samp {
-  color: @samp-color;
   background-color: @samp-bg;
+  color: @samp-color;
 }
 
 mark {
-  color: @mark-color;
   background-color: @mark-bg;
+  color: @mark-color;
 }
 
 pre {
   display: block;
-  padding: 1em 1.5em;
   margin-top: 0;
   margin-bottom: @spacer;
-  line-height: @line-height;
-  color: @pre-color;
-  background-color: @pre-bg;
+  padding: 1em 1.5em;
   border-left: @pre-border-width solid @pre-border-color;
+  background-color: @pre-bg;
+  color: @pre-color;
+  line-height: @line-height;
 
   code {
     padding: 0;
-    font-size: inherit;
-    color: inherit;
-    background-color: transparent;
     border-radius: 0;
+    background-color: transparent;
+    color: inherit;
+    font-size: inherit;
   }
 }

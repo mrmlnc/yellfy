@@ -19,18 +19,18 @@ html {
 }
 
 body {
+  background-color: @body-bg;
+  color: @body-color;
   font-family: @font-family-base;
   font-size: @font-size-base;
   line-height: @line-height;
-  color: @body-color;
-  background-color: @body-bg;
 }
 
 // Links
 a {
   color: @link-color;
-  text-decoration: none;
   transition: all .3s ease;
+  text-decoration: none;
 
   &:hover,
   &:focus {
@@ -65,8 +65,8 @@ ol ul {
 // Fieldset
 fieldset {
   min-width: 0;
-  padding: 0;
   margin: 0;
+  padding: 0;
   border: 0;
 }
 
@@ -80,8 +80,8 @@ label {
 legend {
   display: block;
   width: 100%;
-  padding: 0;
   margin-bottom: (@spacer / 2);
+  padding: 0;
 }
 
 // Textarea
@@ -111,6 +111,6 @@ textarea {
 
 // Remove most spacing between table cells.
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+  border-collapse: collapse;
 }

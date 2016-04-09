@@ -2,25 +2,26 @@
 
 .form-control {
   display: block;
+  overflow: auto;
   width: 100%;
   padding: @form-input-padding-y @form-input-padding-x;
-  font-size: @form-input-font-size;
-  line-height: @line-height;
-  background-color: @form-input-bg;
-  background-image: none;
   border: 1px solid @form-input-border-color;
   border-radius: @global-radius;
+  background-color: @form-input-bg;
+  background-image: none;
   transition: border-color .25s ease-in-out, box-shadow ease-in-out .25s;
+  font-size: @form-input-font-size;
+  line-height: @line-height;
 
   &:focus {
-    border-color: @form-input-active-border-color;
     outline: none;
+    border-color: @form-input-active-border-color;
   }
 
   // [IE10+] Unstyle the caret on `<select>`s.
   &::-ms-expand {
-    background-color: transparent;
     border: 0;
+    background-color: transparent;
   }
 
   // The color of the placeholder text
@@ -35,8 +36,8 @@
 
   // [iOS] The vertical alignment of the label for the field of type file
   input[type="file"]& {
-    line-height: 1;
     border: 0;
+    line-height: 1;
   }
 
   // [Firefox, IE10+] Remove indents at the edges and the border property
@@ -53,42 +54,43 @@
   margin-bottom: @spacer;
 }
 
-// Checkboxes and radios
-.form-radio,
-.form-checkbox {
-  margin-bottom: @spacer;
-
-  & > label {
-    display: block;
-    margin-bottom: 0;
-    font-weight: 400;
-    cursor: pointer;
-  }
-
-  input[type="checkbox"],
-  input[type="radio"] {
-    margin-top: -.2em;
-    vertical-align: middle;
-
-    &:focus {
-      outline: 0;
+// Variations
+.form-group {
+  &.-radio,
+  &.-checkbox {
+    & > label {
+      display: block;
+      margin-bottom: 0;
+      cursor: pointer;
+      font-weight: 400;
     }
 
-    &:disabled,
-    &.disabled {
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-top: -.2em;
+      vertical-align: middle;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &:disabled,
+      &.-disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &:disabled > label,
+    &.-disabled > label {
       cursor: not-allowed;
     }
   }
 
-  &.disabled > label {
-    cursor: not-allowed;
+  // Move up sibling radios or checkboxes for tighter spacing
+  &.-radio + &.-radio,
+  &.-checkbox + &.checkbox {
+    margin-top: (@spacer / -2);
   }
-}
-
-// Move up sibling radios or checkboxes for tighter spacing
-.form-radio + .form-radio,
-.form-checkbox + .form-checkbox {
-  margin-top: (@spacer / -2);
 }
 
 // Inline forms
@@ -102,16 +104,16 @@
 
     .form-group {
       margin-bottom: 0;
+
+      &.-radio,
+      &.-checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
     }
 
     .form-control {
       width: auto;
-    }
-
-    .form-radio,
-    .form-checkbox {
-      margin-top: 0;
-      margin-bottom: 0;
     }
   }
 }

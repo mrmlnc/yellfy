@@ -8,23 +8,23 @@
 @navbar-item-color:                    @body-color;
 @navbar-item-active-color:             @brand-primary;
 
-.navbar-component {
+.c-navbar {
   background-color: @navbar-bg;
 
   .navbar-list {
     display: flex;
+    justify-content: center;
     flex-basis: 100%;
     flex-flow: column nowrap;
-    justify-content: center;
 
     @media (min-width: @navbar-breakpoint) {
-      margin-right: -@navbar-item-padding;
-      margin-left: -@navbar-item-padding;
       flex-direction: row;
       justify-content: flex-start;
+      margin-right: -@navbar-item-padding;
+      margin-left: -@navbar-item-padding;
     }
 
-    & > a {
+    & > .item {
       display: block;
       padding: @navbar-item-padding;
       color: @navbar-item-color;

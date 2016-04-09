@@ -27,27 +27,30 @@
   }
 }
 
-// Add borders all around the table and between all the columns
-.table-bordered {
-  border: @table-border-weight solid @table-border-color;
-
-  th,
-  td {
+// Variations
+.table {
+  // Add borders all around the table and between all the columns
+  &.-bordered {
     border: @table-border-weight solid @table-border-color;
-  }
-}
 
-// Default zebra-stripe styles (alternating gray and transparent backgrounds)
-.table-striped {
-  tbody tr:nth-of-type(odd) {
-    background-color: @table-striped-bg;
+    th,
+    td {
+      border: @table-border-weight solid @table-border-color;
+    }
   }
-}
 
-// Responsive tables
-.table-responsive {
-  display: block;
-  width: 100%;
-  overflow-x: auto;
-  empty-cells: show;
+  // Default zebra-stripe styles (alternating gray and transparent backgrounds)
+  &.-striped {
+    tbody tr:nth-of-type(odd) {
+      background-color: @table-striped-bg;
+    }
+  }
+
+  // Responsive tables
+  &.-responsive {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    empty-cells: show;
+  }
 }

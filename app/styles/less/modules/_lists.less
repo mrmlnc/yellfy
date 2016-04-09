@@ -1,19 +1,19 @@
 // Lists
 
-// Unstyled list
-.list-unstyled {
+.list {
   padding-left: 0;
   list-style: none;
 }
 
-// inline list
-.list-inline {
-  .list-unstyled();
-  margin-left: -.5em;
+// Variations
+.list {
+  &.-inline {
+    margin-left: -.5em;
 
-  & > li {
-    display: inline-block;
-    padding-right: .5em;
-    padding-left: .5em;
+    & > li {
+      display: inline-block;
+      padding-right: .5em;
+      padding-left: .5em;
+    }
   }
 }

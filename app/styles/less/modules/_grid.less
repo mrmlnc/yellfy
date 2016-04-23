@@ -2,9 +2,24 @@
 
 .area {
   .xy-make-container(@grid-gutter-width);
-  .xy-make-container-width(@grid-breakpoint-sm, @grid-area-sm);
-  .xy-make-container-width(@grid-breakpoint-md, @grid-area-md);
-  .xy-make-container-width(@grid-breakpoint-lg, @grid-area-lg);
+
+  &.-sm {
+    .xy-make-container-width(@grid-breakpoint-sm, @grid-area-sm);
+  }
+
+  &.-md {
+    .xy-make-container-width(@grid-breakpoint-md, @grid-area-md);
+  }
+
+  &.-lg {
+    .xy-make-container-width(@grid-breakpoint-lg, @grid-area-lg);
+  }
+
+  &.-full {
+    .xy-make-container-width(@grid-breakpoint-sm, @grid-area-sm);
+    .xy-make-container-width(@grid-breakpoint-md, @grid-area-md);
+    .xy-make-container-width(@grid-breakpoint-lg, @grid-area-lg);
+  }
 
   .row {
     .xy-make-row(@grid-gutter-width);

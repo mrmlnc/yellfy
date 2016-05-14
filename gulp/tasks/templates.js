@@ -4,8 +4,7 @@ const path = require('path');
 const $ = use(
   'chalk',
   'slash',
-  'gulp-jade',
-  'gulp-data',
+  'gulp-pug',
   'quaff',
   'gulp-inject',
   'wiredep'
@@ -45,10 +44,12 @@ function injectHandler(filepath, file) {
 }
 
 function task() {
-  return $.gulp.src('app/templates/*.jade')
-    .pipe($.data($.quaff('app/templates/data')))
-    .pipe($.jade({
-      pretty: true
+  const data = $.quaff('app/templates/data');
+
+  return $.gulp.src('app/templates/*.pug')
+    .pipe($.pug({
+      pretty: true,
+      data
     }).on('error', jadeErrorHandler))
     .pipe($.inject($.gulp.src('app/{scripts,styles}/inline/**/*.{js,css}'), {
       starttag: '<!-- inject:{{ext}} -->',
@@ -59,6 +60,7 @@ function task() {
     }))
     .pipe($.gulp.dest('build'));
 }
+
 module.exports = {
   task
 };

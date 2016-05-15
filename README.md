@@ -60,7 +60,7 @@ $ gulp
 | `$ gulp scripts`    | Creating script bundle with Rollup.                                    |
 | `$ gulp test`       | Run mocha tests.                                                       |
 | `$ gulp styles`     | Compile Less files, add vendor prefixes to rules.                      |
-| `$ gulp templates`  | Compile Pug files, inject inline files and Bower components.          |
+| `$ gulp templates`  | Compile Pug files, inject Bower components.                            |
 | `$ gulp compress`   | Compression of the generated files.                                    |
 
 For a complete list of the commands, run the following command:
@@ -106,7 +106,6 @@ See [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) page.
   * [Pug](http://pug-lang.com/) — A rich and powerful templating language for JavaScript.
     * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
   * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.
-  * [Inject](https://www.npmjs.com/package/gulp-inject) — A javascript, stylesheet and webcomponent injection plugin.
 
 ##### Stylesheets
 

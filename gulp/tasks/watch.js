@@ -38,7 +38,7 @@ function task() {
     .watch([
       'app/templates/**/*'
     ], $.gulp.series('templates', 'reload'))
-    .on('change', (path) => {
+    .on('all', (event, path) => {
       global.changedTplFile = path.replace(/[\\\/]/g, '/').replace(/app\/templates\//, '');
     });
 

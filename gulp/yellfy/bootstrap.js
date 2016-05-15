@@ -17,8 +17,8 @@ if (!listOfTask.valid) {
   process.exit(1);
 }
 
-if (GLOBAL.needDeps.length) {
-  console.log(chalk.red('>>') + ` Use 'npm i -D ${GLOBAL.needDeps.join(' ')}'`);
+if (global.needDeps.length) {
+  console.log(chalk.red('>>') + ` Use 'npm i -D ${global.needDeps.join(' ')}'`);
   process.exit(1);
 }
 

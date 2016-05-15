@@ -1,17 +1,16 @@
 'use strict';
 
-const path = require('path');
+const _ = require('../helpers/pug-inheritance');
 const $ = use(
   'chalk',
   'slash',
-  'gulp-jade',
-  'gulp-data',
+  'gulp-filter',
+  'gulp-pug',
   'quaff',
-  'gulp-inject',
   'wiredep'
 );
 
-function jadeErrorHandler(err) {
+function pugErrorHandler(err) {
   let msg = err.message.split('\n');
   msg[0] = err.name + ': ' + msg[0];
   msg.forEach((line) => {
@@ -30,35 +29,34 @@ function wiredepErrorHandler(err) {
   console.log($.chalk.red('>> ') + err);
 }
 
-function injectHandler(filepath, file) {
-  const ext = path.extname(filepath);
-  const content = file.contents.toString('utf8')
-    .replace(/\n/g, '')
-    .replace(/\s+/g, ' ')
-    .trim();
-
-  if (ext === '.js') {
-    return `<script>${content}</script>`;
-  }
-
-  return `<style>${content}</style>`;
-}
-
 function task() {
-  return $.gulp.src('app/templates/*.jade')
-    .pipe($.data($.quaff('app/templates/data')))
-    .pipe($.jade({
-      pretty: true
-    }).on('error', jadeErrorHandler))
-    .pipe($.inject($.gulp.src('app/{scripts,styles}/inline/**/*.{js,css}'), {
-      starttag: '<!-- inject:{{ext}} -->',
-      transform: injectHandler
+  const data = $.quaff('app/templates/data');
+  const pathsTree = _.getPathsTree();
+
+  return $.gulp.src('app/templates/*.pug')
+    .pipe($.filter((file) => {
+      if (!global.watch) {
+        return true;
+      }
+
+      const changed = global.changedTplFile;
+      if (pathsTree[file.relative].includes(changed) || changed.includes('data/')) {
+        console.log($.chalk.green('>> ') + 'Compiling: ' + file.relative);
+        return true;
+      }
+
+      return false;
     }))
+    .pipe($.pug({
+      pretty: true,
+      data
+    }).on('error', pugErrorHandler))
     .pipe($.wiredep.stream({
       onError: wiredepErrorHandler
     }))
     .pipe($.gulp.dest('build'));
 }
+
 module.exports = {
   task
 };

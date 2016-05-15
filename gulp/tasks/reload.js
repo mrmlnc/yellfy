@@ -2,8 +2,9 @@
 
 const $ = use('browser-sync');
 
-function task() {
-  return $.browserSync.reload();
+function task(done) {
+  $.browserSync.reload();
+  done();
 }
 
 module.exports = {

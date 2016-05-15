@@ -3,6 +3,8 @@
 const $ = use('browser-sync');
 
 function task() {
+  global.watch = true;
+
   $.browserSync({
     online: false,
     notify: false,
@@ -32,10 +34,13 @@ function task() {
   );
 
   // Templates
-  $.gulp.watch([
-    'app/templates/**/*',
-    'app/{scripts,styles}/inline/**'
-  ], $.gulp.series('templates', 'reload'));
+  $.gulp
+    .watch([
+      'app/templates/**/*'
+    ], $.gulp.series('templates', 'reload'))
+    .on('all', (event, path) => {
+      global.changedTplFile = path.replace(/[\\\/]/g, '/').replace(/app\/templates\//, '');
+    });
 
   // Bower
   $.gulp.watch(['bower.json'], $.gulp.series(

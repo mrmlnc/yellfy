@@ -12,8 +12,8 @@ function renamePlugin(name) {
   return camelCase(name.replace(/^gulp(-|\.)/, ''));
 }
 
-GLOBAL.needDeps = [];
-GLOBAL.use = function() {
+global.needDeps = [];
+global.use = function() {
   const pkgDeps = getPackageDeps();
   const taskDeps = Array.from(arguments);
   const needDeps = taskDeps.filter((dependName) => {
@@ -21,7 +21,7 @@ GLOBAL.use = function() {
   });
 
   if (needDeps.length) {
-    GLOBAL.needDeps = GLOBAL.needDeps.concat(needDeps);
+    global.needDeps = global.needDeps.concat(needDeps);
     return;
   }
 

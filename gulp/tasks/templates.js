@@ -41,7 +41,7 @@ function task() {
 
       const changed = global.changedTplFile;
       if (pathsTree[file.relative].includes(changed) || changed.includes('data/')) {
-        console.log($.chalk.green('>> ') + 'Compiling: ' + file.relative);
+        console.log($.chalk.green('>> ') + `Compiling: ${file.relative}`);
         return true;
       }
 

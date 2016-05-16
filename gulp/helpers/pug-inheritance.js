@@ -59,7 +59,7 @@ function calculateTree(target, context, tree) {
 }
 
 function getPathsTree() {
-  const cacheTree = [];
+  const cacheTree = {};
   getPages().forEach((page) => {
     cacheTree[page] = calculateTree(page, null, [page]);
   });

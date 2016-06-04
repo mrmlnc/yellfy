@@ -27,7 +27,6 @@
     "quaff": "^2.0.0",
     "rollup": "^0.26.3",
     "rollup-plugin-babel": "^2.4.0",
-    "slash": "^1.0.0",
     "syncy": "^1.0.1",
     "wiredep": "^4.0.0"
   },

@@ -2,7 +2,6 @@
 
 const $ = use(
   'chalk',
-  'slash',
   'rollup',
   'rollup-plugin-babel',
   'babel-preset-es2015-rollup',

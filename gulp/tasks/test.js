@@ -2,7 +2,6 @@
 
 const $ = use(
   'chalk',
-  'slash',
   'del',
   'gulp-xo',
   'gulp-babel',
@@ -12,7 +11,7 @@ const $ = use(
 );
 
 function babelErrorHandler(err) {
-  let msg = [err.name + ': ' + err.message.replace($.slash(process.cwd) + '/', '')];
+  let msg = [err.name + ': ' + err.message.replace($.helper.slash(process.cwd) + '/', '')];
   msg = msg.concat(err.codeFrame.split('\n'));
   msg.forEach((line) => {
     console.log($.chalk.red('>> ') + line);

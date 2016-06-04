@@ -1,9 +1,7 @@
 'use strict';
 
-const _ = require('../helpers/pug-inheritance');
 const $ = use(
   'chalk',
-  'slash',
   'gulp-filter',
   'gulp-pug',
   'quaff',
@@ -14,7 +12,7 @@ function pugErrorHandler(err) {
   let msg = err.message.split('\n');
   msg[0] = err.name + ': ' + msg[0];
   msg.forEach((line) => {
-    line = $.slash(line.replace(process.cwd() + '\\', ''));
+    line = $.helper.slash(line.replace(process.cwd() + '\\', ''));
     console.log($.chalk.red('>> ') + line);
   });
 
@@ -31,7 +29,7 @@ function wiredepErrorHandler(err) {
 
 function task() {
   const data = $.quaff('app/templates/data');
-  const pathsTree = _.getPathsTree();
+  const pathsTree = $.helper.pugInheritance.getPathsTree();
 
   return $.gulp.src('app/templates/*.pug')
     .pipe($.filter((file) => {

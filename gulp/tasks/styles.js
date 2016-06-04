@@ -2,7 +2,6 @@
 
 const $ = use(
   'chalk',
-  'slash',
   'gulp-sourcemaps',
   'gulp-less',
   'less-plugin-glob',
@@ -35,7 +34,7 @@ function replacePaths(str, chunk, newChunk) {
 }
 
 function lessErrorHandler(err) {
-  err.filename = $.slash(replacePaths(err.filename, process.cwd() + '\\', ''));
+  err.filename = $.helper.slash(replacePaths(err.filename, process.cwd() + '\\', ''));
   err.message = `${err.type}Error: ${err.filename} ${err.line}:${err.column}`;
   console.log($.chalk.red('>> ') + err.message);
 

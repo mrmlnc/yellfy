@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const fs = require('fs');
 const camelCase = require('camelcase');
 
@@ -10,6 +11,16 @@ function getPackageDeps() {
 
 function renamePlugin(name) {
   return camelCase(name.replace(/^gulp(-|\.)/, ''));
+}
+
+function getHelpers() {
+  const helpers = {};
+  fs.readdirSync('./gulp/helpers').forEach((helper) => {
+    const name = path.basename(helper, '.js');
+    helpers[camelCase(name)] = require(path.join('..', 'helpers', helper));
+  });
+
+  return helpers;
 }
 
 global.needDeps = [];
@@ -25,7 +36,11 @@ global.use = function() {
     return;
   }
 
-  const deps = { gulp: require('gulp') };
+  const deps = {
+    gulp: require('gulp'),
+    helper: getHelpers()
+  };
+
   taskDeps.forEach((dependName) => {
     deps[renamePlugin(dependName)] = require(dependName);
   });

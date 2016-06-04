@@ -28,7 +28,7 @@ global.use = function() {
   const pkgDeps = getPackageDeps();
   const taskDeps = Array.from(arguments);
   const needDeps = taskDeps.filter((dependName) => {
-    return (pkgDeps.indexOf(dependName) === -1);
+    return !pkgDeps.includes(dependName);
   });
 
   if (needDeps.length) {

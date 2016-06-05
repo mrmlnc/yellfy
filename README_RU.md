@@ -19,7 +19,7 @@
 
 ## Зависимости
 
-Yellfy требует наличия современной версии [Node.js](http://nodejs.org/) и глобально установленного [Gulp](http://gulpjs.com/) и [Bower](http://bower.io/).
+Yellfy требует наличия современной версии [Node.js](http://nodejs.org/) (только v6.0.0+) и глобально установленного [Gulp](http://gulpjs.com/) и [Bower](http://bower.io/).
 
 ```
 $ npm i -g gulp-cli bower

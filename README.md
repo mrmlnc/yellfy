@@ -19,7 +19,7 @@
 
 ## Requirements
 
-Yellfy requires a modern version of [Node.js](http://nodejs.org/) and globally installed [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/).
+Yellfy requires a modern version of [Node.js](http://nodejs.org/) (only v6.0.0+) and globally installed [Gulp](http://gulpjs.com/) and [Bower](http://bower.io/).
 
 ```
 $ npm i -g gulp-cli bower

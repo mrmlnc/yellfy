@@ -10,8 +10,8 @@ function validateTask(task) {
 function getTasks() {
   const taskDirFiles = fs.readdirSync('./gulp/tasks');
 
-  let validTasks = [];
-  let invalidTasks = [];
+  const validTasks = [];
+  const invalidTasks = [];
   taskDirFiles.forEach((taskFile) => {
     const taskName = path.basename(taskFile, '.js');
     const task = require(path.join('../tasks', taskFile));

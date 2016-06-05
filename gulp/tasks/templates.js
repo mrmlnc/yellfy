@@ -9,7 +9,7 @@ const $ = use(
 );
 
 function pugErrorHandler(err) {
-  let msg = err.message.split('\n');
+  const msg = err.message.split('\n');
   msg[0] = err.name + ': ' + msg[0];
   msg.forEach((line) => {
     line = $.helper.slash(line.replace(process.cwd() + '\\', ''));

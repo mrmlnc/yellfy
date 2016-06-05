@@ -29,7 +29,7 @@ function babel() {
     .pipe($.xo())
     .pipe($.babel({ presets: 'es2015-rollup' }).on('error', babelErrorHandler))
     .pipe($.concat('tests.bundle.js'))
-    .pipe($.gulp.dest('./.tmp/tests'));
+    .pipe($.gulp.dest('./.tmp'));
 }
 
 function phantom() {

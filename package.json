@@ -33,6 +33,30 @@
   "scripts": {
     "postinstall": "bower i"
   },
+  "pugLintConfig": {
+    "disallowAttributeConcatenation": true,
+    "disallowClassAttributeWithStaticValue": true,
+    "disallowClassLiteralsBeforeAttributes": true,
+    "disallowClassLiteralsBeforeIdLiterals": true,
+    "disallowIdAttributeWithStaticValue": true,
+    "disallowIdLiteralsBeforeAttributes": true,
+    "disallowDuplicateAttributes": true,
+    "disallowSpacesInsideAttributeBrackets": true,
+    "disallowStringConcatenation": true,
+    "requireLineFeedAtFileEnd": true,
+    "requireLowerCaseAttributes": true,
+    "requireLowerCaseTags": true,
+    "requireSpaceAfterCodeOperator": true,
+    "requireStrictEqualityOperators": true,
+    "validateAttributeQuoteMarks": "\"",
+    "validateAttributeSeparator": {
+      "separator": ", ",
+      "multiLineSeparator": ",\n  "
+    },
+    "validateDivTags": true,
+    "validateIndentation": 2,
+    "validateLineBreaks": "LF"
+  },
   "xo": {
     "rules": {
       "indent": [2, 2, { "SwitchCase": 1 }],

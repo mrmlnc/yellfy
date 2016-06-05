@@ -1,9 +1,9 @@
 meta(charset="UTF-8")
-title #{page.title}
+title= page.title
 
 meta(http-equiv="X-UA-Compatible", content="IE=edge")
 meta(name="viewport", content="width=device-width, initial-scale=1")
-meta(name="description", content="#{page.description}")
+meta(name="description", content= page.description)
 
 // Service information
 meta(name="author", content="humans.txt")
@@ -16,7 +16,7 @@ link(type="image/png", href="images/touch/android-chrome-192x192.png", rel="icon
 // iOS
 meta(name="apple-mobile-web-app-capable", content="yes")
 meta(name="apple-mobile-web-app-status-bar-style", content="black")
-meta(name="apple-mobile-web-app-title", content="#{page.appTitle}")
+meta(name="apple-mobile-web-app-title", content= page.appTitle)
 link(href="images/touch/apple-touch-icon.png", rel="apple-touch-icon")
 link(href="images/touch/safari-pinned-tab.svg", rel="mask-icon", color="#f6cf48")
 
@@ -30,6 +30,4 @@ link(type="image/png", href="images/touch/favicon.png", rel="icon", sizes="128x1
 // Styles
 // bower:css
 // endbower
-// inject:css
-// endinject
 link(href="styles/styles.css", rel="stylesheet")

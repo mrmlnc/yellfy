@@ -5,29 +5,29 @@
   "devDependencies": {
     "autoprefixer": "^6.3.6",
     "babel-preset-es2015-rollup": "^1.1.1",
-    "browser-sync": "^2.12.8",
+    "browser-sync": "^2.12.12",
     "camelcase": "^3.0.0",
     "chalk": "^1.1.3",
     "del": "^2.2.0",
     "gulp": "gulpjs/gulp#4.0",
     "gulp-babel": "^6.1.2",
-    "gulp-clean-css": "^2.0.7",
+    "gulp-clean-css": "^2.0.9",
     "gulp-concat": "^2.6.0",
     "gulp-filter": "^4.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-less": "^3.1.0",
     "gulp-mocha-phantomjs": "^0.11.0",
     "gulp-postcss": "^6.1.1",
-    "gulp-pug": "^3.0.2",
+    "gulp-pug": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-xo": "^0.11.0",
     "less-plugin-glob": "^1.1.1",
     "quaff": "^2.0.0",
-    "rollup": "^0.26.3",
+    "rollup": "^0.26.4",
     "rollup-plugin-babel": "^2.4.0",
-    "syncy": "^1.0.1",
+    "syncy": "^1.0.2",
     "wiredep": "^4.0.0"
   },
   "scripts": {
@@ -35,26 +35,11 @@
   },
   "xo": {
     "rules": {
-      "indent": [
-        2,
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "arrow-parens": [
-        2,
-        "always"
-      ],
-      "object-curly-spacing": [
-        2,
-        "always"
-      ],
+      "indent": [2, 2, { "SwitchCase": 1 }],
+      "arrow-parens": [2, "always"],
+      "object-curly-spacing": [2, "always"],
       "babel/object-curly-spacing": 0,
-      "space-before-function-paren": [
-        2,
-        "never"
-      ]
+      "space-before-function-paren": [2, "never"]
     },
     "globals": [
       "use",

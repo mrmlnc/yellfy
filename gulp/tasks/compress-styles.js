@@ -8,7 +8,7 @@ const $ = use(
 function task() {
   return $.gulp.src('build/styles/styles.css')
     .pipe($.cleanCss())
-    .pipe($.rename('styles.min.css'))
+    .pipe($.rename({ suffix: '.min' }))
     .pipe($.gulp.dest('build/styles'));
 }
 

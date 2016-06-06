@@ -1,12 +1,32 @@
 'use strict';
 
+const path = require('path');
+const fs = require('fs');
 const $ = use(
   'chalk',
   'gulp-filter',
   'gulp-pug',
-  'quaff',
   'wiredep'
 );
+
+function getJsonData(dir) {
+  const obj = {};
+  const errors = [];
+
+  fs.readdirSync(dir).forEach((fileName) => {
+    const basename = path.basename(fileName, '.json');
+    const filepath = path.join(dir, fileName);
+
+    try {
+      const data = fs.readFileSync(filepath);
+      obj[basename] = JSON.parse(data);
+    } catch (err) {
+      errors.push($.chalk.magenta(fileName));
+    }
+  });
+
+  return errors.join(', ') || obj;
+}
 
 function pugErrorHandler(err) {
   const msg = err.message.split('\n');
@@ -27,8 +47,13 @@ function wiredepErrorHandler(err) {
   console.log($.chalk.red('>> ') + err);
 }
 
-function task() {
-  const data = $.quaff('app/templates/data');
+function task(done) {
+  const data = getJsonData('app/templates/data');
+  if (typeof data !== 'object') {
+    console.log($.chalk.red('>> ') + `JSON syntax error: ${data}`);
+    return done();
+  }
+
   const pathsTree = $.helper.pugInheritance.getPathsTree();
 
   return $.gulp.src('app/templates/*.pug')

@@ -24,7 +24,6 @@
     "gulp-uglify": "^1.5.3",
     "gulp-xo": "^0.11.0",
     "less-plugin-glob": "^1.1.1",
-    "quaff": "^2.0.0",
     "rollup": "^0.26.4",
     "rollup-plugin-babel": "^2.4.0",
     "syncy": "^1.0.2",

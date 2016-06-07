@@ -4,8 +4,7 @@ const $ = use(
   'chalk',
   'rollup',
   'rollup-plugin-babel',
-  'babel-preset-es2015-rollup',
-  'gulp-sourcemaps'
+  'babel-preset-es2015-rollup'
 );
 
 function rollupErrorHandler(err) {

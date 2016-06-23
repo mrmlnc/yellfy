@@ -1,6 +1,7 @@
 'use strict';
 
 const beeper = require('beeper');
+
 const exit = process.exit;
 
 /**

@@ -16,12 +16,13 @@ function task(done) {
       '*.html'
     ]
   })
-    .on('error', function(err) {
-      console.log($.chalk.red('>> ') + err.message);
-      this.emit('end');
-    })
-    .on('end', done)
-    .end();
+    .then(() => {
+      done();
+    }).catch(function(err) {
+      $.helper.errorHandler(err, this, done, (err) => {
+        console.log($.chalk.red('>> ') + err);
+      });
+    });
 }
 
 module.exports = {

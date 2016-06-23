@@ -35,8 +35,6 @@ function pugErrorHandler(err) {
     line = $.helper.slash(line.replace(process.cwd() + '\\', ''));
     console.log($.chalk.red('>> ') + line);
   });
-
-  this.emit('end');
 }
 
 function wiredepErrorHandler(err) {
@@ -73,7 +71,9 @@ function task(done) {
     .pipe($.pug({
       pretty: true,
       data
-    }).on('error', pugErrorHandler))
+    }).on('error', function(err) {
+      $.helper.errorHandler(err, this, done, pugErrorHandler);
+    }))
     .pipe($.wiredep.stream({
       onError: wiredepErrorHandler
     }))

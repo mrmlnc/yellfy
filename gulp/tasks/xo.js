@@ -2,12 +2,14 @@
 
 const $ = use('gulp-xo');
 
-function task() {
+function task(done) {
   return $.gulp.src([
     'app/scripts/modules/**/*.js',
     'app/scripts/scripts.js'
   ])
-    .pipe($.xo());
+    .pipe($.xo().on('error', function(err) {
+      $.helper.errorHandler(err, this, done, () => done());
+    }));
 }
 
 module.exports = {

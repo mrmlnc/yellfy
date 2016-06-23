@@ -48,16 +48,16 @@ function lessErrorHandler(err) {
 
     console.log(line);
   });
-
-  this.emit('end');
 }
 
-function task() {
+function task(done) {
   return $.gulp.src('app/styles/less/styles.less')
     .pipe($.sourcemaps.init())
     .pipe($.less({
       plugins: [$.lessPluginGlob]
-    }).on('error', lessErrorHandler))
+    }).on('error', function(err) {
+      $.helper.errorHandler(err, this, done, lessErrorHandler);
+    }))
     .pipe($.postcss([
       $.autoprefixer({ browsers: autoprefixerConfig })
     ]))

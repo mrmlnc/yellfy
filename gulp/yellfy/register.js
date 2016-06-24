@@ -2,10 +2,10 @@
 
 const gulp = require('gulp');
 
-function task(task) {
+function registerTask(task) {
   gulp.task(task.name, task.task);
 }
 
 module.exports = {
-  task
+  registerTask
 };

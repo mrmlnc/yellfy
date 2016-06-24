@@ -2,52 +2,48 @@
 
 const $ = use(
   'chalk',
-  'del',
   'gulp-xo',
-  'gulp-babel',
-  'babel-preset-es2015-rollup',
-  'gulp-concat',
-  'gulp-mocha-phantomjs'
+  'rollup',
+  'rollup-plugin-multi-entry',
+  'gulp-mocha-electron'
 );
 
-function babelErrorHandler(err) {
-  let msg = [err.name + ': ' + err.message.replace($.helper.slash(process.cwd) + '/', '')];
-  msg = msg.concat(err.codeFrame.split('\n'));
-  msg.forEach((line) => {
-    console.log($.chalk.red('>> ') + line);
-  });
-
-  this.emit('end');
-}
-
-function clean() {
-  return $.del(['.tmp'], { dot: true });
-}
-
-function babel() {
+function xo(done) {
   return $.gulp.src('app/scripts/tests/**/*.js')
-    .pipe($.xo())
-    .pipe($.babel({ presets: 'es2015-rollup' }).on('error', babelErrorHandler))
-    .pipe($.concat('tests.bundle.js'))
-    .pipe($.gulp.dest('./.tmp'));
+    .pipe($.xo().on('error', function(err) {
+      $.helper.errorHandler(err, this, done, () => done());
+    }));
 }
 
-function phantom() {
-  return $.gulp.src('app/scripts/tests/runner.html')
-    .pipe($.mochaPhantomjs({
-      reporter: 'spec',
-      phantomjs: {
-        viewportSize: {
-          width: 1024,
-          height: 768
-        },
-        useColors: true
+function rollup() {
+  return $.rollup.rollup({
+    entry: 'app/scripts/tests/**/*.js',
+    plugins: [$.rollupPluginMultiEntry.default()],
+    external: 'assert'
+  }).then((bundle) => {
+    return bundle.write({
+      format: 'cjs',
+      dest: 'build/scripts/scripts.tests.js'
+    });
+  }).catch((err) => {
+    console.log($.chalk.red('>> ') + err);
+  });
+}
+
+function test(done) {
+  return $.gulp.src('build/scripts', { read: false })
+    .pipe($.mochaElectron({
+      tests: 'build/scripts/scripts.tests.js',
+      electronMocha: {
+        renderer: true
       }
+    }).on('error', function(err) {
+      $.helper.errorHandler(err, this, done, () => done());
     }));
 }
 
 function task(done) {
-  $.gulp.series(clean, babel, phantom)(done);
+  $.gulp.series(xo, rollup, test)(done);
 }
 
 module.exports = {

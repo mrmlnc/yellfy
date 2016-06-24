@@ -1,16 +1,13 @@
 'use strict';
 
-function getVersion(url, options) {
-  fetch(url, options)
-    .then((res) => res.json())
-    .then((tags) => {
-      console.log(`The latest version of Yellfy — ${tags[0].name}!`);
-    })
-    .catch((err) => {
-      throw new Error(err);
-    });
+function request(url, mode, options) {
+  return fetch(url, Object.assign({ mode }, options));
 }
 
-export default {
-  getVersion
+function getJSON(url, options) {
+  return request(url, 'get', options).then((res) => res.json());
+}
+
+export {
+  getJSON
 };

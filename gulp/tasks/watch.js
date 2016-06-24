@@ -27,6 +27,11 @@ function task() {
     'app/scripts/scripts.js'
   ], $.gulp.series('xo', 'scripts', 'reload'));
 
+  // Tests
+  $.gulp.watch([
+    'app/scripts/tests/**/*.js'
+  ], $.gulp.series('test'));
+
   // Styles
   $.gulp.watch(
     'app/styles/less/**/*.less',

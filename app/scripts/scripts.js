@@ -1,7 +1,11 @@
 'use strict';
 
-import request from './modules/request';
+import { getJSON } from './modules/request';
 
-request.getVersion('https://api.github.com/repos/mrmlnc/yellfy/tags', {
-  method: 'GET'
-});
+getJSON('https://api.github.com/repos/mrmlnc/yellfy/tags')
+  .then((tags) => {
+    console.info(`The latest version of Yellfy — ${tags[0].name}!`);
+  })
+  .catch((err) => {
+    throw new Error(err);
+  });

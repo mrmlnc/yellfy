@@ -6,7 +6,8 @@ const { getTasks } = require('./tasks');
 const { registerTask } = require('./register');
 require('./use');
 
-const listOfTask = getTasks();
+const task = (process.argv.length > 2) ? process.argv.splice(-1) : null;
+const listOfTask = getTasks(task);
 if (listOfTask.invalid.length) {
   const invalid = listOfTask.invalid.map((task) => task.name).join(', ');
   console.log(red('>>') + ` Invalid tasks: ${invalid}`);

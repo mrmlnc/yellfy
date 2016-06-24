@@ -31,7 +31,8 @@
     "wiredep": "^4.0.0"
   },
   "scripts": {
-    "postinstall": "bower i"
+    "postinstall": "bower i",
+    "test": "gulp test"
   },
   "pugLintConfig": {
     "disallowAttributeConcatenation": true,

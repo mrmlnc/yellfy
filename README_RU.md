@@ -88,6 +88,10 @@ Yellfy использует **flexbox** для более эффективног
 
 Смотрите [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) страницу.
 
+## Технологии
+
+Смотрите [package.json](https://github.com/mrmlnc/yellfy/blob/master/package.json).
+
 ## Лицензия
 
 MIT

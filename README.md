@@ -90,49 +90,7 @@ See [wiki](https://github.com/mrmlnc/yellfy/wiki/how-to-write-tasks) page.
 
 ## Technology
 
-##### Front-end
-
-  * [Normalize.css](http://necolas.github.io/normalize.css) — A modern, HTML5-ready alternative to CSS resets.
-  * [XY (flexbox)](https://github.com/mrmlnc/xy-flexbox) — is a small and very flexible collection of mixins for building grids based on flexbox.
-
-##### Core
-
-  * [Gulp](http://gulpjs.com) — Automate and enhance your workflow.
-  * [BrowserSync](https://www.browsersync.io) — Time-saving synchronised browser testing.
-  * [Syncy](https://www.npmjs.com/package/syncy) — One-way synchronization of directories.
-
-##### Templates
-
-  * [Pug](http://pug-lang.com/) — A rich and powerful templating language for JavaScript.
-    * [quaff](https://www.npmjs.com/package/quaff) — A data pipeline helper written in node to convert a folder of JSON/YAML/CSV/TSV files into usable data.
-  * [Wiredep](https://www.npmjs.com/package/wiredep) — Wire Bower dependencies to your source code.
-
-##### Stylesheets
-
-  * [Less](http://lesscss.org) — Less makes CSS fun again.
-    * [less-plugin-glob](https://www.npmjs.com/package/less-plugin-glob) — Globbing support for LESS.
-  * [CleanCSS](https://www.npmjs.com/package/clean-css) — CSS Optimization.
-  * [PostCSS](https://www.npmjs.com/package/postcss) — A tool for transforming styles with JS plugins.
-    * [Autoprefixer](https://www.npmjs.com/package/autoprefixer) — Parse CSS and add vendor prefixes to rules by Can I Use.
-
-##### Scripts
-
-  * [Rollup](http://rollupjs.org) — The next-generation JavaScript module bundler.
-  * [Babel](https://babeljs.io/) — A compiler for writing next generation JavaScript.
-    * [babel-preset-es2015](https://www.npmjs.com/package/babel-preset-es2015) — Babel preset for all es2015 plugins.
-  * [XO](https://www.npmjs.com/package/xo) — JavaScript happiness style linter.
-  * [UglifyJS](https://www.npmjs.com/package/uglify-js) — A JavaScript parser, minifier, compressor or beautifier toolkit.
-  * [PhantomJS](http://phantomjs.org/) — PhantomJS is a headless WebKit scriptable with a JavaScript API.
-  * [mocha](https://mochajs.org/) — Mocha is a feature-rich JavaScript test framework.
-
-##### Images
-
-  * [imagemin](https://www.npmjs.com/package/imagemin) — Minify images seamlessly.
-
-##### Miscellaneous
-
-  * [gulp-watch](https://www.npmjs.com/package/gulp-watch) — File watcher that uses super-fast chokidar.
-  * [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) — Source map support for Gulp.js.
+See [package.json](https://github.com/mrmlnc/yellfy/blob/master/package.json).
 
 ## License
 

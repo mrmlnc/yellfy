@@ -1,13 +1,13 @@
 'use strict';
 
 const $ = use(
-  'gulp-clean-css',
+  'gulp-csso',
   'gulp-rename'
 );
 
 function task() {
   return $.gulp.src('build/styles/styles.css')
-    .pipe($.cleanCss())
+    .pipe($.csso())
     .pipe($.rename({ suffix: '.min' }))
     .pipe($.gulp.dest('build/styles'));
 }

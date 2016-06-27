@@ -3,7 +3,6 @@
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "xy-flexbox": "~1.0.2",
-    "mocha": "^2.4.5"
+    "xy-flexbox": "~1.0.2"
   }
 }

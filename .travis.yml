@@ -7,3 +7,6 @@ node_js:
 before_install:
   - npm install -g bower
   - npm install -g gulp-cli
+
+script:
+  - gulp test

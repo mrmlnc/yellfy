@@ -42,6 +42,7 @@
     "disallowClassLiteralsBeforeIdLiterals": true,
     "disallowIdAttributeWithStaticValue": true,
     "disallowIdLiteralsBeforeAttributes": true,
+    "disallowLegacyMixinCall": true,
     "disallowDuplicateAttributes": true,
     "disallowSpacesInsideAttributeBrackets": true,
     "disallowStringConcatenation": true,
@@ -57,7 +58,8 @@
     },
     "validateDivTags": true,
     "validateIndentation": 2,
-    "validateLineBreaks": "LF"
+    "validateLineBreaks": "LF",
+    "validateTemplateString": true
   },
   "xo": {
     "rules": {

@@ -4,7 +4,6 @@ const exit = process.exit;
 const { red } = require('chalk');
 const { getTasks } = require('./tasks');
 const { registerTask } = require('./register');
-require('./use');
 
 const listOfTask = getTasks();
 if (listOfTask.invalid.length) {
@@ -15,11 +14,6 @@ if (listOfTask.invalid.length) {
 
 if (!listOfTask.valid) {
   console.log(red('>>') + ' All tasks are not valid.');
-  exit(1);
-}
-
-if (global.needDeps.length) {
-  console.log(red('>>') + ` Use 'npm i -D ${global.needDeps.join(' ')}'`);
   exit(1);
 }
 

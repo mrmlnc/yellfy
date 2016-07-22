@@ -30,7 +30,8 @@
     "rollup-plugin-multi-entry": "^1.4.0",
     "syncy": "^2.0.1",
     "wiredep": "^4.0.0",
-    "yellfy-use": "^1.0.0-alpha.2"
+    "time-stamp": "^1.0.1",
+    "yellfy-use": "^1.0.0-alpha.3"
   },
   "scripts": {
     "postinstall": "bower i",

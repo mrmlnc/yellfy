@@ -7,8 +7,8 @@ function validateTask(task) {
   return Boolean(task.task);
 }
 
-function getTasks(task) {
-  const taskDirFiles = task || fs.readdirSync('./gulp/tasks');
+function getTasks() {
+  const taskDirFiles = fs.readdirSync('./gulp/tasks');
 
   const validTasks = [];
   const invalidTasks = [];

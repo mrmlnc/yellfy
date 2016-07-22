@@ -11,7 +11,7 @@ const $ = use(
 function xo(done) {
   return $.gulp.src('app/scripts/tests/**/*.js')
     .pipe($.xo().on('error', function(err) {
-      $.helper.errorHandler(err, this, done, () => done());
+      $._.errorHandler(err, this, done, () => done());
     }));
 }
 
@@ -38,7 +38,7 @@ function test(done) {
         renderer: true
       }
     }).on('error', function(err) {
-      $.helper.errorHandler(err, this, done, () => done());
+      $._.errorHandler(err, this, done, () => done());
     }));
 }
 

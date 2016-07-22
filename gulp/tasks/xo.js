@@ -8,7 +8,7 @@ function task(done) {
     'app/scripts/scripts.js'
   ])
     .pipe($.xo().on('error', function(err) {
-      $.helper.errorHandler(err, this, done, () => done());
+      $._.errorHandler(err, this, done, () => done());
     }));
 }
 

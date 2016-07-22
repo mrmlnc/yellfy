@@ -34,7 +34,7 @@ function replacePaths(str, chunk, newChunk) {
 }
 
 function lessErrorHandler(err) {
-  err.filename = $.helper.slash(replacePaths(err.filename, process.cwd() + '\\', ''));
+  err.filename = $._.slash(replacePaths(err.filename, process.cwd() + '\\', ''));
   err.message = `${err.type}Error: ${err.filename} ${err.line}:${err.column}`;
   console.log($.chalk.red('>> ') + err.message);
 
@@ -56,7 +56,7 @@ function task(done) {
     .pipe($.less({
       plugins: [$.lessPluginGlob]
     }).on('error', function(err) {
-      $.helper.errorHandler(err, this, done, lessErrorHandler);
+      $._.errorHandler(err, this, done, lessErrorHandler);
     }))
     .pipe($.postcss([
       $.autoprefixer({ browsers: autoprefixerConfig })

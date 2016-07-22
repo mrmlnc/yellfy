@@ -33,7 +33,7 @@ function pugErrorHandler(err) {
   const msg = err.message.split('\n');
   msg[0] = err.name + ': ' + msg[0];
   msg.forEach((line) => {
-    line = $.helper.slash(line.replace(process.cwd() + '\\', ''));
+    line = $._.slash(line.replace(process.cwd() + '\\', ''));
     console.log($.chalk.red('>> ') + line);
   });
 }
@@ -53,7 +53,7 @@ function task(done) {
     return done();
   }
 
-  const pathsTree = $.helper.pugInheritance.getPathsTree();
+  const pathsTree = $._.pugInheritance.getPathsTree();
 
   return $.gulp.src('app/templates/*.pug')
     .pipe($.filter((file) => {
@@ -73,7 +73,7 @@ function task(done) {
       pretty: true,
       data
     }).on('error', function(err) {
-      $.helper.errorHandler(err, this, done, pugErrorHandler);
+      $._.errorHandler(err, this, done, pugErrorHandler);
     }))
     .pipe($.wiredep.stream({
       onError: wiredepErrorHandler

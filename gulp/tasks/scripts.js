@@ -10,10 +10,6 @@ const $ = use(
 // Cache for incremental rebuilds
 let bundleCache;
 
-function rollupErrorHandler(err) {
-  console.log($.chalk.red('>> ') + err);
-}
-
 function task() {
   return $.rollup.rollup({
     entry: './app/scripts/scripts.js',
@@ -29,7 +25,7 @@ function task() {
       format: 'iife',
       dest: 'build/scripts/scripts.bundle.js'
     });
-  }).catch(rollupErrorHandler);
+  }).catch($._.logger.error);
 }
 
 module.exports = {

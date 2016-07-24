@@ -34,22 +34,22 @@ function pugErrorHandler(err) {
   msg[0] = err.name + ': ' + msg[0];
   msg.forEach((line) => {
     line = $._.slash(line.replace(process.cwd() + '\\', ''));
-    console.log($.chalk.red('>> ') + line);
+    $._.logger.error(line);
   });
 }
 
 function wiredepErrorHandler(err) {
   if (err.code === 'BOWER_COMPONENTS_MISSING') {
-    err = 'Warning: Cannot find where you keep your Bower packages.';
+    err = 'Cannot find where you keep your Bower packages.';
   }
 
-  console.log($.chalk.red('>> ') + err);
+  $._.logger.error(err);
 }
 
 function task(done) {
   const data = getJsonData('app/templates/data');
   if (typeof data !== 'object') {
-    console.log($.chalk.red('>> ') + `JSON syntax error: ${data}`);
+    $._.logger.error(`JSON syntax error: ${data}`);
     return done();
   }
 
@@ -63,7 +63,7 @@ function task(done) {
 
       const changed = global.changedTplFile;
       if (pathsTree[file.relative].includes(changed) || changed.includes('data/')) {
-        console.log($.chalk.green('>> ') + `Compiling: ${file.relative}`);
+        $._.logger.success(`Compiling: ${file.relative}`);
         return true;
       }
 

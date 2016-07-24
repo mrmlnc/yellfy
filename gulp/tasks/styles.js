@@ -36,17 +36,18 @@ function replacePaths(str, chunk, newChunk) {
 function lessErrorHandler(err) {
   err.filename = $._.slash(replacePaths(err.filename, process.cwd() + '\\', ''));
   err.message = `${err.type}Error: ${err.filename} ${err.line}:${err.column}`;
-  console.log($.chalk.red('>> ') + err.message);
+
+  $._.logger.error(err.message);
 
   err.extract.forEach((line, index) => {
     index = index + err.line - 1;
     if (index === err.line) {
-      line = $.chalk.red('>>') + `   > ${index}| ${line}`;
+      line = `   > ${index}| ${line}`;
     } else {
-      line = $.chalk.red('>>') + `     ${index}| ${line}`;
+      line = `     ${index}| ${line}`;
     }
 
-    console.log(line);
+    $._.logger.error(line);
   });
 }
 

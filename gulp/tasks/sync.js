@@ -19,9 +19,7 @@ function task(done) {
     .then(() => {
       done();
     }).catch(function(err) {
-      $._.errorHandler(err, this, done, (err) => {
-        console.log($.chalk.red('>> ') + err);
-      });
+      $._.errorHandler(err, this, done, $._.logger.error);
     });
 }
 

@@ -7,8 +7,18 @@ const $ = use(
   'babel-preset-es2015-rollup'
 );
 
+const { paths, logger } = $._;
+
 // Cache for incremental rebuilds
 let bundleCache;
+
+function errorHandler(err) {
+  err.message = paths.removeProjectRoot(err.message).replace(/.*:\s+app\//, 'app/');
+
+  logger.error(err.toString());
+
+  err.codeFrame.split('\n').forEach(logger.error);
+}
 
 function task() {
   return $.rollup.rollup({
@@ -25,7 +35,7 @@ function task() {
       format: 'iife',
       dest: 'build/scripts/scripts.bundle.js'
     });
-  }).catch($._.logger.error);
+  }).catch(errorHandler);
 }
 
 module.exports = {

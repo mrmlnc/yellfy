@@ -30,11 +30,19 @@ function getJsonData(dir) {
 }
 
 function pugErrorHandler(err) {
-  const msg = err.message.split('\n');
-  msg[0] = err.name + ': ' + msg[0];
-  msg.forEach((line) => {
-    line = $._.slash(line.replace(process.cwd() + '\\', ''));
-    $._.logger.error(line);
+  err.message = err.message.split('\n');
+
+  if (err.filename) {
+    err.message[0] = `${err.name}: ${err.msg} in file ${err.filename} (${err.line || 0}:${err.column || 0})`;
+  } else if (!err.code && !err.path) {
+    err.message[0] = `${err.name}: ${err.message}`;
+  }
+
+  err.message.forEach((line) => {
+    if (line !== '' && line !== err.msg) {
+      line = $._.paths.removeProjectRoot(line);
+      $._.logger.error(line);
+    }
   });
 }
 

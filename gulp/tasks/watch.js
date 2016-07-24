@@ -1,15 +1,13 @@
 'use strict';
 
-const $ = use('browser-sync');
+const $ = use('gulp-connect');
 
 function task() {
   global.watch = true;
 
-  $.browserSync({
-    online: false,
-    notify: false,
-    logPrefix: 'Yellfy',
-    server: ['build'],
+  $.connect.server({
+    root: 'build',
+    livereload: true,
     port: 8000
   });
 

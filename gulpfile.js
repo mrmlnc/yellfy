@@ -1,20 +1,24 @@
 'use strict';
 
 const exit = process.exit;
+const gulp = require('gulp');
 const { Use } = require('yellfy-use');
+const { Loader } = require('yellfy-loader');
 const logger = require('./gulp/helpers/logger');
 
 let needToInstall = [];
 
 global.use = new Use({
-  gulp: require('gulp'),
+  gulp,
   helperDir: './gulp/helpers',
   reporter: (toInstall) => {
     needToInstall = needToInstall.concat(toInstall);
   }
 }).use;
 
-require('./gulp/yellfy/bootstrap');
+new Loader('./gulp/tasks', {
+  gulp
+}).load();
 
 if (needToInstall.length) {
   const toInstall = needToInstall.join(' ');

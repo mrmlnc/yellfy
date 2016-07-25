@@ -24,7 +24,7 @@ function task() {
   $.gulp.watch([
     'app/scripts/modules/**/*.js',
     'app/scripts/scripts.js'
-  ], $.gulp.series('scripts', 'reload'));
+  ], $.gulp.series('lint-scripts', 'scripts', 'reload'));
 
   // Tests
   $.gulp.watch([

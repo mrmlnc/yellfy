@@ -18,6 +18,7 @@ function handler(err, context, done, cb) {
   }
 
   if (!global.watch) {
+    done();
     exit(1);
   }
 

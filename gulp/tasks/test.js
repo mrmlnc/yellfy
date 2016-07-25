@@ -35,7 +35,7 @@ function test(done) {
 }
 
 function task(done) {
-  $.gulp.series('xo', rollup, test)(done);
+  $.gulp.series('lint-scripts', rollup, test)(done);
 }
 
 module.exports = {

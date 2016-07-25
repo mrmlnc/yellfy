@@ -1,15 +1,20 @@
 'use strict';
 
-const $ = use('gulp-xo');
+const $ = use('xo');
 
 function task(done) {
-  return $.gulp.src([
-    'app/scripts/modules/**/*.js',
-    'app/scripts/scripts.js'
-  ])
-    .pipe($.xo().on('error', function(err) {
-      $._.errorHandler(err, this, done, () => done());
-    }));
+  $.xo.lintFiles(['app/scripts/**/*.js', '!app/scripts/vendor/**']).then((report) => {
+    const output = $.xo.getFormatter('stylish')(report.results);
+    if (output) {
+      console.log(output);
+    }
+
+    if (report.errorCount > 0) {
+      $._.errorHandler('error', this, done);
+    } else {
+      done();
+    }
+  });
 }
 
 module.exports = {

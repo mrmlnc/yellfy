@@ -2,18 +2,10 @@
 
 const $ = use(
   'chalk',
-  'gulp-xo',
   'rollup',
   'rollup-plugin-multi-entry',
   'gulp-mocha-electron'
 );
-
-function xo(done) {
-  return $.gulp.src('app/scripts/tests/**/*.js')
-    .pipe($.xo().on('error', function(err) {
-      $._.errorHandler(err, this, done, () => done());
-    }));
-}
 
 function rollup() {
   return $.rollup.rollup({
@@ -43,7 +35,7 @@ function test(done) {
 }
 
 function task(done) {
-  $.gulp.series(xo, rollup, test)(done);
+  $.gulp.series('xo', rollup, test)(done);
 }
 
 module.exports = {

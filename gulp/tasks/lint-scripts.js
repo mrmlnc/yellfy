@@ -10,7 +10,7 @@ function task(done) {
     }
 
     if (report.errorCount > 0) {
-      $._.errorHandler('error', this, done);
+      done(`Linting scripts failed with ${report.errorCount} errors.`);
     } else {
       done();
     }

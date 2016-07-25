@@ -57,26 +57,25 @@ function task(done) {
   getPugLintConfiguration().then((config) => {
     linter.configure(config);
 
-    let errors;
-    let hasErrors = false;
+    let errorCount = 0;
     $.gulp.src('app/templates/**/*.pug')
       .on('data', (file) => {
         const filepath = paths.removeProjectRoot(file.path);
-        errors = linter.checkString(file.contents.toString(), filepath);
+        const report = linter.checkString(file.contents.toString(), filepath);
 
-        if (errors.length) {
-          hasErrors = true;
-          pugLintReporter(errors);
+        if (report.length) {
+          errorCount += report.length;
+
+          pugLintReporter(report);
         }
       })
       .on('end', () => {
-        if (!hasErrors) {
-          return done();
+        if (errorCount > 0) {
+          console.log('');
+          done(`Linting templates failed with ${errorCount} errors.`);
+        } else {
+          done();
         }
-
-        console.log('');
-
-        $._.errorHandler('error', this, done);
       });
   });
 }

@@ -24,6 +24,6 @@ if (needToInstall.length) {
   const toInstall = needToInstall.join(' ');
 
   logger.error('Something is not enough.');
-  logger.error(`Use 'npm i -D ${toInstall}'`);
+  logger.error(`Just run the command: npm i -D ${toInstall}`);
   exit(1);
 }

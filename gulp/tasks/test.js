@@ -18,7 +18,7 @@ function xo(done) {
 function rollup() {
   return $.rollup.rollup({
     entry: 'app/scripts/tests/**/*.js',
-    plugins: [$.rollupPluginMultiEntry.default()],
+    plugins: [$.rollupPluginMultiEntry()],
     external: 'assert'
   }).then((bundle) => {
     return bundle.write({

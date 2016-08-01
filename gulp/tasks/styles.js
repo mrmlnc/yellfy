@@ -46,6 +46,8 @@ function lessErrorHandler(err) {
 
     logger.error(line);
   });
+
+  this.emit('end');
 }
 
 function task() {

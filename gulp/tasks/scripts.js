@@ -1,18 +1,16 @@
 'use strict';
 
 const $ = use(
-  'chalk',
   'rollup',
-  'rollup-plugin-babel',
-  'babel-preset-es2015-rollup'
+  'rollup-plugin-babel as babel'
 );
 
-const { paths, logger } = $._;
+const { paths, logger } = $.helpers;
 
 // Cache for incremental rebuilds
-let bundleCache;
+let bundleCache = null;
 
-function errorHandler(err) {
+function rollupErrorHandler(err) {
   err.message = paths.removeProjectRoot(err.message).replace(/.*:\s+app\//, 'app/');
 
   logger.error(err.toString());
@@ -21,21 +19,23 @@ function errorHandler(err) {
 }
 
 function task() {
-  return $.rollup.rollup({
+  const rollupOptions = {
     entry: './app/scripts/scripts.js',
-    plugins: [$.rollupPluginBabel({
+    plugins: [$.babel({
       babelrc: false,
       presets: ['es2015-rollup']
     })],
     cache: bundleCache
-  }).then((bundle) => {
+  };
+
+  return $.rollup.rollup(rollupOptions).then((bundle) => {
     bundleCache = bundle;
     return bundle.write({
       sourceMap: true,
       format: 'iife',
       dest: 'build/scripts/scripts.bundle.js'
     });
-  }).catch(errorHandler);
+  }).catch(rollupErrorHandler);
 }
 
 module.exports = {

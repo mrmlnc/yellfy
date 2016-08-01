@@ -34,10 +34,7 @@ function task() {
   ], $.gulp.series('test'));
 
   // Styles
-  $.gulp.watch(
-    'app/styles/less/**/*.less',
-    $.gulp.series('styles', 'reload')
-  );
+  $.gulp.watch(['app/styles/less/**/*.less'], $.gulp.series('styles', 'reload'));
 
   // Templates
   $.gulp

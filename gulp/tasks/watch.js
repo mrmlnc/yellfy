@@ -41,11 +41,9 @@ function task() {
 
   // Templates
   $.gulp
-    .watch([
-      'app/templates/**/*'
-    ], $.gulp.series('templates', 'reload'))
+    .watch(['app/templates/**/*'], $.gulp.parallel('templates', 'reload'))
     .on('all', (event, path) => {
-      global.changedTplFile = path.replace(/[\\\/]/g, '/').replace(/app\/templates\//, '');
+      global.changedTemplateFile = path.replace(/\\/g, '/');
     });
 
   // Bower

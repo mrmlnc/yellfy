@@ -1,6 +1,6 @@
 'use strict';
 
-const $ = use('gulp-connect');
+const $ = use('gulp-connect', 'opn');
 
 function task() {
   global.watch = true;
@@ -11,6 +11,8 @@ function task() {
     livereload: true,
     port: 8000
   });
+
+  $.opn('http://localhost:8000');
 
   // Directory synchronization
   $.gulp.watch([

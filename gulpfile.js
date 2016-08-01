@@ -17,7 +17,11 @@ global.use = new Use({
 }).use;
 
 new Loader('./gulp/tasks', {
-  gulp
+  gulp,
+  reporter: (valid, invalid) => {
+    invalid = invalid.join(', ');
+    logger.error(`The following tasks have errors: ${invalid}`);
+  }
 }).load();
 
 if (needToInstall.length) {

@@ -33,7 +33,7 @@ function task() {
 
   // Templates
   $.gulp
-    .watch(['app/templates/**/*'], $.gulp.parallel('templates', 'reload'))
+    .watch(['app/templates/**/*'], $.gulp.series('templates', 'reload'))
     .on('all', (event, path) => {
       global.changedTemplateFile = path.replace(/\\/g, '/');
     });

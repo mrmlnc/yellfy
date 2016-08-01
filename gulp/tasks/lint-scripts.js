@@ -14,6 +14,8 @@ function task(done) {
     } else {
       done();
     }
+  }).catch((err) => {
+    done(err);
   });
 }
 

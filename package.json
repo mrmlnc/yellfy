@@ -29,6 +29,8 @@
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-multi-entry": "^2.0.0",
+    "stylelint": "^7.0.3",
+    "stylelint-config-standard": "^11.0.0",
     "syncy": "^2.0.1",
     "time-stamp": "^1.0.1",
     "text-table": "^0.2.0",
@@ -42,30 +44,10 @@
     "test": "gulp test"
   },
   "pugLintConfig": {
-    "disallowAttributeConcatenation": true,
-    "disallowClassAttributeWithStaticValue": true,
-    "disallowClassLiteralsBeforeAttributes": true,
-    "disallowClassLiteralsBeforeIdLiterals": true,
-    "disallowIdAttributeWithStaticValue": true,
-    "disallowIdLiteralsBeforeAttributes": true,
-    "disallowLegacyMixinCall": true,
-    "disallowDuplicateAttributes": true,
-    "disallowSpacesInsideAttributeBrackets": true,
-    "disallowStringConcatenation": true,
-    "requireLineFeedAtFileEnd": true,
-    "requireLowerCaseAttributes": true,
-    "requireLowerCaseTags": true,
-    "requireSpaceAfterCodeOperator": true,
-    "requireStrictEqualityOperators": true,
-    "validateAttributeQuoteMarks": "\"",
-    "validateAttributeSeparator": {
-      "separator": ", ",
-      "multiLineSeparator": ",\n  "
-    },
-    "validateDivTags": true,
-    "validateIndentation": 2,
-    "validateLineBreaks": "LF",
-    "validateTemplateString": true
+    "extends": "./gulp/config/puglint.js"
+  },
+  "stylelint": {
+    "extends": "./gulp/config/stylelint.js"
   },
   "xo": {
     "space": true,

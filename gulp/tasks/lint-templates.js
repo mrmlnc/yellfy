@@ -1,9 +1,8 @@
 'use strict';
 
-const fs = require('fs');
-
 const $ = use('chalk', 'text-table', 'pug-lint');
-const { paths } = $._;
+
+const { paths } = $.helpers;
 
 function formatPugLintReport(item) {
   // Drop newline symbol in error string
@@ -20,7 +19,6 @@ function pugLintReporter(block) {
   let blockName;
   let output = [];
 
-  // If the passed block errors is an array
   if (block.length) {
     blockName = block[0].filename;
     output = block.map((item) => formatPugLintReport(item));
@@ -29,55 +27,41 @@ function pugLintReporter(block) {
     output.push(formatPugLintReport(block));
   }
 
-  console.log('\n', $.chalk.underline(blockName));
+  console.log('\n' + $.chalk.underline(blockName));
   console.log($.textTable(output));
 }
 
-function getPugLintConfiguration() {
-  return new Promise((resolve, reject) => {
-    fs.readFile('./package.json', (err, data) => {
-      if (err) {
-        reject(err);
-      }
-
-      try {
-        const config = JSON.parse(data).pugLintConfig;
-        resolve(config);
-      } catch (err) {
-        reject(err);
-      }
-    });
-  });
-}
-
 function task(done) {
+  const config = require('../config/puglint');
+
   const PugLint = $.pugLint;
   const linter = new PugLint();
 
-  getPugLintConfiguration().then((config) => {
-    linter.configure(config);
+  linter.configure(config);
 
-    let errorCount = 0;
-    $.gulp.src('app/templates/**/*.pug')
-      .on('data', (file) => {
-        const filepath = paths.removeProjectRoot(file.path);
-        const report = linter.checkString(file.contents.toString(), filepath);
+  let errorCount = 0;
+  return $.gulp.src('app/templates/**/*.pug')
+    .on('data', (file) => {
+      const filepath = paths.removeProjectRoot(file.path);
+      const report = linter.checkString(file.contents.toString(), filepath);
 
-        if (report.length) {
-          errorCount += report.length;
+      if (report.length) {
+        errorCount += report.length;
 
-          pugLintReporter(report);
-        }
-      })
-      .on('end', () => {
-        if (errorCount > 0) {
-          console.log('');
-          done(`Linting templates failed with ${errorCount} errors.`);
-        } else {
-          done();
-        }
-      });
-  });
+        pugLintReporter(report);
+      }
+    })
+    .on('end', () => {
+      if (errorCount > 0) {
+        console.log('');
+        done(`Linting templates failed with ${errorCount} errors.`);
+      } else {
+        done();
+      }
+    })
+    .on('error', (err) => {
+      done(err);
+    });
 }
 
 module.exports = {

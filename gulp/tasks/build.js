@@ -6,9 +6,9 @@ function task(done) {
   $.gulp.series(
     'clean',
     'lint',
-    $.gulp.parallel('sync', 'sync-bower', 'templates', 'scripts', 'styles'),
-    'compress',
     'test'
+    $.gulp.parallel('sync', 'templates', 'scripts', 'styles'),
+    'compress'
   )(done);
 }
 

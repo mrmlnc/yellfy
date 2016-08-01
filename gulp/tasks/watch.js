@@ -45,12 +45,6 @@ function task() {
     .on('all', (event, path) => {
       global.changedTemplateFile = path.replace(/\\/g, '/');
     });
-
-  // Bower
-  $.gulp.watch(['bower.json'], $.gulp.series(
-    $.gulp.parallel('sync-bower', 'templates'),
-    'reload'
-  ));
 }
 
 module.exports = {

@@ -1,26 +1,23 @@
 'use strict';
 
-const $ = use('chalk', 'syncy');
+const $ = use('syncy');
 
-function task(done) {
-  $.syncy([
-    'app/fonts/**',
-    'app/images/**/*.{gif,jpg,png,svg}',
-    'app/{scripts,styles}/vendor/**',
-    'app/*'
-  ], 'build', {
-    base: 'app',
-    ignoreInDest: [
-      'styles/*.{css,map}',
-      'scripts/*.{js,map}',
-      '*.html'
-    ]
-  })
-    .then(() => {
-      done();
-    }).catch(function(err) {
-      $._.errorHandler(err, this, done, $._.logger.error);
-    });
+const files = [
+  'app/fonts/**',
+  'app/images/**/*.{gif,jpg,png,svg}',
+  'app/{scripts,styles}/vendor/**',
+  'app/*'
+];
+
+// When you synchronize directories compiled files should not be deleted.
+const ignoreInDest = [
+  'styles/*.{css,map}',
+  'scripts/*.{js,map}',
+  '*.html'
+];
+
+function task() {
+  return $.syncy(files, 'build', { base: 'app', ignoreInDest });
 }
 
 module.exports = {

@@ -32,11 +32,11 @@
     "stylelint": "^7.0.3",
     "stylelint-config-standard": "^11.0.0",
     "syncy": "^2.0.1",
-    "time-stamp": "^1.0.1",
     "text-table": "^0.2.0",
-    "yellfy-pug-inheritance": "^1.0.0-beta.1",
+    "time-stamp": "^1.0.1",
     "xo": "^0.16.0",
     "yellfy-loader": "^1.0.0-alpha.1",
+    "yellfy-pug-inheritance": "^1.0.0-beta.1",
     "yellfy-use": "^1.0.0-beta.5"
   },
   "scripts": {

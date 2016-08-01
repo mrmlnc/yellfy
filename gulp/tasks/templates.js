@@ -11,6 +11,7 @@ const $ = use(
 
 const { logger, paths } = $.helpers;
 
+// Cache for incremental rebuilds
 let treeCache = {};
 
 function getJsonData(dir) {

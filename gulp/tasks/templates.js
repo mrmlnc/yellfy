@@ -4,25 +4,28 @@ const path = require('path');
 const fs = require('fs');
 
 const $ = use(
-  'chalk',
+  'yellfy-pug-inheritance as pugInheritance',
   'gulp-filter',
-  'gulp-pug',
-  'wiredep'
+  'gulp-pug'
 );
+
+const { logger, paths } = $.helpers;
+
+let treeCache = {};
 
 function getJsonData(dir) {
   const obj = {};
   const errors = [];
 
-  fs.readdirSync(dir).forEach((fileName) => {
-    const basename = path.basename(fileName, '.json');
-    const filepath = path.join(dir, fileName);
+  fs.readdirSync(dir).forEach((filename) => {
+    const basename = path.basename(filename, '.json');
+    const filepath = path.join(dir, filename);
 
     try {
       const data = fs.readFileSync(filepath);
       obj[basename] = JSON.parse(data);
     } catch (err) {
-      errors.push($.chalk.magenta(fileName));
+      errors.push(filename);
     }
   });
 
@@ -40,53 +43,50 @@ function pugErrorHandler(err) {
 
   err.message.forEach((line) => {
     if (line !== '' && line !== err.msg) {
-      line = $._.paths.removeProjectRoot(line);
-      $._.logger.error(line);
+      line = paths.removeProjectRoot(line);
+      logger.error(line);
     }
   });
 }
 
-function wiredepErrorHandler(err) {
-  if (err.code === 'BOWER_COMPONENTS_MISSING') {
-    err = 'Cannot find where you keep your Bower packages.';
+function pugFilter(file, inheritance) {
+  if (!global.watch) {
+    return true;
   }
 
-  $._.logger.error(err);
+  const filepath = `app/templates/${file.relative}`;
+  const needToUpdate = inheritance.checkDependency(filepath, global.changedTemplateFile);
+  if (needToUpdate || path.extname(global.changedTemplateFile) === '.json') {
+    logger.success(`Compiling: ${filepath}`);
+    return true;
+  }
+
+  return false;
 }
 
 function task(done) {
   const data = getJsonData('app/templates/data');
   if (typeof data !== 'object') {
-    $._.logger.error(`JSON syntax error: ${data}`);
+    logger.error(`JSON syntax error: ${data}`);
     return done();
   }
 
-  const pathsTree = $._.pugInheritance.getPathsTree();
+  const changedFile = global.changedTemplateFile;
+  return new Promise((resolve, reject) => {
+    $.pugInheritance.updateTree('./app/templates', { changedFile, treeCache }).then((inheritance) => {
+      treeCache = inheritance.tree;
 
-  return $.gulp.src('app/templates/*.pug')
-    .pipe($.filter((file) => {
-      if (!global.watch) {
-        return true;
-      }
-
-      const changed = global.changedTplFile;
-      if (pathsTree[file.relative].includes(changed) || changed.includes('data/')) {
-        $._.logger.success(`Compiling: ${file.relative}`);
-        return true;
-      }
-
-      return false;
-    }))
-    .pipe($.pug({
-      pretty: true,
-      data
-    }).on('error', function(err) {
-      $._.errorHandler(err, this, done, pugErrorHandler);
-    }))
-    .pipe($.wiredep.stream({
-      onError: wiredepErrorHandler
-    }))
-    .pipe($.gulp.dest('build'));
+      $.gulp.src('app/templates/*.pug')
+        .pipe($.filter((file) => pugFilter(file, inheritance)))
+        .pipe($.pug({ pretty: true, data }).on('error', (err) => {
+          pugErrorHandler(err);
+          reject();
+        }))
+        .pipe($.gulp.dest('build'))
+        .on('end', resolve)
+        .on('error', reject);
+    });
+  });
 }
 
 module.exports = {

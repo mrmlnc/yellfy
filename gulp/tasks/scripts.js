@@ -15,7 +15,9 @@ function rollupErrorHandler(err) {
 
   logger.error(err.toString());
 
-  err.codeFrame.split('\n').forEach(logger.error);
+  if (err.codeFrame) {
+    err.codeFrame.split('\n').forEach(logger.error);
+  }
 }
 
 function task() {

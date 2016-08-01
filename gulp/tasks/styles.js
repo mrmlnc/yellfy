@@ -1,15 +1,15 @@
 'use strict';
 
 const $ = use(
-  'chalk',
   'gulp-sourcemaps',
   'gulp-less',
   'less-plugin-glob',
   'gulp-postcss',
+  'postcss-flexbugs-fixes as flexbugs',
   'autoprefixer'
 );
 
-const { paths, logger, errorHandler } = $._;
+const { paths, logger } = $.helpers;
 
 const autoprefixerConfig = [
   // Microsoft
@@ -48,15 +48,14 @@ function lessErrorHandler(err) {
   });
 }
 
-function task(done) {
+function task() {
   return $.gulp.src('app/styles/less/styles.less')
     .pipe($.sourcemaps.init())
     .pipe($.less({
       plugins: [$.lessPluginGlob]
-    }).on('error', function(err) {
-      errorHandler(err, this, done, lessErrorHandler);
-    }))
+    }).on('error', lessErrorHandler))
     .pipe($.postcss([
+      $.flexbugs,
       $.autoprefixer({ browsers: autoprefixerConfig })
     ]))
     .pipe($.sourcemaps.write('.'))

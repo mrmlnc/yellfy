@@ -24,6 +24,7 @@
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4",
     "less-plugin-glob": "^1.1.1",
+    "postcss-flexbugs-fixes": "^2.0.0",
     "pug-lint": "^2.3.0",
     "rollup": "^0.34.1",
     "rollup-plugin-babel": "^2.6.1",

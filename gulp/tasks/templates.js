@@ -12,6 +12,7 @@ const $ = use(
 const { logger, paths } = $.helpers;
 
 // Cache for incremental rebuilds
+let jsonDataCache = null;
 let treeCache = {};
 
 function getJsonData(dir) {
@@ -66,20 +67,23 @@ function pugFilter(file, inheritance) {
 }
 
 function task(done) {
-  const data = getJsonData('app/templates/data');
-  if (typeof data !== 'object') {
-    logger.error(`JSON syntax error: ${data}`);
+  const changedFile = global.changedTemplateFile;
+  if (!jsonDataCache || (changedFile && path.extname(changedFile) === '.json')) {
+    jsonDataCache = getJsonData('app/templates/data');
+  }
+
+  if (typeof jsonDataCache !== 'object') {
+    logger.error(`JSON syntax error: ${jsonDataCache}`);
     return done();
   }
 
-  const changedFile = global.changedTemplateFile;
   return new Promise((resolve, reject) => {
     $.pugInheritance.updateTree('./app/templates', { changedFile, treeCache }).then((inheritance) => {
       treeCache = inheritance.tree;
 
       $.gulp.src('app/templates/*.pug')
         .pipe($.filter((file) => pugFilter(file, inheritance)))
-        .pipe($.pug({ pretty: true, data }).on('error', (err) => {
+        .pipe($.pug({ pretty: true, data: jsonDataCache }).on('error', (err) => {
           pugErrorHandler(err);
           reject();
         }))

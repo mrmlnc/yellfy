@@ -59,7 +59,7 @@ function pugFilter(file, inheritance) {
   const filepath = `app/templates/${file.relative}`;
   const needToUpdate = inheritance.checkDependency(filepath, global.changedTemplateFile);
   if (needToUpdate || path.extname(global.changedTemplateFile) === '.json') {
-    logger.success(`Compiling: ${filepath}`);
+    logger.info(`Compiling: ${filepath}`);
     return true;
   }
 

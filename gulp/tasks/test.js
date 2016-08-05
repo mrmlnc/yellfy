@@ -1,41 +1,60 @@
 'use strict';
 
 const $ = use(
-  'chalk',
   'rollup',
-  'rollup-plugin-multi-entry',
-  'gulp-mocha-electron'
+  'rollup-plugin-babel as babel',
+  'gulp-connect',
+  'opn'
 );
 
-function rollup() {
-  return $.rollup.rollup({
-    entry: 'app/scripts/tests/**/*.js',
-    plugins: [$.rollupPluginMultiEntry()],
-    external: 'assert'
-  }).then((bundle) => {
-    return bundle.write({
-      format: 'cjs',
-      dest: 'build/scripts/scripts.tests.js'
-    });
-  }).catch((err) => {
-    console.log($.chalk.red('>> ') + err);
-  });
+const { paths, logger } = $.helpers;
+
+function copyTestEntryFile() {
+  return $.gulp.src(['app/tests.html'], { base: 'app' }).pipe($.gulp.dest('build'));
 }
 
-function test(done) {
-  return $.gulp.src('build/scripts', { read: false })
-    .pipe($.mochaElectron({
-      tests: 'build/scripts/scripts.tests.js',
-      electronMocha: {
-        renderer: true
-      }
-    }).on('error', function(err) {
-      $._.errorHandler(err, this, done, () => done());
-    }));
+function rollupErrorHandler(err) {
+  err.message = paths.removeProjectRoot(err.message).replace(/.*:\s+app\//, 'app/');
+
+  logger.error(err.toString());
+
+  if (err.codeFrame) {
+    err.codeFrame.split('\n').forEach(logger.error);
+  }
+}
+
+function makeTestBundle() {
+  const rollupOptions = {
+    entry: './app/scripts/tests.js',
+    plugins: [$.babel({
+      babelrc: false,
+      presets: ['es2015-rollup']
+    })]
+  };
+
+  return $.rollup.rollup(rollupOptions).then((bundle) => {
+    return bundle.write({
+      format: 'iife',
+      dest: 'build/scripts/tests.bundle.js'
+    });
+  }).catch(rollupErrorHandler);
 }
 
 function task(done) {
-  $.gulp.series('lint-scripts', rollup, test)(done);
+  $.gulp.series(
+    'build',
+    copyTestEntryFile,
+    makeTestBundle,
+    function startServer() {
+      $.connect.server({
+        name: '[Yellfy]',
+        root: 'build',
+        port: 8001
+      });
+
+      $.opn('http://localhost:8001/tests.html');
+    }
+  )(done);
 }
 
 module.exports = {

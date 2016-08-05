@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Mocha tests</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.0.1/mocha.min.css">
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.0.1/mocha.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.min.js"></script>
+    <script>
+      var assert = chai.assert;
+      mocha.setup('bdd');
+    </script>
+    <script src="scripts/tests.bundle.js"></script>
+    <script>
+      mocha.checkLeaks();
+      mocha.run();
+    </script>
+
+  </body>
+
+</html>

@@ -6,7 +6,8 @@ const files = [
   'app/fonts/**',
   'app/images/**/*.{gif,jpg,png,svg}',
   'app/{scripts,styles}/vendor/**',
-  'app/*'
+  'app/*',
+  '!app/tests.html'
 ];
 
 // When you synchronize directories compiled files should not be deleted.

@@ -6,7 +6,7 @@ function task() {
   global.watch = true;
 
   $.connect.server({
-    name: 'Yellfy',
+    name: '[Yellfy]',
     root: 'build',
     livereload: true,
     port: 8000

@@ -3,7 +3,7 @@
 const $ = use('del');
 
 function task() {
-  return $.del(['.tmp', 'build'], { dot: true });
+  return $.del(['build'], { dot: true });
 }
 
 module.exports = {

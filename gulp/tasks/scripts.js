@@ -21,7 +21,7 @@ function rollupErrorHandler(err) {
 }
 
 function task() {
-  const rollupOptions = {
+  const options = {
     entry: './app/scripts/scripts.js',
     plugins: [$.babel({
       babelrc: false,
@@ -30,7 +30,7 @@ function task() {
     cache: bundleCache
   };
 
-  return $.rollup.rollup(rollupOptions).then((bundle) => {
+  return $.rollup.rollup(options).then((bundle) => {
     bundleCache = bundle;
     return bundle.write({
       sourceMap: true,

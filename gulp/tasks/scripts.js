@@ -21,17 +21,23 @@ function rollupErrorHandler(err) {
 }
 
 function task() {
+  const babelPlugin = $.babel({
+    babelrc: false,
+    presets: [
+      ['es2015', { modules: false }]
+    ],
+    plugins: ['external-helpers']
+  });
+
   const options = {
     entry: './app/scripts/scripts.js',
-    plugins: [$.babel({
-      babelrc: false,
-      presets: ['es2015-rollup']
-    })],
+    plugins: [babelPlugin],
     cache: bundleCache
   };
 
   return $.rollup.rollup(options).then((bundle) => {
     bundleCache = bundle;
+
     return bundle.write({
       sourceMap: true,
       format: 'iife',

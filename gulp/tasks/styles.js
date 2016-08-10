@@ -30,7 +30,7 @@ const autoprefixerConfig = [
   'BlackBerry >= 10'
 ];
 
-function lessErrorHandler(err) {
+function lessErrorHandler(err, done) {
   err.message = paths.removeProjectRoot(err.message);
   err.message = `${err.type}Error: ${err.message}`;
 
@@ -47,15 +47,19 @@ function lessErrorHandler(err) {
     logger.error(line);
   });
 
-  this.emit('end');
+  if (global.watch) {
+    return this.emit('end');
+  }
+
+  done(err);
 }
 
-function task() {
+function task(done) {
   return $.gulp.src('app/styles/less/styles.less')
     .pipe($.sourcemaps.init())
     .pipe($.less({
       plugins: [$.lessPluginGlob]
-    }).on('error', lessErrorHandler))
+    }).on('error', (err) => lessErrorHandler(err, done)))
     .pipe($.postcss([
       $.flexbugs,
       $.autoprefixer({ browsers: autoprefixerConfig })

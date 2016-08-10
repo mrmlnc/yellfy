@@ -18,6 +18,10 @@ function rollupErrorHandler(err) {
   if (err.codeFrame) {
     err.codeFrame.split('\n').forEach(logger.error);
   }
+
+  if (!global.watch) {
+    return Promise.reject(err.toString());
+  }
 }
 
 function task() {

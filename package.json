@@ -33,7 +33,7 @@
     "time-stamp": "^1.0.1",
     "xo": "^0.16.0",
     "yellfy-loader": "^1.0.0",
-    "yellfy-pug-inheritance": "^1.0.0",
+    "yellfy-pug-inheritance": "^1.1.0",
     "yellfy-use": "^1.0.0"
   },
   "scripts": {

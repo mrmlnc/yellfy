@@ -9,10 +9,7 @@ function task() {
       defs: {
         dest: '.',
         sprite: 'images/sprite.svg',
-        inline: true,
-        // Make mixin
-        prefix: '.svg-%s',
-        dimensions: '()'
+        inline: true
       }
     }
   };

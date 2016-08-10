@@ -18,6 +18,7 @@ function task() {
   $.gulp.watch([
     'app/fonts/**',
     'app/images/**/*.{gif,jpg,png,svg}',
+    '!app/images/icons/**/*',
     'app/{scripts,styles}/vendor/**',
     'app/*'
   ], $.gulp.series('sync', 'reload'));
@@ -37,6 +38,9 @@ function task() {
     .on('all', (event, path) => {
       global.changedTemplateFile = path.replace(/\\/g, '/');
     });
+
+  // Icons
+  $.gulp.watch(['app/images/icons/**/*.svg'], $.gulp.series('sprite', 'styles', 'reload'));
 }
 
 module.exports = {

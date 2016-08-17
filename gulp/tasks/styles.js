@@ -59,7 +59,9 @@ function task(done) {
     .pipe($.sourcemaps.init())
     .pipe($.less({
       plugins: [$.lessPluginGlob]
-    }).on('error', (err) => lessErrorHandler(err, done)))
+    }).on('error', function(err) {
+      lessErrorHandler.bind(this, err, done)();
+    }))
     .pipe($.postcss([
       $.flexbugs,
       $.autoprefixer({ browsers: autoprefixerConfig })

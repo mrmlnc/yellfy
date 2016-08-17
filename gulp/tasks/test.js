@@ -24,12 +24,17 @@ function rollupErrorHandler(err) {
 }
 
 function makeTestBundle() {
+  const babelPlugin = $.babel({
+    babelrc: false,
+    presets: [
+      ['es2015', { modules: false }]
+    ],
+    plugins: ['external-helpers']
+  });
+
   const rollupOptions = {
     entry: './app/scripts/tests.js',
-    plugins: [$.babel({
-      babelrc: false,
-      presets: ['es2015-rollup']
-    })]
+    plugins: [babelPlugin]
   };
 
   return $.rollup.rollup(rollupOptions).then((bundle) => {

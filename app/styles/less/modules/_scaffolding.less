@@ -35,6 +35,10 @@ a {
   &:focus {
     color: @link-hover-color;
   }
+
+  &:not([tabindex]):focus {
+    outline: none;
+  }
 }
 
 // Horizontal rules

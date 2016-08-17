@@ -1,22 +1,16 @@
 'use strict';
 
-const $ = use('gulp-svg-sprite');
+const $ = use('yellfy-svg-sprite as svgSprite');
 
 function task() {
   const options = {
-    log: true,
-    mode: {
-      defs: {
-        dest: '.',
-        sprite: 'images/sprite.svg',
-        inline: true
-      }
-    }
+    inline: true,
+    iconPrefix: 'icon-'
   };
 
-  return $.gulp.src('app/images/icons/**/*.svg')
-    .pipe($.svgSprite(options))
-    .pipe($.gulp.dest('build'));
+  return $.svgSprite.makeSprite('app/images/icons', [], options).then((result) => {
+    return result.write('build/images/sprite.svg');
+  });
 }
 
 module.exports = {

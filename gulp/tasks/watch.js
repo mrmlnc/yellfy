@@ -40,7 +40,7 @@ function task() {
     });
 
   // Icons
-  $.gulp.watch(['app/images/icons/**/*.svg'], $.gulp.series('sprite', 'styles', 'reload'));
+  $.gulp.watch(['app/images/icons/**/*.svg'], $.gulp.series('sprite', 'reload'));
 }
 
 module.exports = {

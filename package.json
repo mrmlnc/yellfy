@@ -66,5 +66,10 @@
       "mocha",
       "jquery"
     ]
+  },
+  "yellfy": {
+    "path": "gulp/templates",
+    "templates": "pug",
+    "styles": "less"
   }
 }

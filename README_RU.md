@@ -70,6 +70,8 @@ $ npm i -g yellfy-cli
 $ git clone git://github.com/mrmlnc/yellfy projectName
 ```
 
+Yellfy использует функцию npm `shrinkwrap`, которая фиксирует версии всех зависимостей. Это сделано для того, чтобы каждый экземпляр Yellfy имел одинаковые зависимости. Для получения всех новых зависимостей просто удалите файл `npm-shrinkwrap.json`.
+
 
 
 

@@ -12,3 +12,8 @@
   * [Доступные задачи](tasks.md)
   * [Создание задач](create-tasks.md)
   * [Настройки Yellfy CLI](cli-settings.md)
+
+## Модернизация
+
+  * [Как использовать Stylus?](how-to-use-stylus.md)
+  * [Как использовать Sass?](how-to-use-sass.md)

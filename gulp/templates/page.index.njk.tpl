@@ -1,4 +1,4 @@
-{% extends "layouts/_default.html" %}
+{% extends "layouts/_default.njk" %}
 
 {% set page = {
   language: 'ru',
@@ -9,13 +9,13 @@
 } %}
 
 {% block header %}
-  {% include "partials/_header.html" %}
+  {% include "partials/_header.njk" %}
 {% endblock %}
 
 {% block main %}
-  {% include "pages/${slug}/_main.html" %}
+  {% include "pages/${slug}/_main.njk" %}
 {% endblock %}
 
 {% block footer %}
-  {% include "partials/_footer.html" %}
+  {% include "partials/_footer.njk" %}
 {% endblock %}

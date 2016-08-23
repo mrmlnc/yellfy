@@ -16,7 +16,7 @@
 
 **Шаг 1.**
 
-Удалите файл `npm-shrinkwrap.json` и `gulp/tasks/lint-templates.js` и пошагово выполните ниже представленные команды:
+Удалите файл `npm-shrinkwrap.json` и `gulp/tasks/lint-templates.js`, а затем пошагово выполните ниже представленные команды:
 
   * `npm rm -D gulp-pug pug-lint yellfy-pug-inheritance`
   * `npm i -D gulp-nunjucks`

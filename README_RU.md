@@ -73,6 +73,10 @@ Yellfy создан людьми для людей, которым свойст�
 
   * [yellfy-styles](https://github.com/mrmlnc/yellfy-styles)
 
+Репозиторий, содержащий версии шаблонов (Pug, Nunjucks):
+
+  * [yellfy-styles](https://github.com/mrmlnc/yellfy-styles)
+
 Репозитории проектов, созданных специально для Yellfy:
 
   * [yellfy-cli](https://github.com/mrmlnc/yellfy-cli)

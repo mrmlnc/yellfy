@@ -11,3 +11,4 @@
   * [Структура проекта](structure.md)
   * [Доступные задачи](tasks.md)
   * [Создание задач](create-tasks.md)
+  * [Настройки Yellfy CLI](cli-settings.md)

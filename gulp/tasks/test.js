@@ -47,9 +47,7 @@ function makeTestBundle() {
 
 function task(done) {
   $.gulp.series(
-    'build',
-    copyTestEntryFile,
-    makeTestBundle,
+    $.gulp.parallel('build', copyTestEntryFile, makeTestBundle),
     function startServer() {
       $.connect.server({
         name: '[Yellfy]',

@@ -524,9 +524,9 @@
       "resolved": "https://registry.npmjs.org/braces/-/braces-1.8.5.tgz"
     },
     "browserslist": {
-      "version": "1.3.5",
+      "version": "1.3.6",
       "from": "browserslist@>=1.3.5 <1.4.0",
-      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-1.3.5.tgz"
+      "resolved": "https://registry.npmjs.org/browserslist/-/browserslist-1.3.6.tgz"
     },
     "buf-compare": {
       "version": "1.0.0",
@@ -1114,9 +1114,9 @@
       "resolved": "https://registry.npmjs.org/detect-indent/-/detect-indent-3.0.1.tgz"
     },
     "doctrine": {
-      "version": "1.2.3",
+      "version": "1.3.0",
       "from": "doctrine@>=1.2.2 <2.0.0",
-      "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-1.2.3.tgz"
+      "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-1.3.0.tgz"
     },
     "doctypes": {
       "version": "1.1.0",
@@ -1316,9 +1316,9 @@
       }
     },
     "eslint-import-resolver-node": {
-      "version": "0.2.2",
+      "version": "0.2.3",
       "from": "eslint-import-resolver-node@>=0.2.0 <0.3.0",
-      "resolved": "https://registry.npmjs.org/eslint-import-resolver-node/-/eslint-import-resolver-node-0.2.2.tgz"
+      "resolved": "https://registry.npmjs.org/eslint-import-resolver-node/-/eslint-import-resolver-node-0.2.3.tgz"
     },
     "eslint-plugin-ava": {
       "version": "2.5.0",
@@ -1331,9 +1331,16 @@
       "resolved": "https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-3.3.0.tgz"
     },
     "eslint-plugin-import": {
-      "version": "1.13.0",
+      "version": "1.14.0",
       "from": "eslint-plugin-import@>=1.7.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-1.13.0.tgz"
+      "resolved": "https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-1.14.0.tgz",
+      "dependencies": {
+        "doctrine": {
+          "version": "1.2.3",
+          "from": "doctrine@>=1.2.0 <1.3.0",
+          "resolved": "https://registry.npmjs.org/doctrine/-/doctrine-1.2.3.tgz"
+        }
+      }
     },
     "eslint-plugin-no-use-extend-native": {
       "version": "0.3.8",
@@ -1775,9 +1782,9 @@
       }
     },
     "graceful-fs": {
-      "version": "4.1.5",
+      "version": "4.1.6",
       "from": "graceful-fs@>=4.1.2 <5.0.0",
-      "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.5.tgz"
+      "resolved": "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.1.6.tgz"
     },
     "graceful-readlink": {
       "version": "1.0.1",
@@ -3402,9 +3409,9 @@
       "resolved": "https://registry.npmjs.org/pug-filters/-/pug-filters-1.2.3.tgz"
     },
     "pug-lexer": {
-      "version": "2.0.3",
+      "version": "2.1.0",
       "from": "pug-lexer@>=2.0.3 <3.0.0",
-      "resolved": "https://registry.npmjs.org/pug-lexer/-/pug-lexer-2.0.3.tgz"
+      "resolved": "https://registry.npmjs.org/pug-lexer/-/pug-lexer-2.1.0.tgz"
     },
     "pug-linker": {
       "version": "1.0.0",

@@ -68,7 +68,7 @@
     ]
   },
   "yellfy": {
-    "path": "gulp/templates",
+    "templates": "gulp/templates",
     "html": "pug",
     "css": "less"
   }

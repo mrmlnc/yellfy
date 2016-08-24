@@ -2,7 +2,7 @@
 
 ## Introduction
 
-  * [Overview](../../README_RU.md)
+  * [Overview](../../README.md)
   * [Technology map](technology.md)
   * [Installing and updating](installing.md)
 

@@ -29,7 +29,7 @@
   * `pugErrorHandler`
   * `pugFilter`
 
-Затем вы полните замену:
+Затем выполните замену:
 
 ```diff
 const $ = use(

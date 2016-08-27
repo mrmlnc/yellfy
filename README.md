@@ -4,14 +4,14 @@
 
 # Yellfy
 
-Yellfy is a very simple project template designed specifically for those who do not want to spend time on setting up your workspace. Yellfy based on the time-tested tools and some new solutions that were specifically designed for this project.
+Yellfy is a very simple project template designed specifically for those who do not want to spend time on setting up your workspace. Yellfy is based on the time-tested tools and some new solutions that were specifically designed for this project.
 
 
 
 
 ## What this project differs from other projects?
 
-The Yellfy project is not a universal solution ans this project is not intended to meet the needs of all developers. For this there is a [Yeoman generators](http://yeoman.io/generators/) or such unversal projects as [TARS](https://github.com/tars/tars).
+The Yellfy project is not a universal solution ans this project is not intended to meet the needs of all developers. For this there is a [Yeoman generators](http://yeoman.io/generators/) or such universal projects as [TARS](https://github.com/tars/tars).
 
 Standing before Yellfy is a task of providing maximum optimized and documented working environment without hundreds unnecessary dependencies. Specifically for Yellfy was developed their own dependency loader ([yellfy-use](https://github.com/mrmlnc/yellfy-use)), Gulp task manager ([yellfy-loader](https://github.com/mrmlnc/yellfy-loader)), module for determining inheritance of Pug templates ([yellfy-pug-inheritance](https://github.com/mrmlnc/yellfy-pug-inheritance)) and sprite generator ([yellfy-svg-sprite](https://github.com/mrmlnc/yellfy-svg-sprite)). In addition, has been developed a command line utility ([yellfy-cli](https://github.com/mrmlnc/yellfy-cli)) that allows you to deploy new instances of Yellfy and create pages and components.
 

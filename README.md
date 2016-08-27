@@ -32,7 +32,7 @@ Yellfy aims to make the project modular. Template, styles and scripts files are 
 
 <img src="https://cloud.githubusercontent.com/assets/7034281/17789156/93bbac4a-6599-11e6-9bb1-bf0a0a892794.png" align="left"/>
 
-Yellfy is based on [Normalize.css](http://necolas.github.io/normalize.css/) and includes a micro CSS framework, which includes only most necessary to jump-start work on almost any projects: typography, grid (flexbox or float), buttons, forms, lists and tables.
+Yellfy is based on [Normalize.css](http://necolas.github.io/normalize.css/) and includes a micro CSS framework, which includes only most necessary to jump-start work on almost any projects: typography, grid (flexbox or float (on request)), buttons, forms, lists and tables.
 
 ### Friendliness
 

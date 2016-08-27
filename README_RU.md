@@ -11,7 +11,7 @@ Yellfy — это простой шаблон проекта, разработа
 
 ## Чем этот проект отличается от других?
 
-Проект Yellfy не является универсальным решением и не преследует цели обеспечить потребности всех разработчиков. Для этого есть Yeoman или, такие комбайны, как [tars](https://github.com/tars/tars).
+Проект Yellfy не является универсальным решением и не преследует цели обеспечить потребности всех разработчиков. Для этого есть [генераторы Yeoman](http://yeoman.io/generators/) или, такие универсальные проекты, как [TARS](https://github.com/tars/tars).
 
 Перед Yellfy стоит задача предоставления максимально оптимизированного и документированного рабочего окружения без сотен лишних зависимостей. Специально для Yellfy был разработан собственный загрузчик зависимостей ([yellfy-use](https://github.com/mrmlnc/yellfy-use)), менеджер задач Gulp ([yellfy-loader](https://github.com/mrmlnc/yellfy-loader)), модуль инкрементальной сборки Pug ([yellfy-pug-inheritance](https://github.com/mrmlnc/yellfy-pug-inheritance)) и генератор спрайтов ([yellfy-svg-sprite](https://github.com/mrmlnc/yellfy-svg-sprite)). Кроме того, была разработана консольная утилита ([yellfy-cli](https://github.com/mrmlnc/yellfy-cli)), позволяющая развёртывать новые экземпляры Yellfy, а также создавать страницы и компоненты.
 

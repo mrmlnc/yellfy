@@ -14,7 +14,7 @@ $ npm i -g gulp-cli bower
 
 
 <br/>
-## Консольна утилита
+## Консольная утилита
 
 Для упрощения процесса развёртывания нового экземпляра Yellfy была разработана консольная утилита ([yellfy-cli](https://github.com/mrmlnc/yellfy-cli)).
 
@@ -35,6 +35,7 @@ $ npm i -g yellfy-cli
 ```shell
 $ git clone git://github.com/mrmlnc/yellfy projectName
 ```
+
 
 
 

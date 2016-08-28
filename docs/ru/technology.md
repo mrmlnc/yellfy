@@ -56,7 +56,7 @@
 
 
 <br/>
-## Стили
+## Изображения
 
   * [imagemin](https://github.com/imagemin/imagemin) — оптимизатор изображений.
   * [yellfy-svg-sprite](https://github.com/mrmlnc/yellfy-svg-sprite) — компактный генератор SVG-спрайтов.

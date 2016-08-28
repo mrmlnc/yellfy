@@ -25,7 +25,7 @@
 ## Шаблоны
 
   * [pug](https://github.com/pugjs/pug) — вторая версия самого популярного HTML-препроцессора Jade.
-  * [pug-lint](https://github.com/pugjs/pug-lint) — Линтер для Pug/Jade файлов.
+  * [pug-lint](https://github.com/pugjs/pug-lint) — линтер для Pug/Jade файлов.
   * [yellfy-pug-inheritance](https://github.com/mrmlnc/yellfy-pug-inheritance) — модуль, позволяющий организовать инкрементальную сборку pug-файлов.
 
 
@@ -36,8 +36,8 @@
 
   * [less](https://github.com/less/less.js) — сбалансированный и многофункциональный CSS-препроцессор.
   * [postcss](https://github.com/postcss/postcss) — CSS-парсер с богатой системой плагинов.
-  * [autoprefixer](https://github.com/postcss/autoprefixer) — Автоматическая расстановка префиксов.
-  * [postcss-flexbugs-fixes](https://github.com/luisrudge/postcss-flexbugs-fixes) — Исправление некоторых багов flexbox.
+  * [autoprefixer](https://github.com/postcss/autoprefixer) — автоматическая расстановка префиксов.
+  * [postcss-flexbugs-fixes](https://github.com/luisrudge/postcss-flexbugs-fixes) — исправление некоторых багов flexbox.
   * [stylelint](https://github.com/stylelint/stylelint) — современный CSS/Less/Sass линтер.
   * [csso](https://github.com/css/csso) — современный CSS-минификатор.
 

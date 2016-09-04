@@ -7,7 +7,7 @@ function task(done) {
 
   $.stylelint.lint({
     config,
-    files: 'app/styles/**/*.less',
+    files: ['app/styles/**/*.less', '!app/styles/**/_normalize.*'],
     formatter: 'string',
     syntax: 'less'
   }).then((lint) => {

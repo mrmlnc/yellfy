@@ -13,7 +13,15 @@ function task(done) {
   }).then((lint) => {
     if (lint.errored) {
       console.log(lint.output);
-      done(`Linting styles failed with errors in ${lint.results.length} files.`);
+
+      let errorCount = 0;
+      lint.results.forEach((resource) => {
+        if (resource.warnings.length || resource.errored) {
+          errorCount++;
+        }
+      });
+
+      done(`Linting styles failed with errors in ${errorCount} files.`);
     } else {
       done();
     }

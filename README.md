@@ -4,6 +4,8 @@
 
 # Yellfy
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/mrmlnc/yellfy.svg)](https://greenkeeper.io/)
+
 Yellfy is a very simple project template designed specifically for those who do not want to spend time on setting up your workspace. Yellfy is based on the time-tested tools and some new solutions that were specifically designed for this project.
 
 
